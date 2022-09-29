@@ -1,0 +1,25 @@
+.header nav {
+    background-color: rgb(107, 107, 107);
+    width: 100%;
+}
+.header nav .header__menu-section {
+    display: grid;
+    grid-auto-flow: column;
+   
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+/* .header__menu-section{
+    overflow: hidden;
+    white-space: nowrap;
+} */
+.header__menu-section .dropbtn {
+    display: none;
+}
+.header__menu-section .header__menu-section--dropdown .dropdown-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
