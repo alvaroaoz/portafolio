@@ -23,7 +23,7 @@ header {
     align-items: center;
 }
 .header__head {
-    background-image: url('/src/img/header.jpg');
+    background-image: url('./src/img/header.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
