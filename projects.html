@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>>Portafolio Web</title>
+    <title>Proyectos | Álvaro Orozco</title>
     <link rel="stylesheet" href="./portafolio.css" />
-    <link rel="stylesheet" href="./css/tabletplus.css" media="(min-width: 770px)">
-    <link rel="stylesheet" href="./projects.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,61 +16,66 @@
   </head>
   <body>
     <header class="header">
-      <section class="header__head">
-          <div class="header__logo-section">
-          <img
-            class="header__logo-section--img"
-            src="./src/img/IMG_20190101_245600281.jpg"
-            alt="Joven sonriente con camisa azul oscuro y camiseta debajo blanca"
-          />
-          <h1 class="header__logo-section--title">->Portafolio web</h1>
-        </div>
-        <div class="header__socialmedia">
-          <a href="http://https://github.com/alvaroaoz">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/alvaroaoz/">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-        </div>
-        <div class="header__description-section">
-          <p class="header__description-section--description">
-            print("Hola Mundo")<br> Mi nombre es Alvaro Orozco, tengo 27 años y actualmente me encuentro estudiando programación de manera autodidacta. Me gusta mucho la metodologia de aprendizaje en Platzi al igual que su comunidad. Manejo las tecnologías de HTML, CSS y javascript, con un par de conocimientos en MySQL y React.js. El lenguaje Python me interesa, en él quiero profundizar y aprender mucho más en el área de AI.
-          </p>
-        </div>
-      </section>
-      <nav class="header__menu-section">
-        <div class="header__menu-section--container">
-            <a class="header__menu-section--first header__menu-section--out-dropdown" href="./portafolio.html"> <span><i class="fa-solid fa-house"></i></span>Home</a>
-            <a class="header__menu-section--out-dropdown" href="./projects.html"><span><i class="fa-solid fa-book-open"></i></span>Proyectos</a>
-          <div class="header__menu-section--dropdown dropdown">
-            <button class="dropbtn"><i class="fa-solid fa-align-justify"></i></button>
-            <div class="dropdown-content">           
-                <a href="#"><span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>Links de interes</a>             
-                <a href="#"><span><i class="fa-solid fa-lines-leaning"></i></span>Blog</a>             
-                <a href="./podcast.html"><span><i class="fa-solid fa-microphone-lines"></i></span>Podcast</a>              
-                <a href="#"><span><i class="fa-solid fa-users-between-lines"></i></span>Contacto</a>
-                <a class="header__menu-section--last" href="#"><span><i class="fa-solid fa-person-walking"></i></span> Sobre mi</a>              
-            </div>
+      <div class="header__container">
+        <section class="header__profile">
+          <div class="header__logo-wrapper">
+            <img
+              class="header__logo-img"
+              src="./src/img/IMG_20190101_245600281.jpg"
+              alt="Álvaro Orozco - Web Developer"
+            />
+            <h1 class="header__title">Álvaro Orozco</h1>
+            <h2 class="header__subtitle">Web Developer</h2>
           </div>
-        </div> 
-      </nav>
-    </header>
-    <main>
-      <section class="main__container">
-        <div class="main__container--description">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit natus a nam impedit quisquam, beatae adipisci. Pariatur, aut minus sapiente saepe magni mollitia doloribus quibusdam molestias ipsa officia molestiae porro!</p>
-        </div>
-        <div class="main__container--projects">
+          <div class="header__social">
+            <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </section>
 
+        <nav class="header__nav">
+            <button class="header__menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+             </button>
+             <ul class="header__menu-list">
+               <li><a href="./portafolio.html"><i class="fa-solid fa-house"></i> Home</a></li>
+               <li><a href="#" class="active"><i class="fa-solid fa-code"></i> Proyectos</a></li>
+               <li><a href="./podcast.html"><i class="fa-solid fa-microphone"></i> Podcast</a></li>
+               <li><a href="./contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+               <li><a href="./politica.html"><i class="fa-solid fa-file-shield"></i> Política de Datos</a></li>
+               <li><a href="#"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
+             </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="main__content-section">
+        <h2 style="color: var(--primary-color); margin-bottom: 2rem;">Mis Proyectos</h2>
+        <p>Aquí hay una selección de proyectos en los que he trabajado.</p>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card">
+                <h3>Portfolio Web v1</h3>
+                <p>Mi primer portafolio construido con HTML y CSS puro. Aprendiendo las bases del diseño web responsivo.</p>
+                <a href="#" class="btn">Ver Código</a>
+            </article>
+
+            <!-- Project 2 (Placeholder) -->
+            <article class="project-card">
+                <h3>Próximo Proyecto</h3>
+                <p>Actualmente trabajando en nuevas ideas con JavaScript y React.</p>
+                <a href="#" class="btn">En Progreso...</a>
+            </article>
         </div>
-      </section>
+      </div>
     </main>
-    <footer class="footer">
-      <aside class="footer__left-section"></aside>
-      <aside class="footer__center-section"></aside>
-      <aside class="footer__right-section"></aside>
-    </footer>
+
     <script src="./portafolio.js"></script>
   </body>
 </html>
