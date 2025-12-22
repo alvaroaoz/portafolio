@@ -94,6 +94,59 @@ ul {
   transform: scale(1.05);
 }
 
+/* Privacy Policy Enhanced Styles */
+.policy-container h1 {
+  font-family: var(--font-mono);
+  color: var(--primary-color);
+  font-size: 2.4rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.policy-container h2 {
+  color: var(--secondary-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 1rem;
+  margin-top: 4rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1.8rem;
+}
+
+.policy-container h3 {
+  color: #fff;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-left: 3px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+.policy-container p {
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.policy-container ul,
+.policy-container ol {
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.policy-container li {
+  margin-bottom: 0.8rem;
+  color: #ddd;
+  text-align: justify;
+  line-height: 1.7;
+}
+
 .header__title {
   font-family: var(--font-mono);
   font-size: 3.2rem;
