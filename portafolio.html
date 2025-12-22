@@ -17,45 +17,47 @@
   </head>
   <body>
     <header class="header">
-      <section class="header__head">
-          <div class="header__logo-section">
-          <img
-            class="header__logo-section--img"
-            src="./src/img/IMG_20190101_245600281.jpg"
-            alt="Joven sonriente con camisa azul oscuro y camiseta debajo blanca"
-          />
-          <h1 class="header__logo-section--title">->Portafolio web</h1>
-        </div>
-        <div class="header__socialmedia">
-          <a href="http://https://github.com/alvaroaoz">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/alvaroaoz/">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-        </div>
-        <div class="header__description-section">
-          <p class="header__description-section--description">
-            print("Hola Mundo")<br> Mi nombre es Alvaro Orozco, tengo 28 años y actualmente me encuentro estudiando programación de manera autodidacta. Manejo las tecnologías de HTML, CSS y javascript, con un par de conocimientos en MySQL y React.js. El lenguaje Python me interesa, en él quiero profundizar y aprender mucho más en el área de Inteligencia Artificial.
-          </p>
-        </div>
-      </section>
-      <nav class="header__menu-section">
-        <div class="header__menu-section--container">
-            <a class="header__menu-section--first header__menu-section--out-dropdown" href="#"> <span><i class="fa-solid fa-house"></i></span>Home</a>
-            <a class="header__menu-section--out-dropdown" href="./projects.html"><span><i class="fa-solid fa-book-open"></i></span>Proyectos</a>
-          <div class="header__menu-section--dropdown dropdown">
-            <button class="dropbtn"><i class="fa-solid fa-align-justify"></i></button>
-            <div class="dropdown-content">           
-                <a href="#"><span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>Links de interes</a>             
-                <a href="#"><span><i class="fa-solid fa-lines-leaning"></i></span>Blog</a>             
-                <a href="./podcast.html"><span><i class="fa-solid fa-microphone-lines"></i></span>Podcast</a>              
-                <a href="#"><span><i class="fa-solid fa-users-between-lines"></i></span>Contacto</a>
-                <a class="header__menu-section--last" href="#"><span><i class="fa-solid fa-person-walking"></i></span> Sobre mi</a>              
-            </div>
+      <div class="header__container">
+        <section class="header__profile">
+          <div class="header__logo-wrapper">
+            <img
+              class="header__logo-img"
+              src="./src/img/IMG_20190101_245600281.jpg"
+              alt="Álvaro Orozco - Web Developer"
+            />
+            <h1 class="header__title">Álvaro Orozco</h1>
+            <h2 class="header__subtitle">Web Developer</h2>
           </div>
-        </div> 
-      </nav>
+          <div class="header__social">
+            <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+          <div class="header__bio">
+            <p>
+              ¡Hola! Soy Álvaro Orozco, desarrollador web autodidacta apasionado por crear experiencias digitales. 
+              Especializado en <strong>HTML, CSS y JavaScript</strong>, con experiencia en <strong>MySQL y React.js</strong>.
+              Actualmente explorando <strong>Python</strong> e <strong>IA</strong>.
+            </p>
+          </div>
+        </section>
+
+        <nav class="header__nav">
+          <button class="header__menu-toggle" aria-label="Toggle navigation">
+             <i class="fa-solid fa-bars"></i>
+          </button>
+          <ul class="header__menu-list">
+            <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="./projects.html"><i class="fa-solid fa-code"></i> Proyectos</a></li>
+            <li><a href="./podcast.html"><i class="fa-solid fa-microphone"></i> Podcast</a></li>
+            <li><a href="#"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+            <li><a href="#"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main class="main">
       <div class="main__content-section">
