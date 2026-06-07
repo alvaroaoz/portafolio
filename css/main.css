@@ -813,22 +813,32 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── LOGOS ── */
+/* ── LOGOS SVG INLINE ── */
 
-/* Nav: isotipo + texto juntos */
+/* Nav: isotipo pequeño */
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
-.nav__logo-img {
-  height: 32px;
-  width: 32px;
-  object-fit: contain;
-  /* El logo tiene fondo negro — mix-blend-mode lo hace transparente sobre dark bg */
-  mix-blend-mode: screen;
-  filter: brightness(1.5);
+.nav__logo-svg {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav__logo-svg svg {
+  height: 36px;
+  width: auto;
+  color: var(--g200);
+  filter: drop-shadow(0 0 4px rgba(160,200,160,0.5));
+  transition: filter 0.2s, color 0.2s;
+}
+
+.nav__logo:hover .nav__logo-svg svg {
+  color: var(--g100);
+  filter: drop-shadow(0 0 7px rgba(160,210,160,0.75));
 }
 
 .nav__logo-text {
@@ -841,35 +851,51 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .nav__logo-dot { color: var(--cyan); }
 
-/* Hero law: logo completo con SERVICIOS JURIDICOS */
+/* Hero law: logo grande */
 .hero__law-logo {
-  margin-bottom: 1.6rem;
+  margin-bottom: 2rem;
 }
 
-.hero__law-logo-img {
-  height: 80px;
+.hero__law-logo-svg {
+  display: block;
+}
+
+.hero__law-logo-svg svg {
+  height: 140px;
   width: auto;
-  object-fit: contain;
-  mix-blend-mode: screen;
-  filter: brightness(1.4);
+  color: var(--g100);
+  filter:
+    drop-shadow(0 0 8px rgba(180,220,180,0.6))
+    drop-shadow(0 0 20px rgba(120,180,120,0.3));
 }
 
 @media (min-width: 768px) {
-  .hero__law-logo-img {
-    height: 100px;
+  .hero__law-logo-svg svg {
+    height: 160px;
   }
 }
 
-/* Sección derecho: logo como header visual */
+@media (min-width: 1100px) {
+  .hero__law-logo-svg svg {
+    height: 180px;
+  }
+}
+
+/* Sección derecho: logo mediano */
 .section__law-header {
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 .section__law-logo {
-  height: 56px;
+  display: block;
+}
+
+.section__law-logo svg {
+  height: 72px;
   width: auto;
-  object-fit: contain;
-  mix-blend-mode: screen;
-  filter: brightness(1.4);
-  opacity: 0.85;
+  color: var(--g300);
+  opacity: 0.9;
+  filter:
+    drop-shadow(0 0 5px rgba(114,184,114,0.45))
+    drop-shadow(0 0 14px rgba(80,150,80,0.2));
 }
