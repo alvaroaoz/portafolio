@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Álvaro Orozco — Abogado especialista en tránsito y movilidad en Medellín. Desarrollador de herramientas de automatización legal con Python, n8n y ML.">
+  <title>Álvaro Orozco — Abogado &amp; Dev</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9b0976dd07.js" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="nav__inner">
+
+    <a href="#" class="nav__logo" aria-label="Inicio">
+      <img src="./src/img/Iso_logo_final.png" alt="Álvaro Orozco Servicios Jurídicos" class="nav__logo-img">
+      <span class="nav__logo-text">aoz<span class="nav__logo-dot">.</span>dev</span>
+    </a>
+
+    <!-- mobile toggle -->
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- menú (desktop inline, mobile dropdown) -->
+    <ul class="nav__menu" role="list">
+      <li class="nav__menu-section">⚖️ Derecho</li>
+      <li><a href="#derecho"><i class="fa-solid fa-scale-balanced"></i> Servicios</a></li>
+      <li class="nav__menu-section">&lt;dev/&gt;</li>
+      <li><a href="#proyectos"><i class="fa-solid fa-code"></i> Proyectos</a></li>
+      <li><a href="#contacto" class="nav__pill"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" aria-label="Presentación">
+
+  <!-- Abogado -->
+  <div class="hero__law">
+    <div class="hero__law-logo fade-up delay-1">
+      <img src="./src/img/Iso_logo_finalL.png" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img">
+    </div>
+    <p class="hero__eyebrow fade-up delay-2">Abogado · Medellín, Colombia</p>
+    <h1 class="fade-up delay-3">
+      Defensa legal<br>
+      con <em>precisión</em><br>
+      y tecnología
+    </h1>
+    <p class="hero__desc fade-up delay-4">
+      Especialista en derecho de tránsito y movilidad. Comparendos, multas SIMIT, cobros coactivos y procesos civiles para personas naturales. T.P. 44685.
+    </p>
+    <div class="hero__ctas fade-up delay-5">
+      <a href="#derecho"  class="btn-gold">Ver servicios</a>
+      <a href="#contacto" class="btn-outline-green">Consultar caso</a>
+    </div>
+  </div>
+
+  <!-- símbolo divisorio — solo desktop -->
+  <div class="hero__divider" aria-hidden="true">&amp;</div>
+
+  <!-- Dev -->
+  <div class="hero__dev">
+    <p class="hero__eyebrow fade-up delay-1">// desarrollador · automatización</p>
+    <h1 class="fade-up delay-2">
+      <span class="c-dim">// construyo</span><br>
+      herramientas<br>
+      <span class="c-cyan">que resuelven</span><br>
+      problemas<span class="c-green"> reales</span><span class="cursor">_</span>
+    </h1>
+    <p class="hero__desc fade-up delay-3">
+      Scripts Python, flujos n8n, calculadoras jurídicas y modelos ML. Herramientas útiles construidas desde la práctica legal real.
+    </p>
+    <div class="hero__ctas fade-up delay-4">
+      <a href="#proyectos"                    class="btn-cyan">Ver proyectos</a>
+      <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer" class="btn-outline-cyan">GitHub →</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     DERECHO
+══════════════════════════════════════ -->
+<section id="derecho" class="section" aria-label="Servicios jurídicos">
+  <div class="section__inner">
+
+    <div class="section__law-header">
+      <img src="./src/img/Iso_logo_final.png" alt="" aria-hidden="true" class="section__law-logo">
+    </div>
+    <span class="section__label section__label--law">// área de práctica</span>
+    <h2 class="section__title section__title--serif">
+      Derecho de tránsito<br>y servicios legales
+    </h2>
+    <p class="section__sub">
+      Representación y asesoría para personas naturales con problemas en SIMIT, comparendos, cobros coactivos y más. Primera consulta sin costo.
+    </p>
+
+    <div class="law-grid">
+
+      <article class="law-card reveal">
+        <span class="law-card__badge">CORE</span>
+        <div class="law-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Multas y comparendos SIMIT</h3>
+        <p>Gestión integral de infracciones, prescripción de multas, derechos de petición y cobro coactivo ante secretarías de movilidad.</p>
+      </article>
+
+      <article class="law-card reveal">
+        <span class="law-card__badge">CORE</span>
+        <div class="law-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+        </div>
+        <h3>Cobro coactivo y embargos</h3>
+        <p>Representación en cobros coactivos, levantamiento de embargos vehiculares y acuerdos de transacción con entidades públicas.</p>
+      </article>
+
+      <article class="law-card reveal">
+        <div class="law-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3>Procesos civiles</h3>
+        <p>Ejecutivos civiles, incidentes de desacato, tutelas y representación ante juzgados civiles municipales en primera instancia.</p>
+      </article>
+
+      <article class="law-card reveal">
+        <div class="law-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+        <h3>Consumidor y telecomunicaciones</h3>
+        <p>Quejas ante la SIC, disputas con operadores (telefonía, internet) y reclamaciones por incumplimiento contractual.</p>
+      </article>
+
+      <article class="law-card reveal">
+        <div class="law-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3>Movilidad vehicular</h3>
+        <p>Cancelación de matrícula, desvinculación jurídica de vehículos, fotomultas e impugnación de actos administrativos de tránsito.</p>
+      </article>
+
+      <article class="law-card reveal">
+        <div class="law-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M21 13.255A24 24 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3>Contratación pública</h3>
+        <p>Disputas contractuales con entidades del Estado, reclamaciones por incumplimiento y conciliación extrajudicial ante Procuraduría.</p>
+      </article>
+
+    </div><!-- /law-grid -->
+
+    <div class="tp-box reveal">
+      <p>
+        Abogado con <strong>T.P. 44685</strong> habilitado ante juzgados civiles municipales (primera instancia) y de circuito (segunda instancia).<br>
+        <strong>Licencia plena prevista julio 2026.</strong>
+      </p>
+      <span class="tp-badge">T.P. 44685 · Consejo Superior de la Judicatura</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROYECTOS / DEV
+══════════════════════════════════════ -->
+<section id="proyectos" class="section" aria-label="Portafolio de desarrollo">
+  <div class="section__inner">
+
+    <span class="section__label section__label--dev">// portafolio</span>
+    <h2 class="section__title section__title--mono">proyectos &amp; herramientas</h2>
+    <p class="section__sub">
+      Automatizaciones, scripts y modelos construidos desde la práctica legal real. Código que resuelve problemas concretos.
+    </p>
+
+    <!-- filtros -->
+    <div class="dev-filters" role="group" aria-label="Filtrar proyectos">
+      <button class="filter-btn active" data-filter="all">todos</button>
+      <button class="filter-btn" data-filter="python">python</button>
+      <button class="filter-btn" data-filter="n8n">n8n</button>
+      <button class="filter-btn" data-filter="excel">excel</button>
+      <button class="filter-btn" data-filter="ml">ml</button>
+      <button class="filter-btn" data-filter="legal">legal-tech</button>
+    </div>
+
+    <div class="projects-grid" id="projects">
+
+      <article class="project-card reveal" data-tags="python legal">
+        <div class="project-card__header">
+          <div class="project-card__emoji" aria-hidden="true">🧾</div>
+          <div class="project-tags">
+            <span class="tag tag-python">python</span>
+            <span class="tag tag-legal">legal</span>
+          </div>
+        </div>
+        <h3>generador-recibos</h3>
+        <p>App de escritorio (tkinter + ReportLab) para generar recibos de pago en PDF. Auto-incremento de folio, monto en letras, layout compacto profesional.</p>
+        <div class="project-card__links">
+          <a href="https://github.com/alvaroaoz" class="project-link" target="_blank" rel="noopener noreferrer">→ ver código</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="excel legal">
+        <div class="project-card__header">
+          <div class="project-card__emoji" aria-hidden="true">⚖️</div>
+          <div class="project-tags">
+            <span class="tag tag-excel">excel</span>
+            <span class="tag tag-legal">legal</span>
+          </div>
+        </div>
+        <h3>calculadora-perjuicios</h3>
+        <p>Calculadora de daños basada en Ley 1564/2012 y C.E. Exp. 26251. Indexación SMMLV, daño moral sugerido, daño emergente y lucro cesante.</p>
+        <div class="project-card__links">
+          <a href="https://github.com/alvaroaoz" class="project-link" target="_blank" rel="noopener noreferrer">→ ver demo</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="n8n">
+        <div class="project-card__header">
+          <div class="project-card__emoji" aria-hidden="true">⚡</div>
+          <div class="project-tags">
+            <span class="tag tag-n8n">n8n</span>
+          </div>
+        </div>
+        <h3>workflow-cliente-intake</h3>
+        <p>Automatización n8n para onboarding de clientes: formulario → base de datos → correo de bienvenida → recordatorio de firma de contrato.</p>
+        <div class="project-card__links">
+          <a href="https://github.com/alvaroaoz" class="project-link" target="_blank" rel="noopener noreferrer">→ ver flujo</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="ml python">
+        <div class="project-card__header">
+          <div class="project-card__emoji" aria-hidden="true">🤖</div>
+          <div class="project-tags">
+            <span class="tag tag-ml">scikit-learn</span>
+            <span class="tag tag-ml">ml</span>
+          </div>
+        </div>
+        <h3>estudio-horas-predictor</h3>
+        <p>Clasificador Random Forest (dataset sintético 5k registros) que predice horas de estudio para exámenes de preparatorio legal. Accuracy ~84%.</p>
+        <div class="project-card__links">
+          <a href="https://github.com/alvaroaoz" class="project-link" target="_blank" rel="noopener noreferrer">→ notebook</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python">
+        <div class="project-card__header">
+          <div class="project-card__emoji" aria-hidden="true">🧹</div>
+          <div class="project-tags">
+            <span class="tag tag-python">python</span>
+          </div>
+        </div>
+        <h3>cleanup-descargas</h3>
+        <p>Script bash + Python que organiza automáticamente ~/Descargas por tipo de archivo y fecha. Limpieza programable vía cron.</p>
+        <div class="project-card__links">
+          <a href="https://github.com/alvaroaoz" class="project-link" target="_blank" rel="noopener noreferrer">→ ver código</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-tags="python legal n8n">
+        <div class="project-card__header">
+          <div class="project-card__emoji" aria-hidden="true">📋</div>
+          <div class="project-tags">
+            <span class="tag tag-python">python</span>
+            <span class="tag tag-legal">legal</span>
+          </div>
+        </div>
+        <h3>simit-prescription-checker</h3>
+        <p>Script que consulta fechas de multas SIMIT y calcula si aplica prescripción según Ley 769/2002. Genera reporte PDF por placa vehicular.</p>
+        <div class="project-card__links">
+          <a href="https://github.com/alvaroaoz" class="project-link" target="_blank" rel="noopener noreferrer">→ ver código</a>
+        </div>
+      </article>
+
+    </div><!-- /projects-grid -->
+
+    <!-- Stack -->
+    <div class="stack-section reveal">
+      <p class="stack-label">// stack</p>
+      <div class="stack-pills">
+        <span class="stack-pill">Python 3</span>
+        <span class="stack-pill">n8n</span>
+        <span class="stack-pill">scikit-learn</span>
+        <span class="stack-pill">pandas</span>
+        <span class="stack-pill">ReportLab</span>
+        <span class="stack-pill">tkinter</span>
+        <span class="stack-pill">Excel / VBA</span>
+        <span class="stack-pill">Obsidian</span>
+        <span class="stack-pill">Git</span>
+        <span class="stack-pill">HTML · CSS · JS</span>
+        <span class="stack-pill">bash</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACTO
+══════════════════════════════════════ -->
+<section id="contacto" class="section" aria-label="Contacto">
+  <div class="section__inner">
+
+    <span class="section__label section__label--cont">// contacto</span>
+    <h2 class="section__title section__title--serif">¿Tiene un caso o proyecto?</h2>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div>
+        <p class="contact-intro">
+          Atiendo consultas legales y propuestas de desarrollo. Primera consulta para asuntos de tránsito sin costo. Para proyectos de automatización o herramientas, hablemos.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <span class="contact-item__label">email</span>
+            <p class="contact-item__val"><a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <span class="contact-item__label">dirección</span>
+            <p class="contact-item__val">Calle 25 #79A-87, Medellín</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <div>
+            <span class="contact-item__label">github</span>
+            <p class="contact-item__val">
+              <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer">github.com/alvaroaoz</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <span class="contact-item__label">linkedin</span>
+            <p class="contact-item__val">
+              <a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alvaroaoz</a>
+            </p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/57XXXXXXXXXX?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." class="wa-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+
+      <!-- Panel de áreas -->
+      <div class="contact-panel reveal">
+        <h3>Áreas de atención</h3>
+        <p>Servicios legales para personas naturales en Medellín. Consultas virtuales para todo Colombia.</p>
+        <ul class="areas-list">
+          <li>Multas y comparendos SIMIT</li>
+          <li>Cobro coactivo vehicular</li>
+          <li>Prescripción de fotomultas</li>
+          <li>Procesos ejecutivos civiles</li>
+          <li>Tutelas e incidentes de desacato</li>
+          <li>Disputas de consumidor / SIC</li>
+          <li>Contratación pública</li>
+          <li>Automatización y herramientas legales</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="footer">
+  <p>
+    © 2026 Álvaro Antonio Orozco Zapata · T.P. 44685 · Medellín, Colombia ·
+    <a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a> ·
+    <a href="./politica.html">Política de datos</a>
+  </p>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
