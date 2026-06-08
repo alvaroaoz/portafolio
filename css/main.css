@@ -1281,38 +1281,22 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   letter-spacing: 0.04em;
 }
 
-/* ── LOGOS (archivos externos en src/img/) ── */
-
-/* Nav: isotipo */
+/* Nav: logo AOZ texto */
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
-
-.nav__logo-img {
-  height: 36px;
-  width: auto;
-  display: block;
-  filter:
-    invert(1) sepia(0.4) saturate(1.5) hue-rotate(90deg)
-    drop-shadow(0 0 4px rgba(160,210,160,0.55));
-  transition: filter 0.2s;
-}
-
-.nav__logo:hover .nav__logo-img {
-  filter:
-    invert(1) sepia(0.5) saturate(2) hue-rotate(90deg)
-    drop-shadow(0 0 8px rgba(160,220,160,0.8));
 }
 
 .nav__logo-text {
   font-family: var(--mono);
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: var(--g300);
-  letter-spacing: -0.02em;
+  color: var(--g200);
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
 }
+
+.nav__logo:hover .nav__logo-text { color: var(--g100); }
 
 .nav__logo-dot { color: var(--cyan); }
 
