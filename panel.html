@@ -89,6 +89,7 @@
       <div class="pstat"><span class="pstat__num" id="st-total">0</span><span class="pstat__lbl">casos activos</span></div>
       <div class="pstat pstat--cyan"><span class="pstat__num" id="st-proceso">0</span><span class="pstat__lbl">en proceso</span></div>
       <div class="pstat pstat--gold"><span class="pstat__num" id="st-audiencia">0</span><span class="pstat__lbl">en audiencia</span></div>
+      <div class="pstat pstat--gold"><span class="pstat__num" id="st-vencer">0</span><span class="pstat__lbl">casos por vencer (7d)</span></div>
       <div class="pstat"><span class="pstat__num" id="st-tareas">0</span><span class="pstat__lbl">tareas pendientes</span></div>
       <div class="pstat pstat--danger"><span class="pstat__num" id="st-vencidas">0</span><span class="pstat__lbl">tareas vencidas</span></div>
     </section>
@@ -112,6 +113,15 @@
       <div class="pcard__head">
         <h2><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Seguimiento de casos</h2>
         <button class="btn-add" id="btn-new-case"><i class="fa-solid fa-plus" aria-hidden="true"></i> Nuevo caso</button>
+      </div>
+
+      <!-- Filtros: búsqueda + etiquetas -->
+      <div class="case-toolbar">
+        <div class="case-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" id="case-search" placeholder="Buscar por título, cliente, nota o etiqueta…" aria-label="Buscar casos">
+        </div>
+        <div class="case-tagfilter" id="case-tagfilter" role="group" aria-label="Filtrar por etiqueta"></div>
       </div>
 
       <div class="kanban" id="kanban">
@@ -153,9 +163,26 @@
           </select>
         </label>
       </div>
+      <div class="case-form__row">
+        <label>Fecha límite <span class="lbl-hint">cuenta regresiva</span>
+          <input type="date" id="case-vencimiento">
+        </label>
+        <label>Etiquetas <span class="lbl-hint">separadas por coma</span>
+          <input type="text" id="case-tags" maxlength="200" placeholder="tránsito, prescripción, urgente">
+        </label>
+      </div>
       <label>Notas / seguimiento
         <textarea id="case-nota" rows="4" maxlength="2000" placeholder="Anotaciones, próximos pasos, fechas clave…"></textarea>
       </label>
+
+      <div class="subt-block">
+        <div class="subt-block__head">
+          <span class="lbl-strong">Subtareas <span class="lbl-hint">checklist con deadline</span></span>
+          <button type="button" class="btn-sub-add" id="btn-add-subtask"><i class="fa-solid fa-plus" aria-hidden="true"></i> Añadir</button>
+        </div>
+        <div class="subt-list" id="case-subtasks"></div>
+      </div>
+
       <div class="case-form__actions">
         <button type="button" class="btn-ghost" data-close>Cancelar</button>
         <button type="submit" class="btn-primary">Guardar</button>
