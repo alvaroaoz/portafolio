@@ -52,6 +52,34 @@
   // id seguro: conserva el original solo si es alfanumérico corto; si no, regenera
   function safeId(v) { return ID_RE.test(v) ? v : uid(); }
   function inList(v, list, def) { return list.includes(v) ? v : def; }
+  function dateOr(v) { return FECHA_RE.test(v) ? v : ''; }
+
+  // Etiquetas: array de strings cortos, sin vacíos, sin duplicados, máx. 12
+  function cleanTags(v) {
+    if (!Array.isArray(v)) return [];
+    const out = [];
+    for (const t of v) {
+      const s = str(t, 24).trim();
+      if (s && !out.some(x => x.toLowerCase() === s.toLowerCase())) out.push(s);
+      if (out.length >= 12) break;
+    }
+    return out;
+  }
+
+  // Subtareas: checklist con deadline opcional, máx. 50
+  function cleanSubtareas(v) {
+    if (!Array.isArray(v)) return [];
+    return v
+      .filter(s => s && typeof s === 'object')
+      .slice(0, 50)
+      .map(s => ({
+        id:    safeId(s.id),
+        texto: str(s.texto, 160),
+        fecha: dateOr(s.fecha),
+        hecha: s.hecha === true,
+      }))
+      .filter(s => s.texto);
+  }
 
   // Sanea cualquier dato que entre desde localStorage o un import.
   // Es la frontera de confianza: nada se renderiza sin pasar por aquí.
@@ -65,6 +93,9 @@
         estado:      inList(c.estado, ESTADO_IDS, 'nuevo'),
         prioridad:   inList(c.prioridad, PRIO_IDS, 'media'),
         nota:        str(c.nota, 2000),
+        vencimiento: dateOr(c.vencimiento),
+        tags:        cleanTags(c.tags),
+        subtareas:   cleanSubtareas(c.subtareas),
         creado:      Number.isFinite(c.creado) ? c.creado : Date.now(),
         actualizado: Number.isFinite(c.actualizado) ? c.actualizado : Date.now(),
       }));
@@ -197,18 +228,46 @@
     gateIn.focus();
   }
 
-  /* ════════════════ DASHBOARD ════════════════ */
+  /* ════════════════ FECHAS / CUENTA REGRESIVA ════════════════ */
   function todayStr() { return new Date().toISOString().slice(0, 10); }
 
+  // Días desde hoy hasta una fecha YYYY-MM-DD (negativo = ya venció). null si inválida.
+  function diasHasta(fecha) {
+    if (!FECHA_RE.test(fecha)) return null;
+    const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+    const d = new Date(fecha + 'T00:00:00');
+    return Math.round((d - hoy) / 86400000);
+  }
+
+  // Info para la cuenta regresiva de un caso: clase de color + texto humano.
+  function countdownInfo(fecha) {
+    const d = diasHasta(fecha);
+    if (d === null) return null;
+    const plural = n => Math.abs(n) === 1 ? ' día' : ' días';
+    if (d < 0)   return { cls: 'venc', txt: 'Venció hace ' + Math.abs(d) + plural(d) };
+    if (d === 0) return { cls: 'venc', txt: 'Vence hoy' };
+    if (d === 1) return { cls: 'urg',  txt: 'Vence mañana' };
+    if (d <= 3)  return { cls: 'urg',  txt: 'Faltan ' + d + ' días' };
+    if (d <= 7)  return { cls: 'prox', txt: 'Faltan ' + d + ' días' };
+    return { cls: 'ok', txt: 'Faltan ' + d + ' días' };
+  }
+
+  /* ════════════════ DASHBOARD ════════════════ */
   function renderDash() {
     const activos = data.casos.filter(c => c.estado !== 'cerrado').length;
     const proceso = data.casos.filter(c => c.estado === 'proceso').length;
     const audi    = data.casos.filter(c => c.estado === 'audiencia').length;
+    const vencer  = data.casos.filter(c => {
+      if (c.estado === 'cerrado') return false;
+      const d = diasHasta(c.vencimiento);
+      return d !== null && d <= 7;          // incluye casos ya vencidos
+    }).length;
     const pend    = data.tareas.filter(t => !t.hecha).length;
     const venc    = data.tareas.filter(t => !t.hecha && t.fecha && t.fecha < todayStr()).length;
     $('#st-total').textContent     = activos;
     $('#st-proceso').textContent   = proceso;
     $('#st-audiencia').textContent = audi;
+    $('#st-vencer').textContent    = vencer;
     $('#st-tareas').textContent    = pend;
     $('#st-vencidas').textContent  = venc;
   }
@@ -308,13 +367,44 @@
   });
 
   /* ════════════════ KANBAN DE CASOS ════════════════ */
-  const kanban = $('#kanban');
+  const kanban    = $('#kanban');
+  const tagFilter = $('#case-tagfilter');
+  const searchIn  = $('#case-search');
 
   const PRIO_LABEL = { alta: 'Alta', media: 'Media', baja: 'Baja' };
 
+  let filtroTexto = '';
+  let filtroTag   = '';   // '' = todas
+
+  function matchFiltro(c) {
+    if (filtroTag && !c.tags.some(t => t.toLowerCase() === filtroTag.toLowerCase())) return false;
+    const q = filtroTexto.trim().toLowerCase();
+    if (q) {
+      const heno = (c.titulo + ' ' + c.cliente + ' ' + c.nota + ' ' + c.tags.join(' ')).toLowerCase();
+      if (!heno.includes(q)) return false;
+    }
+    return true;
+  }
+
+  // Barra de filtros por etiqueta (se reconstruye con la unión de tags existentes)
+  function renderFilters() {
+    if (!tagFilter) return;
+    const tags = [...new Set(data.casos.flatMap(c => c.tags))].sort((a, b) => a.localeCompare(b));
+    // Si el filtro activo ya no existe (etiqueta editada/borrada), vuelve a "Todas"
+    if (filtroTag && !tags.some(t => t.toLowerCase() === filtroTag.toLowerCase())) filtroTag = '';
+    const chip = (val, label, active) =>
+      `<button class="ftag ${active ? 'active' : ''}" data-tag="${esc(val)}">${esc(label)}</button>`;
+    tagFilter.innerHTML =
+      chip('', 'Todas', filtroTag === '') +
+      tags.map(t => chip(t, t, filtroTag.toLowerCase() === t.toLowerCase())).join('');
+    tagFilter.style.display = tags.length ? '' : 'none';
+  }
+
   function renderKanban() {
+    renderFilters();
+    const visibles = data.casos.filter(matchFiltro);
     kanban.innerHTML = ESTADOS.map(col => {
-      const casos = data.casos.filter(c => c.estado === col.id);
+      const casos = visibles.filter(c => c.estado === col.id);
       const cards = casos.map(c => renderCaseCard(c, col.id)).join('') ||
         `<p class="empty">—</p>`;
       return `
@@ -327,9 +417,29 @@
   }
 
   function renderCaseCard(c, estado) {
-    const idx = ESTADOS.findIndex(e => e.id === estado);
+    const idx  = ESTADOS.findIndex(e => e.id === estado);
     const prev = idx > 0 ? ESTADOS[idx - 1] : null;
     const next = idx < ESTADOS.length - 1 ? ESTADOS[idx + 1] : null;
+
+    const cd = countdownInfo(c.vencimiento);
+    const cdHTML = cd
+      ? `<span class="kcd kcd--${cd.cls}" title="Fecha límite: ${esc(c.vencimiento)}"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> ${cd.txt}</span>`
+      : '';
+
+    const tagsHTML = c.tags.length
+      ? `<div class="kcard__tags">${c.tags.map(t => `<span class="ktag">${esc(t)}</span>`).join('')}</div>`
+      : '';
+
+    const total = c.subtareas.length;
+    const done  = c.subtareas.filter(s => s.hecha).length;
+    const pct   = total ? Math.round(done / total * 100) : 0;
+    const subHTML = total
+      ? `<div class="kcard__sub" title="${done} de ${total} subtareas completadas">
+           <div class="kcard__subbar"><span style="width:${pct}%"></span></div>
+           <span class="kcard__subtxt"><i class="fa-solid fa-list-check" aria-hidden="true"></i> ${done}/${total}</span>
+         </div>`
+      : '';
+
     return `
     <article class="kcard" data-id="${esc(c.id)}" draggable="true">
       <div class="kcard__top">
@@ -337,7 +447,10 @@
         <span class="kcard__prio kcard__prio--${esc(c.prioridad || 'media')}" title="Prioridad ${PRIO_LABEL[c.prioridad] || 'Media'}"></span>
       </div>
       ${c.cliente ? `<p class="kcard__cliente"><i class="fa-solid fa-user" aria-hidden="true"></i>${esc(c.cliente)}</p>` : ''}
+      ${cdHTML}
+      ${tagsHTML}
       ${c.nota ? `<p class="kcard__nota">${esc(c.nota)}</p>` : ''}
+      ${subHTML}
       <div class="kcard__actions">
         <button class="kbtn" data-act="prev" aria-label="Mover a etapa anterior" ${prev ? '' : 'disabled'}><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
         <button class="kbtn" data-act="next" aria-label="Mover a siguiente etapa" ${next ? '' : 'disabled'}><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
@@ -346,6 +459,18 @@
       </div>
     </article>`;
   }
+
+  // Filtros: clic en etiqueta + búsqueda
+  tagFilter?.addEventListener('click', (e) => {
+    const btn = e.target.closest('.ftag');
+    if (!btn) return;
+    filtroTag = btn.dataset.tag;
+    renderKanban();
+  });
+  searchIn?.addEventListener('input', () => {
+    filtroTexto = searchIn.value;
+    renderKanban();
+  });
 
   function moveCase(id, dir) {
     const c = data.casos.find(x => x.id === id);
@@ -413,21 +538,74 @@
   const fCliente  = $('#case-cliente');
   const fEstado   = $('#case-estado');
   const fPrio     = $('#case-prioridad');
+  const fVenc     = $('#case-vencimiento');
+  const fTags     = $('#case-tags');
   const fNota     = $('#case-nota');
+  const subList   = $('#case-subtasks');
   const modalTitle = $('#case-modal-title');
+
+  // Crea una fila editable de subtarea (checkbox + texto + fecha + borrar).
+  // El estado "hecha" vive como clase .done en la fila; al guardar se lee del DOM.
+  function addSubtaskRow(s) {
+    s = s || { id: '', texto: '', fecha: '', hecha: false };
+    const row = document.createElement('div');
+    row.className = 'subt' + (s.hecha ? ' done' : '');
+    row.dataset.id = ID_RE.test(s.id) ? s.id : uid();
+
+    const check = document.createElement('button');
+    check.type = 'button';
+    check.className = 'subt__check';
+    check.setAttribute('aria-label', 'Completar subtarea');
+    check.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>';
+    check.addEventListener('click', () => {
+      const done = row.classList.toggle('done');
+      check.setAttribute('aria-pressed', done ? 'true' : 'false');
+    });
+
+    const txt = document.createElement('input');
+    txt.type = 'text'; txt.className = 'subt__text';
+    txt.placeholder = 'Subtarea…'; txt.maxLength = 160; txt.value = s.texto || '';
+
+    const date = document.createElement('input');
+    date.type = 'date'; date.className = 'subt__date'; date.value = s.fecha || '';
+    date.setAttribute('aria-label', 'Fecha límite de la subtarea');
+
+    const del = document.createElement('button');
+    del.type = 'button'; del.className = 'subt__del';
+    del.setAttribute('aria-label', 'Eliminar subtarea');
+    del.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+    del.addEventListener('click', () => row.remove());
+
+    row.append(check, txt, date, del);
+    subList.appendChild(row);
+    return row;
+  }
+
+  function collectSubtasks() {
+    return $$('.subt', subList).map(row => ({
+      id:    row.dataset.id,
+      texto: row.querySelector('.subt__text').value.trim().slice(0, 160),
+      fecha: dateOr(row.querySelector('.subt__date').value),
+      hecha: row.classList.contains('done'),
+    })).filter(s => s.texto).slice(0, 50);
+  }
 
   function openCaseModal(id) {
     caseForm.reset();
+    subList.innerHTML = '';
     if (id) {
       const c = data.casos.find(x => x.id === id);
       if (!c) return;
       modalTitle.textContent = 'Editar caso';
       fId.value = c.id;
-      fTitulo.value = c.titulo || '';
+      fTitulo.value  = c.titulo || '';
       fCliente.value = c.cliente || '';
-      fEstado.value = c.estado || 'nuevo';
-      fPrio.value = c.prioridad || 'media';
-      fNota.value = c.nota || '';
+      fEstado.value  = c.estado || 'nuevo';
+      fPrio.value    = c.prioridad || 'media';
+      fVenc.value    = c.vencimiento || '';
+      fTags.value    = (c.tags || []).join(', ');
+      fNota.value    = c.nota || '';
+      (c.subtareas || []).forEach(addSubtaskRow);
     } else {
       modalTitle.textContent = 'Nuevo caso';
       fId.value = '';
@@ -443,16 +621,24 @@
   modal.addEventListener('click', (e) => { if (e.target.matches('[data-close]')) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
 
+  $('#btn-add-subtask').addEventListener('click', () => {
+    const row = addSubtaskRow();
+    row.querySelector('.subt__text').focus();
+  });
+
   caseForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const titulo = fTitulo.value.trim();
     if (!titulo) return;
     const payload = {
       titulo,
-      cliente: fCliente.value.trim(),
-      estado: fEstado.value,
-      prioridad: fPrio.value,
-      nota: fNota.value.trim(),
+      cliente:     fCliente.value.trim(),
+      estado:      fEstado.value,
+      prioridad:   fPrio.value,
+      vencimiento: dateOr(fVenc.value),
+      tags:        cleanTags(fTags.value.split(',')),
+      nota:        fNota.value.trim(),
+      subtareas:   collectSubtasks(),
       actualizado: Date.now(),
     };
     if (fId.value) {

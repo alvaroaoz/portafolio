@@ -203,7 +203,8 @@
   border-radius: var(--r-lg);
   overflow: hidden;
 }
-@media (min-width: 640px) { .pdash { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 520px) { .pdash { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 880px) { .pdash { grid-template-columns: repeat(6, 1fr); } }
 
 .pstat {
   background: var(--bg-card);
@@ -539,4 +540,227 @@
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 0.6rem;
+}
+
+/* ============================================
+   v3 — filtros, cuenta regresiva, etiquetas y subtareas
+   ============================================ */
+
+.lbl-hint {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.lbl-strong {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+}
+
+/* ── BARRA DE FILTROS ── */
+.case-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+.case-search {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+.case-search i {
+  position: absolute;
+  left: 1.1rem; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 1.2rem;
+}
+.case-search input {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  padding: 0.9rem 1.1rem 0.9rem 3.2rem;
+  font-size: 1.3rem;
+  font-family: var(--mono);
+}
+[data-theme="light"] .case-search input { background: rgba(45,90,45,0.06); }
+.case-search input:focus { outline: none; border-color: var(--cyan); }
+
+.case-tagfilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.ftag {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-md);
+  color: var(--text-mid);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.ftag:hover { color: var(--text); border-color: var(--cyan); }
+.ftag.active {
+  background: var(--cyan-dim);
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* ── CUENTA REGRESIVA (tarjeta) ── */
+.kcd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 0.6rem;
+  border: 1px solid transparent;
+}
+.kcd--venc { background: rgba(255,122,122,0.14); color: #ff7a7a; border-color: rgba(255,122,122,0.4); }
+.kcd--urg  { background: rgba(255,184,108,0.14); color: #ffb86c; border-color: rgba(255,184,108,0.4); }
+.kcd--prox { background: var(--gold-dim);        color: var(--gold); border-color: rgba(201,168,76,0.35); }
+.kcd--ok   { background: rgba(61,122,61,0.14);   color: var(--g300); border-color: rgba(61,122,61,0.3); }
+
+/* ── ETIQUETAS (tarjeta) ── */
+.kcard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+.ktag {
+  font-family: var(--mono);
+  font-size: 1rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 3px;
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border: 1px solid rgba(0,225,244,0.2);
+}
+
+/* ── PROGRESO DE SUBTAREAS (tarjeta) ── */
+.kcard__sub {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.kcard__subbar {
+  flex: 1;
+  height: 5px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+[data-theme="light"] .kcard__subbar { background: rgba(45,90,45,0.1); }
+.kcard__subbar span {
+  display: block;
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--g400), var(--cyan));
+  transition: width 0.4s ease;
+}
+.kcard__subtxt {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── EDITOR DE SUBTAREAS (modal) ── */
+.subt-block {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.2rem;
+  background: var(--bg-card2);
+}
+.subt-block__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.btn-sub-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--cyan);
+  border: 1px solid rgba(0,225,244,0.3);
+  border-radius: var(--r-sm);
+  padding: 0.5rem 1rem;
+  transition: background 0.2s;
+}
+.btn-sub-add:hover { background: var(--cyan-dim); }
+
+.subt-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.subt {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+.subt__check {
+  width: 2rem; height: 2rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--g500);
+  display: flex; align-items: center; justify-content: center;
+  color: transparent;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.subt.done .subt__check { background: var(--g500); color: #fff; border-color: var(--g500); }
+
+.subt__text, .subt__date {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  padding: 0.6rem 0.8rem;
+  font-size: 1.2rem;
+  font-family: var(--sans);
+  min-width: 0;
+}
+.subt__date { font-family: var(--mono); font-size: 1.05rem; }
+[data-theme="light"] .subt__text,
+[data-theme="light"] .subt__date { background: rgba(45,90,45,0.06); }
+.subt__text:focus, .subt__date:focus { outline: none; border-color: var(--cyan); }
+
+/* tachado automático al marcar */
+.subt.done .subt__text {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+.subt__del {
+  width: 2.4rem; height: 2.4rem;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  color: var(--text-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+.subt__del:hover { color: #ff7a7a; }
+
+@media (max-width: 520px) {
+  .subt { grid-template-columns: auto 1fr auto; }
+  .subt__date { grid-column: 2 / 3; }
 }
