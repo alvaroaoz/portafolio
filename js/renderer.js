@@ -207,6 +207,80 @@ function montarCalculadora(slot) {
   calcular();
 }
 
+/* ── DEMO: Verificador de prescripción SIMIT ── */
+function montarPrescripcion(slot) {
+  slot.innerHTML = `
+<div class="calc-demo">
+  <div class="calc-demo__top">
+    <p class="calc-demo__base">Regla general: <strong>3 años</strong> desde la ejecutoria · art. 159 Ley 769/2002 · Solo orientativo</p>
+  </div>
+  <div class="calc-demo__body calc-demo__body--single">
+    <div class="calc-demo__inputs">
+      <div class="calc-group">
+        <p class="calc-group__label">Datos de la multa</p>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="pr-ejec">Fecha de ejecutoria</label>
+            <input type="date" id="pr-ejec">
+          </div>
+          <div class="calc-field">
+            <label for="pr-actuacion">Última actuación de cobro <span class="calc-group__note">opcional · interrumpe</span></label>
+            <input type="date" id="pr-actuacion">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calc-demo__results" id="pr-results">
+      <p class="calc-group__label">Resultado orientativo</p>
+      <div class="result-item"><span class="result-item__label">Fecha base de conteo</span><span class="result-item__val" id="pr-base">—</span></div>
+      <div class="result-item"><span class="result-item__label">Tiempo transcurrido</span><span class="result-item__val" id="pr-transcurrido">—</span></div>
+      <div class="result-item"><span class="result-item__label">Prescribiría el</span><span class="result-item__val" id="pr-fecha">—</span></div>
+      <div class="result-total" id="pr-verdict-box">
+        <span class="result-total__label">Veredicto</span>
+        <span class="result-total__val" id="pr-verdict" style="font-size:1.8rem">Ingresa la fecha</span>
+        <span class="result-total__sub" id="pr-verdict-sub">—</span>
+      </div>
+      <a href="#contacto" class="calc-cta">Consultar mi caso →</a>
+      <p class="calc-disclaimer">Estimación orientativa. El término puede interrumpirse o suspenderse por actuaciones de la entidad. No constituye concepto jurídico.</p>
+    </div>
+  </div>
+</div>`;
+
+  const $ = id => slot.querySelector('#' + id);
+  function fmtFecha(d) { return d.toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' }); }
+
+  function calcular() {
+    const ejec = $('pr-ejec').value;
+    const act  = $('pr-actuacion').value;
+    if (!ejec) return;
+    const base = new Date((act || ejec) + 'T00:00:00');
+    const hoy  = new Date(); hoy.setHours(0, 0, 0, 0);
+    const prescribe = new Date(base); prescribe.setFullYear(prescribe.getFullYear() + 3);
+
+    const meses = Math.max(0, (hoy.getFullYear() - base.getFullYear()) * 12 + (hoy.getMonth() - base.getMonth()));
+    const años = Math.floor(meses / 12);
+    $('pr-base').textContent = fmtFecha(base) + (act ? ' (por actuación)' : '');
+    $('pr-transcurrido').textContent = años + ' años, ' + (meses % 12) + ' meses';
+    $('pr-fecha').textContent = fmtFecha(prescribe);
+
+    const v = $('pr-verdict'), sub = $('pr-verdict-sub'), box = $('pr-verdict-box');
+    if (hoy >= prescribe) {
+      v.textContent = 'Posiblemente PRESCRITA';
+      v.style.color = 'var(--g300)';
+      sub.textContent = 'Superó los 3 años. Vale la pena revisarla.';
+      box.style.borderColor = 'rgba(61,122,61,0.4)';
+    } else {
+      const faltanMeses = (prescribe.getFullYear() - hoy.getFullYear()) * 12 + (prescribe.getMonth() - hoy.getMonth());
+      v.textContent = 'Aún VIGENTE';
+      v.style.color = 'var(--gold)';
+      sub.textContent = 'Faltan ~' + faltanMeses + ' meses para el término.';
+      box.style.borderColor = 'rgba(201,168,76,0.4)';
+    }
+  }
+
+  slot.querySelectorAll('input').forEach(el => el.addEventListener('input', calcular));
+}
+
 /* ── MOTOR PRINCIPAL ── */
 function iniciarProyectos() {
   const contenedor = document.getElementById('projects-accordion');
@@ -254,6 +328,7 @@ function iniciarProyectos() {
           if (slot && !slot.dataset.mounted) {
             slot.dataset.mounted = 'true';
             if (id === 'calculadora-perjuicios') montarCalculadora(slot);
+            else if (id === 'verificador-prescripcion') montarPrescripcion(slot);
           }
 
           setTimeout(() => pac.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
