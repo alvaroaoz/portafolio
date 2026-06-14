@@ -30,6 +30,25 @@ const PROYECTOS = [
     razonInterna: null,
   },
 
+  {
+    id:      'verificador-prescripcion',
+    emoji:   '⏳',
+    titulo:  'Verificador de prescripción SIMIT',
+    resumen: 'Multas de tránsito · Ley 769/2002 · demo en vivo',
+    desc:    'Herramienta orientativa que estima si la acción de cobro de una multa de tránsito pudo haber prescrito. Toma como base la regla general de tres (3) años desde la ejecutoria (art. 159 de la Ley 769 de 2002) y permite registrar una actuación de cobro posterior que interrumpe el término. No reemplaza el estudio jurídico del caso.',
+    tags:    ['legal', 'js'],
+    tipo:    'demo',
+    stack:   ['JavaScript', 'HTML/CSS'],
+    features: [
+      'Término base de 3 años · art. 159 Ley 769/2002',
+      'Considera actuación de cobro que interrumpe',
+      'Muestra tiempo transcurrido y fecha estimada de prescripción',
+      'Veredicto orientativo: posiblemente prescrita / vigente',
+    ],
+    github:       'https://github.com/alvaroaoz',
+    razonInterna: null,
+  },
+
   // ── PÚBLICOS ──────────────────────────────
   {
     id:      'generador-recibos',

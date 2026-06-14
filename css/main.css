@@ -3,7 +3,7 @@
    Mobile-first, fusión verde oscuro + cyan dev
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap');
+/* Las fuentes se cargan vía <link> en el <head> (no duplicar con @import). */
 
 /* ── TOKENS ── */
 :root {
@@ -1630,6 +1630,144 @@ textarea:focus-visible,
 }
 .to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .to-top:hover { background: var(--cyan); color: #060f0f; }
+
+/* ── FORMULARIO DE CONTACTO ── */
+.contact-form {
+  max-width: 640px;
+  margin: 0 auto 4rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+[data-theme="light"] .contact-form { background: rgba(255,255,255,0.6); }
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+@media (max-width: 560px) { .contact-form__row { grid-template-columns: 1fr; } }
+
+.field { display: flex; flex-direction: column; gap: 0.5rem; }
+.field label {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+}
+.field input,
+.field select,
+.field textarea {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  padding: 1rem 1.2rem;
+  font-size: 1.4rem;
+  font-family: var(--sans);
+  width: 100%;
+}
+[data-theme="light"] .field input,
+[data-theme="light"] .field select,
+[data-theme="light"] .field textarea { background: rgba(45,90,45,0.05); }
+.field input:focus,
+.field select:focus,
+.field textarea:focus { outline: none; border-color: var(--cyan); }
+.field textarea { resize: vertical; line-height: 1.6; }
+
+.contact-form__submit { align-self: flex-start; border: none; cursor: pointer; }
+.contact-form__submit:disabled { opacity: 0.6; cursor: progress; }
+
+.contact-form__status {
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  min-height: 1.6rem;
+}
+.contact-form__status.ok  { color: var(--g300); }
+.contact-form__status.err { color: #ff7a7a; }
+
+/* ── TESTIMONIOS ── */
+.section--testi { background: var(--bg-card); border-top: 1px solid var(--border); }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+@media (min-width: 720px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.testi-card {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.testi-card__stars { color: var(--gold); font-size: 1.5rem; letter-spacing: 0.1em; }
+.testi-card blockquote {
+  font-size: 1.4rem;
+  color: var(--text);
+  line-height: 1.7;
+  font-style: italic;
+}
+.testi-card figcaption {
+  font-family: var(--mono);
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  margin-top: auto;
+}
+
+/* ── FAQ ── */
+.section--faq { background: var(--bg); border-top: 1px solid var(--border); }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 1.6rem 2rem;
+  font-family: var(--mono);
+  font-size: 1.45rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: color 0.2s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 2rem;
+  color: var(--cyan);
+  line-height: 1;
+  transition: transform 0.25s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--cyan); }
+.faq-item p {
+  padding: 0 2rem 1.8rem;
+  font-size: 1.35rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+.faq-item p strong { color: var(--g200); }
 
 /* ── FOOTER: enlace privado ── */
 .footer__private {

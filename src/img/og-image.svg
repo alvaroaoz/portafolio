@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1512"/>
+      <stop offset="1" stop-color="#16241a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c9a84c"/>
+      <stop offset="1" stop-color="#00e1f4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- grid sutil -->
+  <g stroke="#3d7a3d" stroke-opacity="0.10" stroke-width="1">
+    <line x1="0" y1="158" x2="1200" y2="158"/>
+    <line x1="0" y1="316" x2="1200" y2="316"/>
+    <line x1="0" y1="474" x2="1200" y2="474"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+
+  <!-- barra superior de acento -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accent)"/>
+
+  <!-- eyebrow -->
+  <text x="90" y="200" font-family="'Roboto Mono', monospace" font-size="26" letter-spacing="6" fill="#72b872">ABOGADO · MEDELLÍN · COLOMBIA</text>
+
+  <!-- nombre -->
+  <text x="88" y="300" font-family="'Playfair Display', Georgia, serif" font-size="92" font-weight="700" fill="#e8f0e8">Álvaro Orozco</text>
+
+  <!-- subtítulo dev -->
+  <text x="90" y="372" font-family="'Roboto Mono', monospace" font-size="40" fill="#8fa08f">&lt;dev/&gt; <tspan fill="#00e1f4">automatización legal</tspan></text>
+
+  <!-- descripción -->
+  <text x="90" y="448" font-family="'DM Sans', system-ui, sans-serif" font-size="28" fill="#a3cfa3">Derecho de tránsito · Python · n8n · Machine Learning</text>
+
+  <!-- badge T.P. -->
+  <g transform="translate(90, 500)">
+    <rect x="0" y="0" width="300" height="56" rx="8" fill="#c9a84c" fill-opacity="0.12" stroke="#c9a84c" stroke-opacity="0.4"/>
+    <text x="24" y="37" font-family="'Roboto Mono', monospace" font-size="24" fill="#c9a84c">T.P. 44685 · Colombia</text>
+  </g>
+
+  <!-- monograma AOZ -->
+  <text x="1110" y="120" text-anchor="end" font-family="'Roboto Mono', monospace" font-size="64" font-weight="700" fill="#a3cfa3">AOZ<tspan fill="#00e1f4">.</tspan></text>
+</svg>

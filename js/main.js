@@ -135,10 +135,57 @@ const countObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.impact-stat__num[data-count]').forEach(el => countObserver.observe(el));
 
+// ── Formulario de contacto (Web3Forms, sin backend) ──
+const contactForm = document.getElementById('contact-form');
+contactForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('cf-status');
+  const submit = document.getElementById('cf-submit');
+  const key = contactForm.querySelector('[name="access_key"]')?.value || '';
+
+  if (key.includes('TU-ACCESS-KEY')) {
+    status.className = 'contact-form__status err';
+    status.textContent = '⚠ Falta configurar el Access Key de Web3Forms (ver comentario en el HTML). Mientras tanto, escríbeme por email o WhatsApp.';
+    return;
+  }
+
+  submit.disabled = true;
+  status.className = 'contact-form__status';
+  status.textContent = 'Enviando…';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(contactForm),
+    });
+    const data = await res.json();
+    if (data.success) {
+      status.className = 'contact-form__status ok';
+      status.textContent = '✓ ¡Mensaje enviado! Te responderé pronto.';
+      contactForm.reset();
+    } else {
+      throw new Error(data.message || 'error');
+    }
+  } catch (err) {
+    status.className = 'contact-form__status err';
+    status.textContent = '✗ No se pudo enviar. Intenta por email o WhatsApp.';
+  } finally {
+    submit.disabled = false;
+  }
+});
+
 // ── Estilo de nav activo (inyectado para no depender de orden CSS) ──
 const navActiveStyle = document.createElement('style');
 navActiveStyle.textContent = '.nav__menu a.active{color:var(--cyan);}';
 document.head.appendChild(navActiveStyle);
+
+// ── Service Worker (offline + instalable) ──
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
 
 // ── Console easter egg ──
 console.log('%c aoz363 ', 'background:#111614;color:#00e1f4;font-family:monospace;font-size:16px;padding:4px 8px;border:1px solid #00e1f4;border-radius:3px;');
