@@ -1,503 +1,491 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Política de Datos | Álvaro Orozco</title>
-    <link rel="stylesheet" href="./portafolio.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;500;800&family=Roboto+Mono:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/9b0976dd07.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__container">
-        <section class="header__profile">
-          <div class="header__logo-wrapper">
-            <img
-              class="header__logo-img"
-              src="./src/img/IMG_20190101_245600281.jpg"
-              alt="Álvaro Orozco - Web Developer"
-            />
-            <h1 class="header__title">Álvaro Orozco</h1>
-            <h2 class="header__subtitle">Web Developer</h2>
-          </div>
-          <div class="header__social">
-            <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-          </div>
-        </section>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Datos | Álvaro Orozco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9b0976dd07.js" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="./css/main.css">
+  <style>
+    /* Estilos específicos política */
+    .policy {
+      padding-top: 5.6rem;
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 6rem;
+    }
 
-        <nav class="header__nav">
-            <button class="header__menu-toggle" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-             </button>
-             <ul class="header__menu-list">
-               <li><a href="./portafolio.html"><i class="fa-solid fa-house"></i> Home</a></li>
-               <li><a href="./projects.html"><i class="fa-solid fa-code"></i> Proyectos</a></li>
-               <li><a href="./podcast.html"><i class="fa-solid fa-microphone"></i> Podcast</a></li>
-               <li><a href="./contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
-               <li><a href="#" class="active"><i class="fa-solid fa-file-shield"></i> Política de Datos</a></li>
-               <li><a href="#"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
-             </ul>
-        </nav>
-      </div>
-    </header>
+    .policy__header {
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
 
-    <main class="main">
-      <div class="main__content-section">
-        <div class="policy-container">
+    .policy__version {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      margin-bottom: 1.2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
 
-          <h1 id="inicio">Política de Tratamiento y Protección de Datos Personales</h1>
+    .policy h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
 
-          <div class="meta">
-            <div class="meta-item">Versión: 2.0</div>
-            <div class="meta-item">Fecha de entrada en vigor: <span class="muted">[22/12/2025]</span></div>
-            <div class="meta-item">Última actualización: <span class="muted">[22/12/2025]</span></div>
-          </div>
+    .policy__summary {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--g400);
+      border-radius: var(--r-sm);
+      padding: 1.6rem;
+      font-size: 1.35rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
 
-          <div class="box box-info">
-            <strong>Resumen:</strong> Este documento describe cómo se recolectan, usan, almacenan, comparten y protegen los datos personales obtenidos a través de este sitio web, incluyendo la posible utilización de información anonimizada para el entrenamiento y mejora de modelos de inteligencia artificial (LLM), conforme a la normativa colombiana vigente y estándares internacionales.
-          </div>
+    .policy h2 {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      color: var(--cyan);
+      margin-top: 4rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-          <div class="toc">
-            <h2>Contenido</h2>
-            <ol>
-              <li><a href="#identificacion">Identificación del responsable del tratamiento</a></li>
-              <li><a href="#marco-legal">Marco legal aplicable</a></li>
-              <li><a href="#definiciones">Definiciones</a></li>
-              <li><a href="#principios">Principios rectores del tratamiento</a></li>
-              <li><a href="#finalidad">Finalidades del tratamiento</a></li>
-              <li><a href="#datos-recolectados">Datos personales recolectados</a></li>
-              <li><a href="#autorizacion">Autorización del titular</a></li>
-              <li><a href="#derechos-titular">Derechos de los titulares</a></li>
-              <li><a href="#consultas-reclamos">Procedimiento para consultas y reclamos</a></li>
-              <li><a href="#tratamiento-seguridad">Tratamiento, almacenamiento y seguridad</a></li>
-              <li><a href="#temporalidad">Temporalidad y conservación de los datos</a></li>
-              <li><a href="#transferencias">Transferencia y transmisión de datos</a></li>
-              <li><a href="#ia">Tratamiento de datos para inteligencia artificial (IA)</a></li>
-              <li><a href="#accountability">Responsabilidad demostrada (accountability)</a></li>
-              <li><a href="#modificaciones">Modificaciones de la política</a></li>
-              <li><a href="#rnbd">Registro Nacional de Bases de Datos (RNBD)</a></li>
-              <li><a href="#aviso-privacidad">Aviso de privacidad</a></li>
-              <li><a href="#autoridades">Autoridades de control</a></li>
-              <li><a href="#contacto">Datos de contacto</a></li>
-              <li><a href="#referencias">Referencias normativas actualizadas</a></li>
-            </ol>
-          </div>
+    .policy h3 {
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--g500);
+    }
 
-          <!-- 1. IDENTIFICACIÓN -->
-          <h2 id="identificacion">1. Identificación del responsable del tratamiento</h2>
-          <p>
-            En cumplimiento de la Ley Estatutaria 1581 de 2012, el Decreto 1074 de 2015 y demás normas concordantes en materia de protección de datos personales en Colombia, el responsable del tratamiento informa lo siguiente.
-          </p>
-          <p><strong>Responsable:</strong> Álvaro Orozco</p>
-          <p><strong>Identificación:</strong> [Documento de identidad]</p>
-          <p><strong>Domicilio:</strong> Medellín, Antioquia, Colombia</p>
-          <p><strong>Correo electrónico:</strong> <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a></p>
-          <p><strong>Teléfono:</strong> +57 [Tu teléfono]</p>
-          <p><strong>Sitio web:</strong> <a href="https://alvaro-orozco.com" target="_blank" rel="noopener">https://alvaro-orozco.com</a></p>
-          <p><strong>Responsable de atención de consultas y reclamos:</strong> Álvaro Orozco (a través de los canales de contacto indicados).</p>
+    .policy p {
+      font-size: 1.4rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 1.4rem;
+      text-align: justify;
+    }
 
-          <!-- 2. MARCO LEGAL -->
-          <h2 id="marco-legal">2. Marco legal aplicable</h2>
-          <p>
-            Esta política se rige principalmente por la siguiente normativa colombiana:
-          </p>
-          <ul>
-            <li>Constitución Política de Colombia, en particular el artículo 15 (derecho fundamental al habeas data).</li>
-            <li>Ley Estatutaria 1581 de 2012 y sus decretos reglamentarios.</li>
-            <li>Ley Estatutaria 1266 de 2008 (habeas data financiero), cuando sea aplicable.</li>
-            <li>Decreto 1074 de 2015 (Decreto Único Reglamentario del Sector Comercio, Industria y Turismo), en lo referente a protección de datos personales.</li>
-            <li>Circular Externa 002 del 21 de agosto de 2024 de la Superintendencia de Industria y Comercio (SIC), sobre lineamientos del tratamiento de datos personales en sistemas de inteligencia artificial.</li>
-            <li>Circular Externa 003 de 2024 de la SIC, sobre responsabilidad demostrada y programas de gestión de datos personales.</li>
-          </ul>
-          <p>
-            Adicionalmente, se tienen en cuenta estándares y buenas prácticas internacionales, como el Reglamento General de Protección de Datos (RGPD) de la Unión Europea y guías emitidas por autoridades de control extranjeras, en la medida en que resulten compatibles con el ordenamiento jurídico colombiano y como criterio orientador.
-          </p>
+    .policy ul, .policy ol {
+      padding-left: 2rem;
+      margin-bottom: 1.4rem;
+    }
 
-          <!-- 3. DEFINICIONES -->
-          <h2 id="definiciones">3. Definiciones</h2>
-          <p>
-            Para efectos de esta política, se entenderán las siguientes definiciones, en concordancia con la Ley 1581 de 2012 y su normativa reglamentaria:
-          </p>
-          <ul>
-            <li><strong>Dato personal:</strong> Cualquier información vinculada o que pueda asociarse a una persona natural determinada o determinable.</li>
-            <li><strong>Dato sensible:</strong> Información que afecta la intimidad del titular o cuyo uso indebido puede generar su discriminación, como datos de salud, orientación sexual, convicciones religiosas o políticas, entre otros.</li>
-            <li><strong>Tratamiento:</strong> Cualquier operación o conjunto de operaciones sobre datos personales, tales como recolección, almacenamiento, uso, circulación o supresión.</li>
-            <li><strong>Titular:</strong> Persona natural cuyos datos personales son objeto de tratamiento.</li>
-            <li><strong>Responsable del tratamiento:</strong> Persona natural o jurídica que decide sobre la base de datos y/o el tratamiento de los datos.</li>
-            <li><strong>Encargado del tratamiento:</strong> Persona natural o jurídica que realiza el tratamiento de datos personales por cuenta del responsable.</li>
-            <li><strong>Anonimización:</strong> Proceso mediante el cual la información deja de referirse a una persona identificada o identificable, de forma irreversible, atendiendo a la tecnología disponible, costes y tiempo requeridos para intentar reidentificarla.</li>
-            <li><strong>Seudonimización:</strong> Tratamiento mediante el cual los datos no pueden atribuirse a un titular sin utilizar información adicional, que se mantiene por separado y sujeta a medidas técnicas y organizativas.</li>
-            <li><strong>Sistema de inteligencia artificial (IA):</strong> Sistema que, para un objetivo explícito o implícito, infiere, a partir de entradas, salidas como contenidos, predicciones, recomendaciones o decisiones que pueden influir en entornos físicos o virtuales.</li>
-          </ul>
+    .policy li {
+      font-size: 1.35rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 0.6rem;
+    }
 
-          <!-- 4. PRINCIPIOS -->
-          <h2 id="principios">4. Principios rectores del tratamiento</h2>
-          <p>El tratamiento de datos personales se realizará con sujeción a los siguientes principios:</p>
-          <ol>
-            <li><strong>Legalidad:</strong> El tratamiento es una actividad reglada que debe sujetarse a lo dispuesto en la ley y demás disposiciones que la desarrollen.</li>
-            <li><strong>Finalidad:</strong> El tratamiento obedece a una finalidad legítima, informada al titular, la cual será específica, explícita y lícita.</li>
-            <li><strong>Libertad:</strong> El tratamiento solo se realizará con el consentimiento, previo, expreso e informado del titular, salvo las excepciones legales.</li>
-            <li><strong>Veracidad o calidad:</strong> La información sujeta a tratamiento debe ser veraz, completa, exacta, actualizada, comprobable y comprensible.</li>
-            <li><strong>Transparencia:</strong> Se garantiza al titular el derecho a obtener información sobre la existencia de datos que le conciernen y el tratamiento que se hace de ellos.</li>
-            <li><strong>Acceso y circulación restringida:</strong> El tratamiento se sujeta a los límites derivados de la naturaleza de los datos personales, así como a las disposiciones de la ley.</li>
-            <li><strong>Seguridad:</strong> Se implementan las medidas técnicas, humanas, administrativas y contractuales necesarias para evitar el daño, adulteración, pérdida, consulta, uso o acceso no autorizado o fraudulento.</li>
-            <li><strong>Confidencialidad:</strong> Todas las personas que intervengan en el tratamiento están obligadas a garantizar la reserva de la información incluso después de finalizada su relación con el responsable.</li>
-            <li><strong>Temporalidad:</strong> Los datos personales se conservarán únicamente por el tiempo razonable y necesario para cumplir la finalidad de su tratamiento o las obligaciones legales aplicables.</li>
-          </ol>
+    .policy a { color: var(--g300); }
+    .policy a:hover { color: var(--cyan); }
 
-          <!-- 5. FINALIDAD -->
-          <h2 id="finalidad">5. Finalidades del tratamiento</h2>
-          <p>
-            Los datos personales recolectados a través del formulario de contacto de este sitio web (nombre, correo electrónico y mensaje, así como información adicional que el titular decida voluntariamente suministrar) serán tratados para las siguientes finalidades:
-          </p>
+    .policy strong { color: var(--text); }
 
-          <h3>5.1. Finalidades principales (obligatorias)</h3>
-          <ul>
-            <li>Gestionar y responder las consultas, solicitudes, comentarios o propuestas de proyectos remitidas por los titulares a través del formulario de contacto o los canales de comunicación habilitados.</li>
-            <li>Establecer, mantener y gestionar comunicación profesional relacionada con servicios de consultoría, proyectos, colaboraciones o actividades académicas o profesionales asociadas al responsable.</li>
-            <li>Cumplir las obligaciones contractuales y precontractuales derivadas de la relación establecida con el titular.</li>
-            <li>Cumplir con las obligaciones legales, administrativas y regulatorias aplicables al responsable.</li>
-          </ul>
+    .box {
+      border-radius: var(--r-sm);
+      padding: 1.4rem 1.6rem;
+      font-size: 1.35rem;
+      line-height: 1.7;
+      margin: 1.6rem 0;
+    }
 
-          <h3>5.2. Finalidades opcionales de mejora mediante inteligencia artificial (IA)</h3>
-          <div class="box box-warning">
-            <strong>Importante:</strong> Esta finalidad es opcional y solo se aplicará si el titular otorga <u>consentimiento expreso e independiente</u> mediante la casilla correspondiente en el formulario.
-          </div>
-          <p>
-            De manera adicional y solo cuando el titular lo autorice expresamente, la información suministrada podrá ser utilizada para:
-          </p>
-          <ul>
-            <li>Entrenamiento, validación y mejora de modelos de inteligencia artificial, incluyendo modelos de lenguaje de gran tamaño (Large Language Models - LLM), orientados a optimizar la calidad, precisión y pertinencia de las respuestas y servicios ofrecidos a través del sitio web.</li>
-          </ul>
-          <p>
-            Para esta finalidad se aplicarán, de forma previa e indispensable, procesos de <strong>anonimización irreversible</strong> de los datos identificatorios directos (por ejemplo, nombre, correo electrónico, datos de contacto) y de aquellos elementos que permitan la identificación indirecta del titular, de acuerdo con los lineamientos de la Circular Externa 002 de 2024 de la SIC y las guías de anonimización emitidas por autoridades competentes.
-          </p>
-          <p>
-            Estos procesos podrán incluir, entre otras, técnicas basadas en privacidad diferencial u otros métodos matemáticos y estadísticos que impidan de forma razonable la reidentificación de los titulares a partir de los datos transformados.
-          </p>
-          <p>
-            Una vez se complete la anonimización irreversible, la información deja de constituir dato personal y, por tanto, no estará sujeta a la Ley 1581 de 2012. No obstante, el responsable mantendrá evidencia de las medidas aplicadas para garantizar la irreversibilidad del proceso.
-          </p>
+    .box-info    { background: rgba(0,225,244,0.06); border: 1px solid rgba(0,225,244,0.2); color: var(--text-mid); }
+    .box-warning { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); color: #c9aa6a; }
+    .box-success { background: rgba(61,122,61,0.12); border: 1px solid rgba(61,122,61,0.3); color: var(--g200); }
 
-          <h3>5.3. Finalidades legales y de archivo</h3>
-          <ul>
-            <li>Dar cumplimiento a obligaciones legales, contables, contractuales y regulatorias.</li>
-            <li>Conservar la información requerida para fines de archivo, auditoría, defensa de derechos, pruebas judiciales o administrativas, durante los plazos de prescripción de las acciones correspondientes.</li>
-          </ul>
+    .meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .meta-item {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      background: var(--bg-card);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+    }
 
-          <!-- 6. DATOS RECOLECTADOS -->
-          <h2 id="datos-recolectados">6. Datos personales recolectados</h2>
-          <p>
-            A través del sitio web y, en particular, del formulario de contacto, se podrán recolectar los siguientes datos:
-          </p>
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
 
-          <table>
-            <thead>
-              <tr>
-                <th>Dato</th>
-                <th>Tipo</th>
-                <th>Carácter</th>
-                <th>Finalidad principal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Nombre completo</td>
-                <td>Dato de identificación</td>
-                <td>Obligatorio</td>
-                <td>Identificar al titular y personalizar la comunicación.</td>
-              </tr>
-              <tr>
-                <td>Correo electrónico</td>
-                <td>Dato de contacto</td>
-                <td>Obligatorio</td>
-                <td>Responder consultas y establecer comunicación profesional.</td>
-              </tr>
-              <tr>
-                <td>Mensaje o descripción de la consulta</td>
-                <td>Dato de contenido</td>
-                <td>Obligatorio</td>
-                <td>Comprender la solicitud y dar respuesta adecuada.</td>
-              </tr>
-              <tr>
-                <td>Entidad/empresa/organización</td>
-                <td>Dato semiprivado</td>
-                <td>Opcional</td>
-                <td>Contextualizar la consulta o relación profesional.</td>
-              </tr>
-              <tr>
-                <td>Dirección IP, fecha y hora de envío</td>
-                <td>Dato técnico</td>
-                <td>Automático</td>
-                <td>Seguridad, registro de consentimiento y auditoría.</td>
-              </tr>
-            </tbody>
-          </table>
+    .toc h2 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      border: none;
+      padding: 0;
+      color: var(--g300);
+    }
 
-          <div class="box box-warning">
-            <strong>Nota:</strong> El responsable no solicita deliberadamente datos sensibles ni información de niños, niñas o adolescentes a través del formulario de contacto. Se recomienda al titular abstenerse de incluir este tipo de datos en los mensajes enviados. En caso de que, excepcionalmente, se reciban datos de esta naturaleza, se aplicarán las salvaguardas reforzadas previstas en la ley y, de ser procedente, se procederá a su eliminación segura.
-          </div>
+    .toc ol { counter-reset: toc; padding-left: 0; }
+    .toc li {
+      counter-increment: toc;
+      list-style: none;
+      font-size: 1.25rem;
+      padding: 0.3rem 0;
+    }
 
-          <!-- 7. AUTORIZACIÓN -->
-          <h2 id="autorizacion">7. Autorización del titular</h2>
+    .toc li::before {
+      content: counter(toc) ". ";
+      color: var(--g500);
+      font-family: var(--mono);
+      font-size: 1rem;
+    }
 
-          <h3>7.1. Obtención del consentimiento diferenciado</h3>
-          <p>
-            El tratamiento de datos personales requiere el consentimiento previo, expreso e informado del titular, salvo las excepciones previstas en la ley. Para garantizar un consentimiento específico y granular, el formulario de contacto incluirá casillas de verificación diferenciadas:
-          </p>
-          <ul>
-            <li>
-      <strong>Autorización básica (obligatoria):</strong> Permite el tratamiento de los datos para la gestión de la consulta y la comunicación profesional, conforme a las finalidades principales descritas en la sección 5.1.
-    </li>
-    <li>
-      <strong>Autorización opcional para IA (independiente):</strong> Permite, de forma separada y voluntaria, el uso de los datos, previa anonimización irreversible, para fines de entrenamiento, validación y mejora de modelos de inteligencia artificial, conforme a la sección 5.2.
-    </li>
-          </ul>
-          <p>
-            El titular podrá enviar el formulario y acceder a los servicios aun cuando decida no otorgar la autorización opcional para IA. La negativa a esta finalidad adicional no afectará la atención de su solicitud principal.
-          </p>
+    .toc a { color: var(--text-mid); }
+    .toc a:hover { color: var(--cyan); }
 
-          <h3>7.2. Casos en que no es necesaria la autorización</h3>
-          <p>
-            El responsable podrá tratar datos personales sin autorización previa del titular en los casos expresamente autorizados por la ley, tales como:
-          </p>
-          <ul>
-            <li>Información requerida por entidad pública o administrativa en ejercicio de sus funciones legales.</li>
-            <li>Datos de naturaleza pública.</li>
-            <li>Casos de urgencia médica o sanitaria.</li>
-            <li>Tratamiento de información autorizado por la ley para fines históricos, estadísticos o científicos, siempre que se adopten medidas de supresión de identidad de los titulares, cuando así se requiera.</li>
-          </ul>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.3rem;
+      margin: 1.6rem 0;
+      overflow-x: auto;
+      display: block;
+    }
 
-          <h3>7.3. Prueba de la autorización</h3>
-          <p>
-            El responsable conservará registros adecuados de las autorizaciones otorgadas por los titulares (por ejemplo, fecha y hora, dirección IP, versión de la política aplicable y casillas seleccionadas), mediante logs técnicos o mecanismos equivalentes, con el fin de demostrar el cumplimiento de la normativa aplicable.
-          </p>
+    th {
+      background: var(--bg-card2);
+      color: var(--g300);
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-align: left;
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid var(--border-md);
+    }
 
-          <!-- 8. DERECHOS DEL TITULAR -->
-          <h2 id="derechos-titular">8. Derechos de los titulares de los datos</h2>
-          <p>
-            En calidad de titular de datos personales, usted tiene derecho a:
-          </p>
-          <ol>
-            <li><strong>Conocer, acceder y consultar</strong> de manera gratuita sus datos personales al menos una vez al mes calendario, y cada vez que existan modificaciones sustanciales en las políticas de tratamiento.</li>
-            <li><strong>Actualizar y rectificar</strong> la información frente al responsable, cuando sea incompleta, inexacta o fraccionada.</li>
-            <li><strong>Solicitar la supresión</strong> de sus datos cuando considere que no están siendo tratados conforme a los principios, derechos y garantías constitucionales y legales, o cuando hayan dejado de ser necesarios para la finalidad para la cual fueron recolectados.</li>
-            <li><strong>Revocar la autorización</strong> para el tratamiento de sus datos, salvo en los casos en que exista un deber legal o contractual que obligue a su conservación.</li>
-            <li><strong>Solicitar prueba de la autorización</strong> otorgada para el tratamiento, salvo que la ley no exija dicha autorización.</li>
-            <li><strong>Solicitar quejas ante la Superintendencia de Industria y Comercio</strong> cuando considere que se ha vulnerado su derecho al habeas data o las normas de protección de datos personales.</li>
-          </ol>
-          <p>
-            Estos derechos podrán ejercerse mediante los procedimientos descritos en la sección 9 de esta política.
-          </p>
+    td {
+      padding: 0.9rem 1.2rem;
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
 
-          <!-- 9. CONSULTAS Y RECLAMOS -->
-          <h2 id="consultas-reclamos">9. Procedimiento para consultas y reclamos</h2>
+    tr:last-child td { border-bottom: none; }
 
-          <h3>9.1. Consultas</h3>
-          <p>
-            Los titulares o sus causahabientes podrán formular consultas para conocer la información personal que reposa en las bases de datos del responsable. La consulta se realizará a través de los canales señalados en la sección 18.
-          </p>
-          <p>
-            La respuesta se dará en un término máximo de diez (10) días hábiles contados a partir de la fecha de recibo de la solicitud. Cuando no sea posible atender la consulta en dicho término, se informará al interesado, indicando los motivos de la demora y señalando la fecha en que se atenderá, la cual no podrá superar los cinco (5) días hábiles siguientes al vencimiento del primer término.
-          </p>
+    .muted { color: var(--text-dim); font-size: 1.2rem; }
+  </style>
+</head>
+<body>
 
-          <h3>9.2. Reclamos (actualización, rectificación, supresión o revocatoria)</h3>
-          <p>
-            El titular o sus causahabientes que consideren que la información contenida en una base de datos debe ser objeto de corrección, actualización, supresión, o cuando adviertan el presunto incumplimiento de cualquier deber del responsable, podrán presentar un reclamo mediante solicitud dirigida al responsable, indicando:
-          </p>
-          <ul>
-            <li>Identificación del titular (nombre completo y documento de identidad).</li>
-            <li>Descripción clara de los hechos que dan lugar al reclamo.</li>
-            <li>Petición concreta (corrección, actualización, supresión, revocatoria, etc.).</li>
-            <li>Datos de contacto para responder (correo electrónico, dirección física, teléfono).</li>
-            <li>Documentos que soporten la petición, cuando sea pertinente.</li>
-          </ul>
-          <p>
-            Si el reclamo resulta incompleto, se requerirá al interesado dentro de los cinco (5) días hábiles siguientes a la recepción para que subsane las fallas. Si transcurren dos (2) meses desde la fecha del requerimiento sin que el solicitante presente la información requerida, se entenderá que ha desistido del reclamo.
-          </p>
-          <p>
-            Una vez recibido el reclamo completo, se incluirá en la base de datos la leyenda “reclamo en trámite” y el motivo del mismo, en un término no superior a dos (2) días hábiles. El reclamo será atendido en un término máximo de quince (15) días hábiles contados desde el día siguiente a la fecha de su recibo. Cuando no sea posible atenderlo dentro de dicho término, se informará al interesado, señalando los motivos de la demora y la fecha en que se atenderá, la cual no podrá superar los ocho (8) días hábiles siguientes al vencimiento del primer término.
-          </p>
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="./index.html" class="nav__logo">aoz<span>.</span>dev</a>
+    <button class="nav__toggle" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav__menu">
+      <li><a href="./index.html#derecho"><i class="fa-solid fa-scale-balanced"></i> Servicios</a></li>
+      <li><a href="./index.html#proyectos"><i class="fa-solid fa-code"></i> Proyectos</a></li>
+      <li><a href="./index.html#contacto" class="nav__pill"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </div>
+</nav>
 
-          <!-- 10. TRATAMIENTO Y SEGURIDAD -->
-          <h2 id="tratamiento-seguridad">10. Tratamiento, almacenamiento y medidas de seguridad</h2>
+<main class="policy">
 
-          <h3>10.1. Medidas de seguridad</h3>
-          <p>
-            El responsable implementa medidas técnicas, humanas, administrativas y contractuales razonables para proteger la información personal contra pérdida, uso indebido, acceso no autorizado, divulgación, alteración y destrucción.
-          </p>
-          <ul>
-            <li>Uso de conexiones seguras (HTTPS) para la transmisión de información.</li>
-            <li>Controles de acceso lógico a sistemas y bases de datos, con usuarios y contraseñas.</li>
-            <li>Respaldo periódico de la información en entornos seguros.</li>
-            <li>Cláusulas de confidencialidad con terceros proveedores que puedan tener acceso a datos.</li>
-            <li>Registro y monitoreo de actividades relevantes en sistemas donde se almacenan datos.</li>
-          </ul>
+  <div class="policy__header">
+    <span class="section__label section__label--law" style="display:block;margin-bottom:1rem;">// documento legal</span>
+    <h1>Política de Tratamiento y Protección de Datos Personales</h1>
 
-          <h3>10.2. Gestión de incidentes de seguridad</h3>
-          <p>
-            En caso de presentarse incidentes de seguridad que comprometan la integridad, confidencialidad o disponibilidad de los datos personales, el responsable adoptará las medidas necesarias para contener y mitigar los efectos, y realizará, cuando sea exigible, las notificaciones correspondientes a las autoridades competentes y a los titulares afectados dentro de los plazos legales aplicables.
-          </p>
+    <div class="meta">
+      <div class="meta-item">Versión: 2.0</div>
+      <div class="meta-item">Vigencia: 22/12/2025</div>
+      <div class="meta-item">Actualización: 22/12/2025</div>
+    </div>
 
-          <!-- 11. TEMPORALIDAD -->
-          <h2 id="temporalidad">11. Temporalidad y conservación de los datos</h2>
-          <p>
-            Los datos personales serán conservados únicamente durante el tiempo necesario para el cumplimiento de las finalidades para las cuales fueron recolectados, respetando los principios de necesidad y proporcionalidad, y los plazos de prescripción de acciones judiciales, administrativas o contractuales aplicables.
-          </p>
-          <ul>
-            <li>Datos asociados a consultas o comunicaciones puntuales: se podrán conservar por un periodo de hasta seis (6) meses después de finalizada la interacción, salvo que sea necesario mantenerlos por obligaciones legales o contractuales.</li>
-            <li>Datos utilizados para fines de archivo, fines probatorios o defensa de derechos: se conservarán durante los plazos de prescripción de las acciones correspondientes.</li>
-            <li>Una vez cumplida la finalidad y vencidos los plazos legales, se procederá a la supresión o anonimización irreversible de la información, según corresponda.</li>
-          </ul>
+    <div class="policy__summary">
+      <strong>Resumen:</strong> Este documento describe cómo se recolectan, usan, almacenan y protegen los datos personales obtenidos a través de este sitio web, incluyendo la posible utilización de información anonimizada para entrenamiento de modelos de IA, conforme a la normativa colombiana vigente.
+    </div>
+  </div>
 
-          <!-- 12. TRANSFERENCIAS -->
-          <h2 id="transferencias">12. Transferencia y transmisión de datos personales</h2>
+  <!-- TOC -->
+  <div class="toc">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#identificacion">Identificación del responsable</a></li>
+      <li><a href="#marco-legal">Marco legal aplicable</a></li>
+      <li><a href="#definiciones">Definiciones</a></li>
+      <li><a href="#principios">Principios rectores</a></li>
+      <li><a href="#finalidad">Finalidades del tratamiento</a></li>
+      <li><a href="#datos-recolectados">Datos personales recolectados</a></li>
+      <li><a href="#autorizacion">Autorización del titular</a></li>
+      <li><a href="#derechos-titular">Derechos de los titulares</a></li>
+      <li><a href="#consultas-reclamos">Consultas y reclamos</a></li>
+      <li><a href="#tratamiento-seguridad">Tratamiento y seguridad</a></li>
+      <li><a href="#temporalidad">Temporalidad y conservación</a></li>
+      <li><a href="#transferencias">Transferencia de datos</a></li>
+      <li><a href="#ia">Tratamiento para inteligencia artificial</a></li>
+      <li><a href="#accountability">Responsabilidad demostrada</a></li>
+      <li><a href="#modificaciones">Modificaciones</a></li>
+      <li><a href="#rnbd">Registro Nacional de Bases de Datos</a></li>
+      <li><a href="#aviso-privacidad">Aviso de privacidad</a></li>
+      <li><a href="#autoridades">Autoridades de control</a></li>
+      <li><a href="#contacto-datos">Datos de contacto</a></li>
+      <li><a href="#referencias">Referencias normativas</a></li>
+    </ol>
+  </div>
 
-          <h3>12.1. Transmisión nacional a encargados</h3>
-          <p>
-            Los datos personales podrán ser transmitidos a terceros proveedores de servicios (por ejemplo, servicios de hosting, correo electrónico, analítica o herramientas tecnológicas) que actúen como encargados del tratamiento, exclusivamente para apoyar las finalidades establecidas en esta política y bajo instrucciones del responsable.
-          </p>
-          <p>
-            En estos casos, se suscribirán acuerdos o cláusulas de tratamiento de datos personales que garanticen el cumplimiento de la ley colombiana, la confidencialidad de la información, la seguridad adecuada y la prohibición de tratar los datos para finalidades distintas a las aquí autorizadas.
-          </p>
+  <h2 id="identificacion">1. Identificación del responsable del tratamiento</h2>
+  <p>En cumplimiento de la Ley Estatutaria 1581 de 2012, el Decreto 1074 de 2015 y demás normas concordantes, el responsable informa:</p>
+  <p><strong>Responsable:</strong> Álvaro Orozco</p>
+  <p><strong>Identificación:</strong> C.C. 1.036.655.445</p>
+  <p><strong>Domicilio:</strong>Medellín, Antioquia, Colombia</p>
+  <p><strong>Correo electrónico:</strong> <a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a></p>
+  <p><strong>Sitio web:</strong> <a href="https://alvaroaoz.github.io" target="_blank" rel="noopener">alvaroaoz.github.io</a></p>
 
-          <h3>12.2. Transferencia internacional de datos</h3>
-          <p>
-            Cuando resulte necesario utilizar servicios de terceros ubicados en otros países (por ejemplo, proveedores de nube o herramientas de analítica), se procurará seleccionar proveedores ubicados en jurisdicciones que proporcionen un nivel adecuado de protección de datos personales, de acuerdo con las directrices de la Superintendencia de Industria y Comercio.
-          </p>
-          <p>
-            En todo caso, se adoptarán las salvaguardas contractuales y técnicas razonables para proteger los datos personales y se informará al titular sobre la existencia de estas transferencias, de acuerdo con la normativa vigente.
-          </p>
+  <h2 id="marco-legal">2. Marco legal aplicable</h2>
+  <p>Esta política se rige principalmente por la siguiente normativa colombiana:</p>
+  <ul>
+    <li>Constitución Política de Colombia, artículo 15 (derecho fundamental al habeas data).</li>
+    <li>Ley Estatutaria 1581 de 2012 y sus decretos reglamentarios.</li>
+    <li>Ley Estatutaria 1266 de 2008 (habeas data financiero), cuando sea aplicable.</li>
+    <li>Decreto 1074 de 2015 (Decreto Único Reglamentario del Sector Comercio, Industria y Turismo).</li>
+    <li>Circular Externa 002 de 2024 de la SIC — lineamientos sobre IA y datos personales.</li>
+    <li>Circular Externa 003 de 2024 de la SIC — responsabilidad demostrada.</li>
+  </ul>
 
-          <!-- 13. IA -->
-          <h2 id="ia">13. Tratamiento de datos para inteligencia artificial (IA)</h2>
+  <h2 id="definiciones">3. Definiciones</h2>
+  <ul>
+    <li><strong>Dato personal:</strong> Cualquier información vinculada o asociable a una persona natural determinada o determinable.</li>
+    <li><strong>Dato sensible:</strong> Información que afecta la intimidad del titular o cuyo uso puede generar discriminación.</li>
+    <li><strong>Tratamiento:</strong> Cualquier operación sobre datos personales: recolección, almacenamiento, uso, circulación o supresión.</li>
+    <li><strong>Titular:</strong> Persona natural cuyos datos son objeto de tratamiento.</li>
+    <li><strong>Responsable:</strong> Quien decide sobre la base de datos y/o el tratamiento.</li>
+    <li><strong>Encargado:</strong> Quien realiza el tratamiento por cuenta del responsable.</li>
+    <li><strong>Anonimización:</strong> Proceso irreversible mediante el cual la información deja de referirse a una persona identificada.</li>
+    <li><strong>Sistema de IA:</strong> Sistema que infiere, a partir de entradas, salidas como predicciones, recomendaciones o decisiones.</li>
+  </ul>
 
-          <h3>13.1. Principios específicos para IA</h3>
-          <p>
-            El tratamiento de datos personales en sistemas de inteligencia artificial se regirá por los principios generales de la Ley 1581 de 2012 y, adicionalmente, por los criterios de ponderación establecidos por la Circular Externa 002 de 2024 de la Superintendencia de Industria y Comercio:
-          </p>
-          <ol>
-            <li><strong>Idoneidad:</strong> El tratamiento debe ser capaz de contribuir efectivamente a la finalidad de mejorar los servicios mediante IA.</li>
-            <li><strong>Necesidad:</strong> No debe existir otra medida más moderada y menos intrusiva que permita alcanzar un nivel de eficacia equivalente.</li>
-            <li><strong>Razonabilidad:</strong> La finalidad perseguida debe ser constitucionalmente legítima, ponderando adecuadamente los intereses en juego.</li>
-            <li><strong>Proporcionalidad en sentido estricto:</strong> Los beneficios esperados del uso de IA no deben superar las restricciones o riesgos para los derechos de los titulares.</li>
-          </ol>
+  <h2 id="principios">4. Principios rectores del tratamiento</h2>
+  <ol>
+    <li><strong>Legalidad:</strong> El tratamiento se sujeta a la ley y normas que la desarrollen.</li>
+    <li><strong>Finalidad:</strong> La finalidad es legítima, específica, explícita y lícita.</li>
+    <li><strong>Libertad:</strong> El tratamiento requiere consentimiento previo, expreso e informado, salvo excepciones legales.</li>
+    <li><strong>Veracidad:</strong> La información debe ser veraz, completa, exacta y actualizada.</li>
+    <li><strong>Transparencia:</strong> El titular tiene derecho a conocer qué datos se tienen y cómo se tratan.</li>
+    <li><strong>Seguridad:</strong> Se implementan medidas técnicas, humanas y administrativas para proteger los datos.</li>
+    <li><strong>Confidencialidad:</strong> Quienes intervienen en el tratamiento deben guardar reserva incluso tras cesar su relación con el responsable.</li>
+    <li><strong>Temporalidad:</strong> Los datos se conservan solo el tiempo necesario para la finalidad del tratamiento.</li>
+  </ol>
 
-          <h3>13.2. Anonimización previa al uso en IA</h3>
-          <p>
-            Antes de utilizar información derivada de las consultas o interacciones de los titulares para el entrenamiento, validación o mejora de modelos de IA (incluidos LLM), se aplicarán procesos de anonimización orientados a garantizar que los datos no puedan ser asociados a personas identificadas o identificables.
-          </p>
-          <p>
-            En particular, se eliminarán o transformarán los identificadores directos (como nombre, correo electrónico y datos de contacto) y se atenuarán o generalizarán aquellos datos que pudieran permitir la identificación indirecta. Se podrán emplear técnicas de privacidad diferencial y otros métodos recomendados por las autoridades para reducir el riesgo de reidentificación.
-          </p>
-          <p>
-            Una vez completada la anonimización irreversible, la información resultante podrá utilizarse para fines de IA sin que sea posible vincularla a un titular específico.
-          </p>
+  <h2 id="finalidad">5. Finalidades del tratamiento</h2>
 
-          <h3>13.3. Consentimiento específico para uso en IA</h3>
-          <p>
-            El uso de los datos proporcionados por el titular para fines de entrenamiento, validación o mejora de modelos de IA se llevará a cabo únicamente cuando el titular haya otorgado su consentimiento específico a través de la casilla opcional del formulario.
-          </p>
-          <p>
-            El titular podrá revocar esta autorización antes de que la información haya sido sometida a procesos de anonimización. Una vez los datos hayan sido anonimizados de forma irreversible e incorporados a conjuntos de entrenamiento, no será posible identificar la información asociada a un titular individual ni ejercer derechos de supresión sobre datos que han dejado de ser personales.
-          </p>
+  <h3>5.1. Finalidades principales (obligatorias)</h3>
+  <ul>
+    <li>Gestionar y responder consultas, solicitudes y propuestas de proyectos.</li>
+    <li>Establecer y mantener comunicación profesional relacionada con servicios legales, consultoría o desarrollo.</li>
+    <li>Cumplir las obligaciones contractuales y precontractuales con el titular.</li>
+    <li>Cumplir obligaciones legales, administrativas y regulatorias aplicables al responsable.</li>
+  </ul>
 
-          <h3>13.4. Gestión de riesgos y principio de precaución</h3>
-          <p>
-            El responsable mantendrá un esquema de gestión de riesgos para los tratamientos en sistemas de IA, que incluirá la identificación, evaluación y mitigación de riesgos asociados a sesgos, errores, impactos discriminatorios o afectaciones sobre derechos fundamentales.
-          </p>
-          <p>
-            En aplicación del principio de precaución, cuando exista incertidumbre sobre los potenciales efectos adversos para los titulares y no se cuente con medidas suficientes para mitigarlos, el responsable se abstendrá de realizar el tratamiento correspondiente o aplicará salvaguardas adicionales.
-          </p>
+  <h3>5.2. Finalidades opcionales — inteligencia artificial</h3>
+  <div class="box box-warning">
+    <strong>Importante:</strong> Esta finalidad es opcional y solo se aplica con <u>consentimiento expreso e independiente</u> del titular.
+  </div>
+  <p>Con autorización expresa, la información podrá usarse para entrenamiento, validación y mejora de modelos de IA (incluidos LLM), previo proceso de <strong>anonimización irreversible</strong> de todos los identificadores directos e indirectos, conforme a la Circular Externa 002 de 2024 de la SIC.</p>
 
-          <h2 id="accountability">14. Responsabilidad demostrada (accountability)</h2>
-          <p>
-            El responsable se compromete a adoptar un enfoque de responsabilidad demostrada en materia de protección de datos personales, lo que implica:
-          </p>
-          <ul>
-            <li>Implementar y documentar políticas, procedimientos y controles internos para el cumplimiento de la normativa aplicable.</li>
-            <li>Mantener registros que permitan acreditar las decisiones y medidas adoptadas en relación con el tratamiento de datos personales.</li>
-            <li>Actualizar periódicamente esta política y los procedimientos internos, en función de cambios normativos o de las actividades de tratamiento.</li>
-            <li>Atender diligentemente los requerimientos y recomendaciones de las autoridades de protección de datos.</li>
-          </ul>
+  <h3>5.3. Finalidades legales y de archivo</h3>
+  <ul>
+    <li>Cumplir obligaciones legales, contables y contractuales.</li>
+    <li>Conservar información para fines de archivo, auditoría o defensa de derechos durante los plazos de prescripción.</li>
+  </ul>
 
-          <h2 id="modificaciones">15. Modificaciones de la política</h2>
-          <p>
-            El responsable podrá modificar esta política en cualquier momento, con el objeto de atender nuevas exigencias normativas, cambios en los tratamientos de datos personales o mejoras en los mecanismos de protección de la información.
-          </p>
-          <p>
-            Cualquier modificación sustancial será comunicada a los titulares mediante la publicación de la versión actualizada en este sitio web, indicando la fecha de entrada en vigor y, cuando corresponda, mediante comunicaciones adicionales a los canales de contacto registrados. Si las modificaciones afectan las finalidades del tratamiento, se solicitará nuevamente la autorización del titular cuando sea necesario.
-          </p>
+  <h2 id="datos-recolectados">6. Datos personales recolectados</h2>
 
-          <h2 id="rnbd">16. Registro Nacional de Bases de Datos (RNBD)</h2>
-          <p>
-            Cuando por ley corresponda, el responsable realizará el registro de sus bases de datos ante el Registro Nacional de Bases de Datos (RNBD) administrado por la Superintendencia de Industria y Comercio, y actualizará la información registrada conforme a las disposiciones vigentes.
-          </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Dato</th>
+        <th>Tipo</th>
+        <th>Carácter</th>
+        <th>Finalidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nombre completo</td>
+        <td>Identificación</td>
+        <td>Obligatorio</td>
+        <td>Identificar al titular y personalizar la comunicación.</td>
+      </tr>
+      <tr>
+        <td>Correo electrónico</td>
+        <td>Contacto</td>
+        <td>Obligatorio</td>
+        <td>Responder consultas y establecer comunicación profesional.</td>
+      </tr>
+      <tr>
+        <td>Mensaje / consulta</td>
+        <td>Contenido</td>
+        <td>Obligatorio</td>
+        <td>Comprender la solicitud y dar respuesta adecuada.</td>
+      </tr>
+      <tr>
+        <td>Entidad / organización</td>
+        <td>Semiprivado</td>
+        <td>Opcional</td>
+        <td>Contextualizar la consulta o relación profesional.</td>
+      </tr>
+      <tr>
+        <td>IP, fecha y hora de envío</td>
+        <td>Técnico</td>
+        <td>Automático</td>
+        <td>Seguridad, registro de consentimiento y auditoría.</td>
+      </tr>
+    </tbody>
+  </table>
 
-          <h2 id="aviso-privacidad">17. Aviso de privacidad</h2>
-          <p>
-            El formulario de contacto del sitio web incluirá un aviso de privacidad sucinto, del siguiente tenor:
-          </p>
-          <div class="box box-success">
-            <strong>Aviso de privacidad:</strong><br><br>
-            Álvaro Orozco, con domicilio en Medellín (Colombia), es el responsable del tratamiento de los datos personales recolectados a través de este formulario. Sus datos serán utilizados para responder consultas, establecer comunicación profesional y, únicamente si usted lo autoriza de manera expresa e independiente, para entrenar y mejorar modelos de inteligencia artificial previa anonimización irreversible de sus datos personales. Usted puede conocer, actualizar, rectificar y suprimir su información, así como revocar su autorización, antes de que sus datos sean anonimizados. Para ejercer sus derechos o consultar la Política completa de Tratamiento de Datos Personales, puede escribir a <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a> o visitar <a href="https://alvaro-orozco.com/politica-datos" target="_blank" rel="noopener">https://alvaro-orozco.com/politica-datos</a>.
-          </div>
+  <div class="box box-warning">
+    <strong>Nota:</strong> No se solicitan datos sensibles ni información de menores. Si se reciben datos de esta naturaleza de forma excepcional, se aplicarán las salvaguardas reforzadas previstas en la ley.
+  </div>
 
-          <h2 id="autoridades">18. Autoridades de control</h2>
-          <p>
-            La autoridad competente para conocer de reclamaciones relacionadas con la protección de datos personales en Colombia es:
-          </p>
-          <p>
-            <strong>Superintendencia de Industria y Comercio – Delegatura para la Protección de Datos Personales</strong><br>
-            Dirección: Carrera 13 No. 27 – 00, Bogotá D.C., Colombia<br>
-            Teléfono: (57 1) 587 0000<br>
-            Página web: <a href="https://www.sic.gov.co" target="_blank" rel="noopener">https://www.sic.gov.co</a>
-          </p>
+  <h2 id="autorizacion">7. Autorización del titular</h2>
 
-          <h2 id="contacto">19. Datos de contacto para ejercicio de derechos</h2>
-          <p>
-            Para ejercer sus derechos de habeas data o para realizar consultas o reclamos relacionados con el tratamiento de sus datos personales, puede contactarnos a través de:
-          </p>
-          <ul>
-            <li><strong>Correo electrónico:</strong> <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a></li>
-            <li><strong>Sitio web:</strong> <a href="https://alvaro-orozco.com" target="_blank" rel="noopener">https://alvaro-orozco.com</a></li>
-            <li><strong>Domicilio:</strong> Medellín, Antioquia, Colombia</li>
-          </ul>
+  <h3>7.1. Consentimiento diferenciado</h3>
+  <p>El formulario de contacto incluye casillas de verificación separadas:</p>
+  <ul>
+    <li><strong>Autorización básica (obligatoria):</strong> Gestión de la consulta y comunicación profesional (sección 5.1).</li>
+    <li><strong>Autorización opcional para IA:</strong> Uso de datos, previa anonimización irreversible, para mejora de modelos de IA (sección 5.2).</li>
+  </ul>
+  <p>La negativa a la autorización opcional para IA no afecta la atención de la solicitud principal.</p>
 
-          <h2 id="referencias">20. Referencias normativas actualizadas</h2>
-          <p>
-            Esta política toma en consideración, entre otras, las siguientes normas y documentos de referencia:
-          </p>
-          <ul>
-            <li>Ley Estatutaria 1581 de 2012.</li>
-            <li>Ley Estatutaria 1266 de 2008.</li>
-            <li>Decreto 1074 de 2015 (Decreto Único del Sector Comercio, Industria y Turismo).</li>
-            <li>Circular Externa 002 de 2024 de la Superintendencia de Industria y Comercio – Lineamientos sobre Tratamiento de Datos Personales en Sistemas de Inteligencia Artificial.</li>
-            <li>Circular Externa 003 de 2024 de la Superintendencia de Industria y Comercio.</li>
-            <li>Guías técnicas sobre anonimización de datos emitidas por el Archivo General de la Nación y autoridades de protección de datos.</li>
-            <li>Reglamento General de Protección de Datos de la Unión Europea (RGPD – UE 2016/679), utilizado como referente de buenas prácticas.</li>
-          </ul>
+  <h3>7.2. Prueba de la autorización</h3>
+  <p>Se conservarán registros (fecha, hora, IP, versión de política y casillas seleccionadas) para acreditar el cumplimiento normativo.</p>
 
-            <p class="muted" style="margin-top: 32px;">
-            Documento aprobado por Álvaro Orozco. Esta política entra en vigencia a partir de la fecha indicada en el encabezado y permanecerá vigente hasta que sea modificada o actualizada expresamente.
-          </p>
+  <h2 id="derechos-titular">8. Derechos de los titulares</h2>
+  <ol>
+    <li><strong>Conocer, acceder y consultar</strong> sus datos de forma gratuita al menos una vez al mes.</li>
+    <li><strong>Actualizar y rectificar</strong> información incompleta, inexacta o fraccionada.</li>
+    <li><strong>Solicitar la supresión</strong> cuando los datos no se traten conforme a ley o hayan cesado en su finalidad.</li>
+    <li><strong>Revocar la autorización</strong> salvo deber legal o contractual de conservación.</li>
+    <li><strong>Solicitar prueba de la autorización</strong> otorgada para el tratamiento.</li>
+    <li><strong>Presentar quejas ante la SIC</strong> cuando considere vulnerado su derecho al habeas data.</li>
+  </ol>
 
-        </div>
-      </div>
-    </main>
+  <h2 id="consultas-reclamos">9. Procedimiento para consultas y reclamos</h2>
 
-    <script src="./portafolio.js"></script>
-  </body>
+  <h3>9.1. Consultas</h3>
+  <p>Las consultas se atienden en un término máximo de <strong>diez (10) días hábiles</strong>. Si no es posible en ese plazo, se informará al interesado indicando los motivos y la nueva fecha, que no podrá superar cinco (5) días hábiles adicionales.</p>
+
+  <h3>9.2. Reclamos</h3>
+  <p>Una vez recibido el reclamo completo, se incluirá la leyenda "reclamo en trámite" en un plazo no superior a <strong>dos (2) días hábiles</strong>. El reclamo se atenderá en un término máximo de <strong>quince (15) días hábiles</strong>, prorrogables por ocho (8) días hábiles adicionales con comunicación al interesado.</p>
+
+  <h2 id="tratamiento-seguridad">10. Tratamiento, almacenamiento y seguridad</h2>
+  <ul>
+    <li>Uso de conexiones seguras (HTTPS) para transmisión de información.</li>
+    <li>Controles de acceso lógico a sistemas y bases de datos.</li>
+    <li>Respaldo periódico en entornos seguros.</li>
+    <li>Cláusulas de confidencialidad con terceros proveedores.</li>
+    <li>Registro y monitoreo de actividades relevantes.</li>
+  </ul>
+  <p>En caso de incidentes de seguridad, se adoptarán medidas de contención y se realizarán las notificaciones correspondientes a las autoridades y titulares afectados dentro de los plazos legales.</p>
+
+  <h2 id="temporalidad">11. Temporalidad y conservación de los datos</h2>
+  <ul>
+    <li>Consultas o comunicaciones puntuales: hasta <strong>seis (6) meses</strong> tras finalizada la interacción, salvo obligación legal mayor.</li>
+    <li>Datos para fines probatorios o defensa de derechos: durante los plazos de prescripción aplicables.</li>
+    <li>Vencidos los plazos, se procederá a la supresión o anonimización irreversible.</li>
+  </ul>
+
+  <h2 id="transferencias">12. Transferencia y transmisión de datos</h2>
+  <p>Los datos podrán transmitirse a proveedores de servicios (hosting, correo, analítica) que actúen como encargados, exclusivamente para las finalidades establecidas y bajo acuerdos que garanticen el cumplimiento de la ley colombiana.</p>
+  <p>Para transferencias internacionales se seleccionarán proveedores en jurisdicciones con nivel adecuado de protección, conforme a las directrices de la SIC.</p>
+
+  <h2 id="ia">13. Tratamiento de datos para inteligencia artificial</h2>
+
+  <h3>13.1. Principios específicos para IA</h3>
+  <ol>
+    <li><strong>Idoneidad:</strong> El tratamiento debe contribuir efectivamente a la finalidad de mejora mediante IA.</li>
+    <li><strong>Necesidad:</strong> No debe existir medida más moderada y menos intrusiva de equivalente eficacia.</li>
+    <li><strong>Razonabilidad:</strong> La finalidad debe ser constitucionalmente legítima.</li>
+    <li><strong>Proporcionalidad:</strong> Los beneficios del uso de IA no deben superar los riesgos para los titulares.</li>
+  </ol>
+
+  <h3>13.2. Anonimización previa</h3>
+  <p>Antes de usar datos para entrenamiento de modelos de IA se eliminarán o transformarán todos los identificadores directos e indirectos. Se emplearán técnicas de privacidad diferencial u otros métodos recomendados por las autoridades.</p>
+
+  <h3>13.3. Revocación</h3>
+  <p>El titular puede revocar su autorización antes de que la información sea anonimizada. Una vez completada la anonimización irreversible, no será posible identificar ni suprimir la información asociada, pues habrá dejado de ser dato personal.</p>
+
+  <h2 id="accountability">14. Responsabilidad demostrada (accountability)</h2>
+  <p>El responsable implementa y documenta políticas, procedimientos y controles internos, mantiene registros de decisiones adoptadas y actualiza periódicamente esta política ante cambios normativos o de actividades de tratamiento.</p>
+
+  <h2 id="modificaciones">15. Modificaciones de la política</h2>
+  <p>Cualquier modificación sustancial se comunicará mediante la publicación de la versión actualizada en este sitio, indicando la fecha de entrada en vigor. Si las modificaciones afectan las finalidades del tratamiento, se solicitará nuevamente la autorización del titular cuando sea necesario.</p>
+
+  <h2 id="rnbd">16. Registro Nacional de Bases de Datos (RNBD)</h2>
+  <p>Cuando por ley corresponda, el responsable realizará el registro ante el RNBD administrado por la SIC y actualizará la información conforme a las disposiciones vigentes.</p>
+
+  <h2 id="aviso-privacidad">17. Aviso de privacidad</h2>
+  <div class="box box-success">
+    <strong>Aviso de privacidad:</strong><br><br>
+    Álvaro Orozco, domiciliado en Medellín (Colombia), es el responsable del tratamiento de los datos recolectados a través de este sitio. Sus datos se usarán para responder consultas y establecer comunicación profesional, y —solo si usted lo autoriza expresamente— para mejorar modelos de inteligencia artificial, previa anonimización irreversible. Puede conocer, actualizar, rectificar y suprimir su información, o revocar su autorización (antes de la anonimización), escribiendo a <a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a>.
+  </div>
+
+  <h2 id="autoridades">18. Autoridades de control</h2>
+  <p>
+    <strong>Superintendencia de Industria y Comercio — Delegatura para la Protección de Datos Personales</strong><br>
+    Dirección: Carrera 13 No. 27–00, Bogotá D.C.<br>
+    Teléfono: (57 1) 587 0000<br>
+    Web: <a href="https://www.sic.gov.co" target="_blank" rel="noopener">www.sic.gov.co</a>
+  </p>
+
+  <h2 id="contacto-datos">19. Datos de contacto para ejercicio de derechos</h2>
+  <ul>
+    <li><strong>Correo:</strong> <a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a></li>
+    <li><strong>Domicilio:</strong> Calle 25 #79A-87, Medellín, Antioquia, Colombia</li>
+  </ul>
+
+  <h2 id="referencias">20. Referencias normativas</h2>
+  <ul>
+    <li>Ley Estatutaria 1581 de 2012.</li>
+    <li>Ley Estatutaria 1266 de 2008.</li>
+    <li>Decreto 1074 de 2015.</li>
+    <li>Circular Externa 002 de 2024 de la SIC — Tratamiento de Datos en Sistemas de IA.</li>
+    <li>Circular Externa 003 de 2024 de la SIC.</li>
+    <li>RGPD (UE 2016/679) — referente de buenas prácticas.</li>
+  </ul>
+
+  <p class="muted" style="margin-top: 4rem;">
+    Documento aprobado por Álvaro Orozco. Vigente desde la fecha indicada hasta modificación expresa.
+  </p>
+
+</main>
+
+<footer class="footer">
+  <p>
+    © 2026 Álvaro Antonio Orozco Zapata · T.P. 44685 · Medellín, Colombia ·
+    <a href="./index.html">← Volver al inicio</a>
+  </p>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
 </html>
