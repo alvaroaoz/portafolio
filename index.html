@@ -31,10 +31,13 @@
   <title>Álvaro Orozco — Abogado &amp; Dev</title>
 
   <link rel="icon" type="image/svg+xml" href="./src/img/logo-iso.svg">
-  <link rel="apple-touch-icon" href="./src/img/logo-iso.svg">
+  <link rel="apple-touch-icon" href="./src/img/icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://kit.fontawesome.com">
+  <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/9b0976dd07.js" crossorigin="anonymous" defer></script>
   <link rel="stylesheet" href="./css/main.css">
@@ -89,7 +92,7 @@
 
   <div class="hero__law">
     <div class="hero__law-logo fade-up delay-1">
-      <img src="./src/img/logo-full.svg" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img">
+      <img src="./src/img/logo-full.svg" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img" fetchpriority="high" decoding="async">
     </div>
     <p class="hero__eyebrow fade-up delay-2">Abogado · Medellín, Colombia</p>
     <h1 class="fade-up delay-3">
@@ -132,7 +135,7 @@
   <div class="section__inner">
 
     <div class="section__law-header">
-      <img src="./src/img/logo-iso.svg" alt="" class="section__law-logo-img" aria-hidden="true">
+      <img src="./src/img/logo-iso.svg" alt="" class="section__law-logo-img" aria-hidden="true" loading="lazy" decoding="async">
     </div>
     <span class="section__label section__label--law">// área de práctica</span>
     <h2 class="section__title section__title--serif">
@@ -413,8 +416,15 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p>© 2026 Álvaro Antonio Orozco Zapata · Medellín, Colombia · <a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a> · <a href="./politica.html">Política de datos</a></p>
+  <p>© 2026 Álvaro Antonio Orozco Zapata · Medellín, Colombia ·<a href="mailto:aoz363@gmail.com">aoz363@gmail.com</a> · <a href="./politica.html">Política de datos</a></p>
 </footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..."
+   class="wa-float" target="_blank" rel="noopener noreferrer"
+   aria-label="Escribir por WhatsApp" title="Escríbeme por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <!-- Volver arriba -->
 <button class="to-top" id="to-top" aria-label="Volver arriba" title="Volver arriba">
@@ -442,9 +452,52 @@
       "url": "https://alvaroaoz.github.io/portafolio/",
       "image": "https://alvaroaoz.github.io/portafolio/src/img/og-image.png",
       "email": "aoz363@gmail.com",
+      "telephone": "+573027400632",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Medellín",
+        "addressRegion": "Antioquia",
+        "addressCountry": "CO"
+      },
       "areaServed": { "@type": "City", "name": "Medellín, Antioquia, Colombia" },
       "knowsAbout": ["Derecho de tránsito", "Multas SIMIT", "Cobro coactivo", "Procesos civiles", "Legal-tech", "Automatización"],
+      "sameAs": [
+        "https://github.com/alvaroaoz",
+        "https://www.linkedin.com/in/alvaroaoz/"
+      ],
       "founder": { "@id": "https://alvaroaoz.github.io/portafolio/#person" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://alvaroaoz.github.io/portafolio/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿La primera consulta tiene costo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La primera consulta para asuntos de tránsito y movilidad es sin costo. Para proyectos de desarrollo o automatización, hablamos del alcance y te paso una propuesta." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo prescribe una multa de tránsito?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Como regla general, la acción de cobro de las multas de tránsito prescribe a los tres (3) años contados desde su ejecutoria (art. 159, Ley 769 de 2002), siempre que la entidad no haya interrumpido el término. Cada caso debe revisarse individualmente." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Atiende casos fuera de Medellín?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Atiendo presencialmente en Medellín y el Área Metropolitana, y de forma virtual para todo Colombia en los asuntos que lo permiten." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué necesito para iniciar un caso por comparendo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Idealmente el número del comparendo o la placa del vehículo, la fecha aproximada y cualquier notificación recibida. Con eso reviso el estado en SIMIT y el término de prescripción." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Desarrollas herramientas a la medida?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Construyo scripts en Python, flujos en n8n, calculadoras y modelos para automatizar tareas repetitivas, especialmente en contextos jurídicos y administrativos." }
+        }
+      ]
     },
     {
       "@type": "Person",

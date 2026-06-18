@@ -1,0 +1,16 @@
+{
+  "name": "Álvaro Orozco — Abogado & Desarrollador",
+  "short_name": "AOZ",
+  "description": "Abogado de tránsito y movilidad en Medellín + herramientas de automatización legal.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111614",
+  "theme_color": "#111614",
+  "lang": "es-CO",
+  "icons": [
+    { "src": "./src/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./src/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./src/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
