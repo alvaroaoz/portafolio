@@ -1631,6 +1631,34 @@ textarea:focus-visible,
 .to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .to-top:hover { background: var(--cyan); color: #060f0f; }
 
+/* ── WhatsApp flotante ── */
+.wa-float {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 150;
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(37,211,102,0.45);
+  transition: transform 0.18s, box-shadow 0.2s;
+  animation: wa-pulse 2.6s ease-in-out infinite;
+}
+.wa-float svg { width: 2.8rem; height: 2.8rem; fill: #fff; }
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 28px rgba(37,211,102,0.6); }
+
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 6px 22px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.5); }
+  50%      { box-shadow: 0 6px 22px rgba(37,211,102,0.45), 0 0 0 12px rgba(37,211,102,0); }
+}
+@media (min-width: 768px) {
+  .wa-float { width: 5.6rem; height: 5.6rem; }
+}
+
 /* ── FORMULARIO DE CONTACTO ── */
 .contact-form {
   max-width: 640px;
