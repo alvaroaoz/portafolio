@@ -3,20 +3,20 @@
    Cache-first para estáticos, network-first para HTML.
    Sube CACHE_VERSION al publicar cambios.
    ============================================ */
-const CACHE_VERSION = 'aoz-v1';
+const CACHE_VERSION = 'aoz-v2';
 const PRECACHE = [
-  './',
-  './index.html',
-  './politica.html',
-  './css/main.css',
-  './js/main.js',
-  './js/projects.js',
-  './js/renderer.js',
-  './manifest.webmanifest',
-  './src/img/logo-full.svg',
-  './src/img/logo-iso.svg',
-  './src/img/icon-192.png',
-  './src/img/icon-512.png',
+  '/',
+  '/index.html',
+  '/politica.html',
+  '/css/main.css',
+  '/js/main.js',
+  '/js/projects.js',
+  '/js/renderer.js',
+  '/manifest.webmanifest',
+  '/src/img/logo-full.svg',
+  '/src/img/logo-iso.svg',
+  '/src/img/icon-192.png',
+  '/src/img/icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {
@@ -53,7 +53,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
           return res;
         })
-        .catch(() => caches.match(request).then((r) => r || caches.match('./index.html')))
+        .catch(() => caches.match(request).then((r) => r || caches.match('/index.html')))
     );
     return;
   }
