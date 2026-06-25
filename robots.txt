@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alvaroaoz.github.io/portafolio/sitemap.xml
+Sitemap: https://www.aasjuridico.com/sitemap.xml
