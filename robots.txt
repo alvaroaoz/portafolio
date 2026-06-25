@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.aasjuridico.com/sitemap.xml
+Sitemap: https://aasjuridico.com/sitemap.xml
