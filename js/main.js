@@ -5,20 +5,28 @@
    ============================================ */
 
 // ── Nav mobile toggle ──
-const toggle     = document.querySelector('.nav__toggle');
-const menu       = document.querySelector('.nav__menu');
-const toggleIcon = toggle?.querySelector('i');
+// El icono (hamburguesa/X) lo controla el CSS vía [aria-expanded]
+const toggle = document.querySelector('.nav__toggle');
+const menu   = document.querySelector('.nav__menu');
 
-toggle?.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
-  if (toggleIcon) toggleIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-});
+function setMenu(open) {
+  menu?.classList.toggle('open', open);
+  toggle?.setAttribute('aria-expanded', String(open));
+  toggle?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+}
+
+toggle?.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
 
 menu?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('open');
-    if (toggleIcon) toggleIcon.className = 'fa-solid fa-bars';
-  });
+  link.addEventListener('click', () => setMenu(false));
+});
+
+// Cerrar con Escape o tocando fuera del menú
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menu?.classList.contains('open')) setMenu(false);
+});
+document.addEventListener('click', (e) => {
+  if (menu?.classList.contains('open') && !e.target.closest('.nav')) setMenu(false);
 });
 
 // ── Scroll reveal (elementos fuera del accordion) ──
@@ -34,17 +42,15 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ── Toggle de tema claro / oscuro ──
+// El icono (luna/sol) lo controla el CSS vía [data-theme]
 const themeToggle = document.getElementById('theme-toggle');
-const themeIcon   = themeToggle?.querySelector('i');
 
 function applyTheme(theme) {
   if (theme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
-    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
     themeToggle?.setAttribute('aria-label', 'Cambiar a tema oscuro');
   } else {
     document.documentElement.removeAttribute('data-theme');
-    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
     themeToggle?.setAttribute('aria-label', 'Cambiar a tema claro');
   }
 }
@@ -174,11 +180,6 @@ contactForm?.addEventListener('submit', async (e) => {
     submit.disabled = false;
   }
 });
-
-// ── Estilo de nav activo (inyectado para no depender de orden CSS) ──
-const navActiveStyle = document.createElement('style');
-navActiveStyle.textContent = '.nav__menu a.active{color:var(--cyan);}';
-document.head.appendChild(navActiveStyle);
 
 // ── Service Worker (offline + instalable) ──
 if ('serviceWorker' in navigator) {

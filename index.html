@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Seguridad: Content-Security-Policy y políticas defensivas -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://ka-f.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-f.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com data:; img-src 'self' data:; connect-src 'self' https://ka-f.fontawesome.com https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <meta name="description" content="Álvaro Orozco — Abogado especialista en tránsito y movilidad en Medellín. Desarrollador de herramientas de automatización legal con Python, n8n y ML.">
   <meta name="author" content="Álvaro Antonio Orozco Zapata">
+  <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#111614">
   <link rel="canonical" href="https://www.aasjuridico.com/">
 
@@ -36,10 +37,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://kit.fontawesome.com">
-  <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/9b0976dd07.js" crossorigin="anonymous" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 
   <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar -->
@@ -68,19 +66,22 @@
     </a>
     <div class="nav__right">
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema">
-        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
       </button>
       <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-        <i class="fa-solid fa-bars"></i>
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
     <ul class="nav__menu" id="nav-menu" role="list">
       <li class="nav__menu-section">⚖️ Derecho</li>
-      <li><a href="#derecho"><i class="fa-solid fa-scale-balanced"></i> Servicios</a></li>
+      <li><a href="#derecho">Servicios</a></li>
       <li class="nav__menu-section">&lt;dev/&gt;</li>
-      <li><a href="#legaltech"><i class="fa-solid fa-scale-balanced"></i> Legal-tech</a></li>
-      <li><a href="#proyectos"><i class="fa-solid fa-code"></i> Proyectos</a></li>
-      <li><a href="#contacto" class="nav__pill"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      <li><a href="#legaltech">Legal-tech</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contacto" class="nav__pill">Contacto</a></li>
     </ul>
   </div>
 </nav>
@@ -113,12 +114,12 @@
 
   <div class="hero__dev">
     <p class="hero__eyebrow fade-up delay-1">// desarrollador · automatización</p>
-    <h1 class="fade-up delay-2">
+    <h2 class="fade-up delay-2">
       <span class="c-dim">// construyo</span><br>
       herramientas<br>
       <span class="c-cyan">que resuelven</span><br>
       problemas<span class="c-green"> reales</span><span class="cursor">_</span>
-    </h1>
+    </h2>
     <p class="hero__desc fade-up delay-3">
       Scripts Python, flujos n8n, calculadoras jurídicas y modelos ML. Herramientas útiles construidas desde la práctica legal real.
     </p>
@@ -200,16 +201,16 @@
     </p>
 
     <article class="legaltech-card reveal">
-      <span class="legaltech-card__icon" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
+      <span class="legaltech-card__icon" aria-hidden="true">⚖️</span>
       <p class="legaltech-card__lead">
         Donde un abogado tradicional ve trámite repetitivo y un programador ve un requisito sin contexto, yo veo el puente: criterio jurídico convertido en software que ahorra horas y reduce errores.
       </p>
       <div class="skill-chips">
-        <span class="skill-chip"><i class="fa-solid fa-gavel" aria-hidden="true"></i> Derecho de tránsito</span>
-        <span class="skill-chip"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> Procesos civiles</span>
-        <span class="skill-chip"><i class="fa-solid fa-robot" aria-hidden="true"></i> Cálculo jurídico automatizado</span>
-        <span class="skill-chip"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Generación documental</span>
-        <span class="skill-chip"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Análisis de prescripción</span>
+        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">🚦</span> Derecho de tránsito</span>
+        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">📑</span> Procesos civiles</span>
+        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">🤖</span> Cálculo jurídico automatizado</span>
+        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">📄</span> Generación documental</span>
+        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">🔍</span> Análisis de prescripción</span>
       </div>
     </article>
 
@@ -432,7 +433,7 @@
 
 <!-- Volver arriba -->
 <button class="to-top" id="to-top" aria-label="Volver arriba" title="Volver arriba">
-  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:1.8rem;height:1.8rem;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 19V5m-7 7l7-7 7 7"/></svg>
 </button>
 
 <!--

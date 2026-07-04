@@ -13,8 +13,7 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/9b0976dd07.js" crossorigin="anonymous" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
   <style>
     /* Estilos específicos política */
@@ -84,11 +83,10 @@
     }
 
     .policy p {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--text-mid);
       line-height: 1.8;
       margin-bottom: 1.4rem;
-      text-align: justify;
     }
 
     .policy ul, .policy ol {
@@ -97,7 +95,7 @@
     }
 
     .policy li {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       color: var(--text-mid);
       line-height: 1.75;
       margin-bottom: 0.6rem;
@@ -200,16 +198,19 @@
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" aria-label="Navegación principal">
   <div class="nav__inner">
-    <a href="/index.html" class="nav__logo">aoz<span>.</span>dev</a>
-    <button class="nav__toggle" aria-label="Abrir menú">
-      <i class="fa-solid fa-bars"></i>
+    <a href="/index.html" class="nav__logo" aria-label="Inicio">
+      <span class="nav__logo-text">AOZ<span class="nav__logo-dot">.</span></span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <ul class="nav__menu">
-      <li><a href="/index.html#derecho"><i class="fa-solid fa-scale-balanced"></i> Servicios</a></li>
-      <li><a href="/index.html#proyectos"><i class="fa-solid fa-code"></i> Proyectos</a></li>
-      <li><a href="/index.html#contacto" class="nav__pill"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      <li><a href="/index.html#derecho">Servicios</a></li>
+      <li><a href="/index.html#proyectos">Proyectos</a></li>
+      <li><a href="/index.html#contacto" class="nav__pill">Contacto</a></li>
     </ul>
   </div>
 </nav>
