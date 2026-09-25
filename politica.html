@@ -13,118 +13,128 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500..700;1,500..700&family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
+
+  <!-- Mismo tema que el inicio (se aplica antes de pintar) -->
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('aoz-theme') === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f5f7f4');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <style>
-    /* Estilos específicos política */
+    /* Estilos específicos política (usa los tokens de main.css) */
     .policy {
-      padding-top: 5.6rem;
-      max-width: 800px;
+      max-width: 80rem;
       margin: 0 auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      padding-bottom: 6rem;
+      padding: var(--nav-h) var(--gutter) var(--sp-8);
     }
 
     .policy__header {
-      padding: 5rem 0 3rem;
+      padding: var(--sp-7) 0 var(--sp-6);
       border-bottom: 1px solid var(--border);
-      margin-bottom: 4rem;
-    }
-
-    .policy__version {
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      color: var(--text-dim);
-      margin-bottom: 1.2rem;
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
+      margin-bottom: var(--sp-7);
     }
 
     .policy h1 {
       font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-size: clamp(3rem, 2.2rem + 2.4vw, 4.4rem);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
       color: var(--text);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
+      margin-bottom: var(--sp-4);
+      text-wrap: balance;
     }
 
     .policy__summary {
       background: var(--bg-card2);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--g400);
+      border-left: 3px solid var(--brand);
       border-radius: var(--r-sm);
-      padding: 1.6rem;
-      font-size: 1.35rem;
+      padding: var(--sp-4);
+      font-size: 1.5rem;
       color: var(--text-mid);
       line-height: 1.7;
     }
 
     .policy h2 {
-      font-family: var(--mono);
-      font-size: 1.5rem;
-      color: var(--cyan);
-      margin-top: 4rem;
-      margin-bottom: 1.2rem;
-      padding-bottom: 0.8rem;
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+      margin-top: var(--sp-7);
+      margin-bottom: var(--sp-3);
+      padding-bottom: var(--sp-2);
       border-bottom: 1px solid var(--border);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     .policy h3 {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
+      font-weight: 700;
       color: var(--text);
-      margin-top: 2.5rem;
-      margin-bottom: 0.8rem;
-      padding-left: 1.2rem;
-      border-left: 2px solid var(--g500);
+      margin-top: var(--sp-5);
+      margin-bottom: var(--sp-2);
+      padding-left: var(--sp-3);
+      border-left: 2px solid var(--brand);
     }
 
     .policy p {
-      font-size: 1.5rem;
+      font-size: var(--fs-base);
       color: var(--text-mid);
       line-height: 1.8;
-      margin-bottom: 1.4rem;
+      margin-bottom: var(--sp-3);
     }
 
     .policy ul, .policy ol {
-      padding-left: 2rem;
-      margin-bottom: 1.4rem;
+      padding-left: 2.4rem;
+      margin-bottom: var(--sp-4);
     }
+    .policy ul { list-style: disc; }
+    .policy li::marker { color: var(--brand); }
 
     .policy li {
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       color: var(--text-mid);
       line-height: 1.75;
       margin-bottom: 0.6rem;
     }
 
-    .policy a { color: var(--g300); }
-    .policy a:hover { color: var(--cyan); }
+    .policy a {
+      color: var(--brand);
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
+    .policy a:hover { color: var(--text); }
 
     .policy strong { color: var(--text); }
 
     .box {
       border-radius: var(--r-sm);
-      padding: 1.4rem 1.6rem;
-      font-size: 1.35rem;
+      padding: var(--sp-4);
+      font-size: 1.5rem;
       line-height: 1.7;
-      margin: 1.6rem 0;
+      color: var(--text);
+      margin: var(--sp-4) 0;
     }
 
-    .box-info    { background: rgba(0,225,244,0.06); border: 1px solid rgba(0,225,244,0.2); color: var(--text-mid); }
-    .box-warning { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); color: #c9aa6a; }
-    .box-success { background: rgba(61,122,61,0.12); border: 1px solid rgba(61,122,61,0.3); color: var(--g200); }
+    .box-info    { background: var(--tint-cyan);  border: 1px solid var(--border-cyan); border-left-width: 3px; }
+    .box-warning { background: var(--tint-gold);  border: 1px solid var(--border-gold); border-left-width: 3px; }
+    .box-success { background: var(--tint-brand); border: 1px solid var(--border-md);   border-left-width: 3px; }
 
-    .meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .meta { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-5); }
     .meta-item {
       font-family: var(--mono);
-      font-size: 1.1rem;
-      color: var(--text-dim);
+      font-size: var(--fs-xs);
+      color: var(--text-mid);
       background: var(--bg-card);
-      padding: 0.4rem 0.8rem;
+      padding: 0.6rem 1rem;
       border-radius: var(--r-sm);
       border: 1px solid var(--border);
     }
@@ -133,59 +143,62 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--r-md);
-      padding: 2rem;
-      margin: 2rem 0;
+      padding: var(--sp-5);
+      margin: var(--sp-5) 0;
     }
 
-    .toc h2 {
-      font-size: 1.3rem;
+    .policy .toc h2 {
+      font-family: var(--mono);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       margin-top: 0;
-      margin-bottom: 1.2rem;
+      margin-bottom: var(--sp-3);
       border: none;
       padding: 0;
-      color: var(--g300);
+      color: var(--brand);
     }
 
     .toc ol { counter-reset: toc; padding-left: 0; }
     .toc li {
       counter-increment: toc;
       list-style: none;
-      font-size: 1.25rem;
-      padding: 0.3rem 0;
+      font-size: 1.5rem;
+      padding: 0.2rem 0;
     }
 
     .toc li::before {
       content: counter(toc) ". ";
-      color: var(--g500);
+      color: var(--text-dim);
       font-family: var(--mono);
-      font-size: 1rem;
+      font-size: var(--fs-xs);
     }
 
-    .toc a { color: var(--text-mid); }
-    .toc a:hover { color: var(--cyan); }
+    .toc a { color: var(--text-mid); text-decoration: none; }
+    .toc a:hover { color: var(--brand); text-decoration: underline; }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 1.3rem;
-      margin: 1.6rem 0;
+      font-size: 1.4rem;
+      margin: var(--sp-4) 0;
       overflow-x: auto;
       display: block;
     }
 
     th {
       background: var(--bg-card2);
-      color: var(--g300);
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      font-weight: 500;
+      color: var(--text);
+      font-size: 1.3rem;
+      font-weight: 700;
       text-align: left;
       padding: 1rem 1.2rem;
       border-bottom: 1px solid var(--border-md);
     }
 
     td {
-      padding: 0.9rem 1.2rem;
+      padding: 1rem 1.2rem;
       color: var(--text-mid);
       border-bottom: 1px solid var(--border);
       vertical-align: top;
@@ -193,21 +206,29 @@
 
     tr:last-child td { border-bottom: none; }
 
-    .muted { color: var(--text-dim); font-size: 1.2rem; }
+    .muted { color: var(--text-dim); font-size: 1.4rem; }
   </style>
 </head>
 <body>
+
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
 
 <nav class="nav" aria-label="Navegación principal">
   <div class="nav__inner">
     <a href="/index.html" class="nav__logo" aria-label="Inicio">
       <span class="nav__logo-text">AOZ<span class="nav__logo-dot">.</span></span>
     </a>
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
-      <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-    <ul class="nav__menu">
+    <div class="nav__right">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
+      </button>
+      <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <ul class="nav__menu" id="nav-menu" role="list">
       <li><a href="/index.html#derecho">Servicios</a></li>
       <li><a href="/index.html#proyectos">Proyectos</a></li>
       <li><a href="/index.html#contacto" class="nav__pill">Contacto</a></li>
@@ -215,10 +236,10 @@
   </div>
 </nav>
 
-<main class="policy">
+<main class="policy" id="contenido">
 
   <div class="policy__header">
-    <span class="section__label section__label--law" style="display:block;margin-bottom:1rem;">// documento legal</span>
+    <span class="section__label section__label--law">Documento legal</span>
     <h1>Política de Tratamiento y Protección de Datos Personales</h1>
 
     <div class="meta">
@@ -264,7 +285,7 @@
   <p><strong>Responsable:</strong> Álvaro Orozco</p>
   <p><strong>Identificación:</strong> C.C. 1.036.655.445</p>
   <p><strong>Calidad profesional:</strong> Abogado con tarjeta profesional vigente expedida por el Consejo Superior de la Judicatura</p>
-  <p><strong>Domicilio:</strong>Medellín, Antioquia, Colombia</p>
+  <p><strong>Domicilio:</strong> Medellín, Antioquia, Colombia</p>
   <p><strong>Correo electrónico:</strong> <a href="mailto:privacidad@aasjuridico.com">privacidad@aasjuridico.com</a></p>
   <p><strong>Sitio web:</strong> <a href="https://www.aasjuridico.com" target="_blank" rel="noopener">www.aasjuridico.com</a></p>
 
@@ -483,7 +504,7 @@
     <li>RGPD (UE 2016/679) — referente de buenas prácticas.</li>
   </ul>
 
-  <p class="muted" style="margin-top: 4rem;">
+  <p class="muted" style="margin-top: var(--sp-7);">
     Documento aprobado por Álvaro Orozco. Vigente desde la fecha indicada hasta modificación expresa.
   </p>
 

@@ -44,14 +44,17 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // ── Toggle de tema claro / oscuro ──
 // El icono (luna/sol) lo controla el CSS vía [data-theme]
 const themeToggle = document.getElementById('theme-toggle');
+const themeColor  = document.querySelector('meta[name="theme-color"]');
 
 function applyTheme(theme) {
   if (theme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
     themeToggle?.setAttribute('aria-label', 'Cambiar a tema oscuro');
+    themeColor?.setAttribute('content', '#f5f7f4');
   } else {
     document.documentElement.removeAttribute('data-theme');
     themeToggle?.setAttribute('aria-label', 'Cambiar a tema claro');
+    themeColor?.setAttribute('content', '#111614');
   }
 }
 
@@ -65,14 +68,14 @@ themeToggle?.addEventListener('click', () => {
   try { localStorage.setItem('aoz-theme', next); } catch (e) {}
 });
 
-// ── Barra de progreso de scroll ──
+// ── Barra de progreso de scroll (transform: no provoca relayout) ──
 const progressBar = document.getElementById('scroll-progress');
 function updateProgress() {
   if (!progressBar) return;
   const h = document.documentElement;
   const scrolled = h.scrollHeight - h.clientHeight;
-  const pct = scrolled > 0 ? (h.scrollTop / scrolled) * 100 : 0;
-  progressBar.style.width = pct + '%';
+  const ratio = scrolled > 0 ? h.scrollTop / scrolled : 0;
+  progressBar.style.transform = 'scaleX(' + ratio + ')';
 }
 
 // ── Botón volver arriba ──
@@ -105,9 +108,10 @@ if (sections.length) {
   const navObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
+        navLinks.forEach(l => { l.classList.remove('active'); l.removeAttribute('aria-current'); });
         const active = navLinks.find(l => l.getAttribute('href') === '#' + e.target.id);
         active?.classList.add('active');
+        active?.setAttribute('aria-current', 'true');
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
@@ -139,7 +143,11 @@ const countObserver = new IntersectionObserver(entries => {
     if (e.isIntersecting) { animateCount(e.target); countObserver.unobserve(e.target); }
   });
 }, { threshold: 0.5 });
-document.querySelectorAll('.impact-stat__num[data-count]').forEach(el => countObserver.observe(el));
+// El HTML trae el valor final (visible sin JS); aquí se pone en 0 para animarlo
+document.querySelectorAll('.impact-stat__num[data-count]').forEach(el => {
+  if (!prefersReduced) el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || '');
+  countObserver.observe(el);
+});
 
 // ── Formulario de contacto (Web3Forms, sin backend) ──
 const contactForm = document.getElementById('contact-form');
@@ -156,6 +164,8 @@ contactForm?.addEventListener('submit', async (e) => {
   }
 
   submit.disabled = true;
+  submit.classList.add('is-loading');
+  contactForm.setAttribute('aria-busy', 'true');
   status.className = 'contact-form__status';
   status.textContent = 'Enviando…';
 
@@ -178,6 +188,8 @@ contactForm?.addEventListener('submit', async (e) => {
     status.textContent = '✗ No se pudo enviar. Intenta por email o WhatsApp.';
   } finally {
     submit.disabled = false;
+    submit.classList.remove('is-loading');
+    contactForm.removeAttribute('aria-busy');
   }
 });
 

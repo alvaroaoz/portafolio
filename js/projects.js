@@ -12,7 +12,7 @@ const PROYECTOS = [
   // ── DEMO EN VIVO ──────────────────────────
   {
     id:      'calculadora-perjuicios',
-    emoji:   '⚖️',
+    icono:   'calculadora',
     titulo:  'Calculadora de perjuicios',
     resumen: 'Estimación de daños · Ley 1564/2012 · demo en vivo',
     desc:    'Herramienta de estimación orientativa de daños y perjuicios fundamentada en la Ley 1564 de 2012 (Código General del Proceso) y la metodología del Consejo de Estado, Exp. 26251 de 2014. Calcula daño emergente, lucro cesante consolidado y futuro con indexación, y daño moral en SMMLV según los topes jurisprudenciales vigentes.',
@@ -24,7 +24,7 @@ const PROYECTOS = [
       'Lucro cesante consolidado con indexación anual (8%)',
       'Lucro cesante futuro con valor presente (tasa 6%)',
       'Daño moral hasta 100 SMMLV · C.E. Exp. 26251',
-      'SMMLV 2026: $1,750,905 hardcodeado',
+      'SMMLV 2026: $1.750.905 hardcodeado',
     ],
     github:       'https://github.com/alvaroaoz',
     razonInterna: null,
@@ -32,7 +32,7 @@ const PROYECTOS = [
 
   {
     id:      'verificador-prescripcion',
-    emoji:   '⏳',
+    icono:   'reloj',
     titulo:  'Verificador de prescripción SIMIT',
     resumen: 'Multas de tránsito · Ley 769/2002 · demo en vivo',
     desc:    'Herramienta orientativa que estima si la acción de cobro de una multa de tránsito pudo haber prescrito. Toma como base la regla general de tres (3) años desde la ejecutoria (art. 159 de la Ley 769 de 2002) y permite registrar una actuación de cobro posterior que interrumpe el término. No reemplaza el estudio jurídico del caso.',
@@ -52,7 +52,7 @@ const PROYECTOS = [
   // ── PÚBLICOS ──────────────────────────────
   {
     id:      'generador-recibos',
-    emoji:   '🧾',
+    icono:   'recibo',
     titulo:  'Generador de recibos PDF',
     resumen: 'App de escritorio Python · tkinter + ReportLab',
     desc:    'Aplicación de escritorio desarrollada en Python para la generación de recibos de pago en formato PDF. Permite registrar pagos de honorarios con folio auto-incremental, nombre del cliente, concepto, monto en números y en letras, fecha y firma. Genera un PDF compacto de una sola página listo para imprimir o enviar digitalmente.',
@@ -71,7 +71,7 @@ const PROYECTOS = [
 
   {
     id:      'estudio-horas-predictor',
-    emoji:   '🤖',
+    icono:   'chip',
     titulo:  'Estudio horas predictor',
     resumen: 'Clasificador Random Forest · scikit-learn · accuracy ~84%',
     desc:    'Modelo de clasificación que predice el rango de horas de estudio necesarias para aprobar exámenes de preparatorio en derecho, a partir de variables como semestre cursado, carga académica, hábitos de estudio y rendimiento previo. Desarrollado como proyecto final de curso de IA con dataset sintético de 5.000 registros.',
@@ -90,7 +90,7 @@ const PROYECTOS = [
 
   {
     id:      'cleanup-descargas',
-    emoji:   '🧹',
+    icono:   'carpeta',
     titulo:  'Cleanup descargas',
     resumen: 'Script Python + bash · organización automática de archivos',
     desc:    'Script que organiza automáticamente la carpeta ~/Descargas clasificando archivos por tipo (documentos, imágenes, PDFs, hojas de cálculo, código) y subcarpeta por fecha de descarga. Puede ejecutarse manualmente o programarse como tarea cron para limpieza periódica automática.',
@@ -110,7 +110,7 @@ const PROYECTOS = [
   // ── INTERNOS ──────────────────────────────
   {
     id:      'workflow-cliente-intake',
-    emoji:   '⚡',
+    icono:   'rayo',
     titulo:  'Workflow cliente intake',
     resumen: 'Automatización n8n de onboarding · uso interno',
     desc:    'Flujo de automatización construido en n8n que gestiona el proceso completo de ingreso de un nuevo cliente a la práctica jurídica. Elimina el trabajo manual repetitivo del onboarding y garantiza que ningún paso del proceso quede pendiente.',
@@ -130,7 +130,7 @@ const PROYECTOS = [
 
   {
     id:      'simit-prescription-checker',
-    emoji:   '📋',
+    icono:   'portapapeles',
     titulo:  'SIMIT prescription checker',
     resumen: 'Verificador de prescripción de multas · uso interno',
     desc:    'Herramienta que consulta las fechas de comparendos registrados en SIMIT por placa vehicular y determina automáticamente si cada multa ha superado el término de prescripción establecido en el artículo 159 de la Ley 769 de 2002. Genera un reporte PDF por placa con el estado de cada infracción.',
@@ -153,7 +153,8 @@ const PROYECTOS = [
 /* ── TEMPLATE PARA PROYECTO NUEVO ────────────
 {
   id:      'nombre-unico-con-guiones',
-  emoji:   '🚀',
+  icono:   'codigo',          // opciones: balanza | calculadora | reloj | recibo | chip | carpeta
+                              //           rayo | portapapeles | documento | busqueda | codigo | terminal
   titulo:  'Nombre del proyecto',
   resumen: 'Una línea descriptiva para el trigger cerrado',
   desc:    'Descripción completa que aparece al expandir la card.',

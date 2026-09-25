@@ -14,6 +14,26 @@ const BADGE = {
   interno: { cls: 'pac__badge--internal', txt: 'interno'      },
 };
 
+/* ── iconos SVG (Heroicons outline, MIT) — clave = campo `icono` de projects.js ── */
+const ICONOS = {
+  balanza:      '<path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>',
+  calculadora:  '<path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>',
+  reloj:        '<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>',
+  recibo:       '<path d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"/>',
+  chip:         '<path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>',
+  carpeta:      '<path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>',
+  rayo:         '<path d="M13 10V3L4 14h7v7l9-11h-7z"/>',
+  portapapeles: '<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
+  documento:    '<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>',
+  busqueda:     '<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>',
+  codigo:       '<path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>',
+  terminal:     '<path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>',
+};
+
+function renderIcono(nombre) {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONOS[nombre] || ICONOS.codigo}</svg>`;
+}
+
 /* ── pills de stack ── */
 function renderStack(stack) {
   return stack.map(s => `<span class="stack-pill">${s}</span>`).join('');
@@ -29,7 +49,7 @@ function renderBody(p) {
   const stackHTML    = renderStack(p.stack);
   const featuresHTML = renderFeatures(p.features);
   const githubHTML   = p.github
-    ? `<div class="pac__footer"><a href="${p.github}" class="project-link" target="_blank" rel="noopener noreferrer">→ ver código en GitHub</a></div>`
+    ? `<div class="pac__footer"><a href="${p.github}" class="project-link" target="_blank" rel="noopener noreferrer">ver código en GitHub<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg><span class="sr-only">(se abre en una pestaña nueva)</span></a></div>`
     : '';
   const internaHTML  = p.razonInterna
     ? `<div class="pac__detail-block">
@@ -47,7 +67,7 @@ function renderBody(p) {
       </div>
       <div class="pac__detail-block">
         <p class="pac__detail-label">Stack técnico</p>
-        <div class="stack-pills" style="margin-top:0.6rem;">${stackHTML}</div>
+        <div class="stack-pills">${stackHTML}</div>
         ${internaHTML}
       </div>
     </div>
@@ -62,31 +82,40 @@ function renderBody(p) {
   return baseContent;
 }
 
-/* ── card completa ── */
+/* ── card completa ──
+   Patrón accordion accesible: <h3><button aria-expanded aria-controls>…</button></h3>
+   (dentro del botón solo contenido de frase: spans). Nombre accesible corto
+   = título + tipo; el resumen va como descripción. */
 function renderCard(p, visible) {
   const badge   = BADGE[p.tipo] || BADGE.publico;
   const tagsStr = p.tags.join(' ');
   const style   = visible ? '' : ' style="display:none"';
+  const bodyId  = `pac-body-${p.id}`;
 
   return `
 <article class="pac reveal" data-tags="${tagsStr}" data-id="${p.id}"${style}>
-  <button class="pac__trigger" aria-expanded="false">
-    <div class="pac__trigger-left">
-      <span class="pac__emoji" aria-hidden="true">${p.emoji}</span>
-      <div class="pac__trigger-info">
-        <h3 class="pac__title">${p.titulo}</h3>
-        <p class="pac__summary">${p.resumen}</p>
-      </div>
-    </div>
-    <div class="pac__trigger-right">
-      <div class="project-tags">${p.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join('')}</div>
-      <span class="pac__badge ${badge.cls}">${badge.txt}</span>
-      <span class="pac__chevron" aria-hidden="true">›</span>
-    </div>
-  </button>
-  <div class="pac__body">
+  <h3 class="pac__heading">
+    <button type="button" class="pac__trigger" aria-expanded="false" aria-controls="${bodyId}"
+            aria-labelledby="pac-title-${p.id} pac-badge-${p.id}" aria-describedby="pac-sum-${p.id}">
+      <span class="pac__trigger-left">
+        <span class="pac__icon">${renderIcono(p.icono)}</span>
+        <span class="pac__trigger-info">
+          <span class="pac__title" id="pac-title-${p.id}">${p.titulo}</span>
+          <span class="pac__summary" id="pac-sum-${p.id}">${p.resumen}</span>
+        </span>
+      </span>
+      <span class="pac__trigger-right">
+        <span class="project-tags">${p.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join('')}</span>
+        <span class="pac__badge ${badge.cls}" id="pac-badge-${p.id}">${badge.txt}</span>
+        <svg class="pac__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg>
+      </span>
+    </button>
+  </h3>
+  <div class="pac__body" id="${bodyId}">
     <div class="pac__body-inner">
-      ${renderBody(p)}
+      <div class="pac__body-content">
+        ${renderBody(p)}
+      </div>
     </div>
   </div>
 </article>`;
@@ -96,7 +125,7 @@ function renderCard(p, visible) {
 function renderVerMas(restantes) {
   if (restantes <= 0) return '';
   return `
-<button class="ver-mas" id="ver-mas-btn">
+<button type="button" class="ver-mas" id="ver-mas-btn">
   Ver más proyectos
   <span class="ver-mas__count" id="ver-mas-count">${restantes} restantes</span>
 </button>`;
@@ -107,7 +136,7 @@ function montarCalculadora(slot) {
   slot.innerHTML = `
 <div class="calc-demo">
   <div class="calc-demo__top">
-    <p class="calc-demo__base">SMMLV 2026: <strong>$1,750,905</strong> · Ley 1564/2012 · Solo orientativo</p>
+    <p class="calc-demo__base">SMMLV 2026: <strong>$1.750.905</strong> · Ley 1564/2012 · Solo orientativo</p>
   </div>
   <div class="calc-demo__body">
     <div class="calc-demo__inputs">
@@ -144,7 +173,7 @@ function montarCalculadora(slot) {
           <span class="moral-lim">100</span>
           <span class="moral-val" id="cd-moral-val">50 SMMLV</span>
         </div>
-        <p class="moral-cop" id="cd-moral-cop">= $87,545,250</p>
+        <p class="moral-cop" id="cd-moral-cop">= $87.545.250</p>
       </div>
     </div>
     <div class="calc-demo__results">
@@ -152,10 +181,10 @@ function montarCalculadora(slot) {
       <div class="result-item"><span class="result-item__label">Daño emergente</span><span class="result-item__val" id="cd-r-emergente">$0</span></div>
       <div class="result-item"><span class="result-item__label">Lucro ces. consolidado</span><span class="result-item__val" id="cd-r-lc-cons">$0</span><span class="result-item__sub" id="cd-r-lc-sub">0 meses</span></div>
       <div class="result-item"><span class="result-item__label">Lucro ces. futuro</span><span class="result-item__val" id="cd-r-lc-fut">$0</span><span class="result-item__sub" id="cd-r-lc-fut-sub">0 meses</span></div>
-      <div class="result-item"><span class="result-item__label">Daño moral</span><span class="result-item__val" id="cd-r-moral">$87,545,250</span><span class="result-item__sub" id="cd-r-moral-sub">50 SMMLV</span></div>
+      <div class="result-item"><span class="result-item__label">Daño moral</span><span class="result-item__val" id="cd-r-moral">$87.545.250</span><span class="result-item__sub" id="cd-r-moral-sub">50 SMMLV</span></div>
       <div class="result-total">
         <span class="result-total__label">Total estimado</span>
-        <span class="result-total__val" id="cd-r-total">$87,545,250</span>
+        <span class="result-total__val" id="cd-r-total">$87.545.250</span>
         <span class="result-total__sub" id="cd-r-meses">—</span>
       </div>
       <a href="#contacto" class="calc-cta">Consultar caso →</a>
@@ -237,7 +266,7 @@ function montarPrescripcion(slot) {
       <div class="result-item"><span class="result-item__label">Prescribiría el</span><span class="result-item__val" id="pr-fecha">—</span></div>
       <div class="result-total" id="pr-verdict-box">
         <span class="result-total__label">Veredicto</span>
-        <span class="result-total__val" id="pr-verdict" style="font-size:1.8rem">Ingresa la fecha</span>
+        <span class="result-total__val result-total__val--sm" id="pr-verdict">Ingresa la fecha</span>
         <span class="result-total__sub" id="pr-verdict-sub">—</span>
       </div>
       <a href="#contacto" class="calc-cta">Consultar mi caso →</a>
@@ -263,18 +292,18 @@ function montarPrescripcion(slot) {
     $('pr-transcurrido').textContent = años + ' años, ' + (meses % 12) + ' meses';
     $('pr-fecha').textContent = fmtFecha(prescribe);
 
+    // El color lo ponen las clases (tokens por tema); el texto ya expresa el estado
     const v = $('pr-verdict'), sub = $('pr-verdict-sub'), box = $('pr-verdict-box');
-    if (hoy >= prescribe) {
+    const prescrita = hoy >= prescribe;
+    box.classList.toggle('result-total--ok', prescrita);
+    box.classList.toggle('result-total--warn', !prescrita);
+    if (prescrita) {
       v.textContent = 'Posiblemente PRESCRITA';
-      v.style.color = 'var(--g300)';
       sub.textContent = 'Superó los 3 años. Vale la pena revisarla.';
-      box.style.borderColor = 'rgba(61,122,61,0.4)';
     } else {
       const faltanMeses = (prescribe.getFullYear() - hoy.getFullYear()) * 12 + (prescribe.getMonth() - hoy.getMonth());
       v.textContent = 'Aún VIGENTE';
-      v.style.color = 'var(--gold)';
       sub.textContent = 'Faltan ~' + faltanMeses + ' meses para el término.';
-      box.style.borderColor = 'rgba(201,168,76,0.4)';
     }
   }
 
@@ -342,20 +371,25 @@ function iniciarProyectos() {
       btnVerMas.addEventListener('click', () => {
         visibles += 4;
         render();
-        // Scroll al primer proyecto nuevo
-        const todas = contenedor.querySelectorAll('.pac');
-        if (todas[visibles - 4]) {
-          setTimeout(() => todas[visibles - 4].scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+        // El botón se re-renderiza: el foco pasa al primer proyecto nuevo (no se pierde)
+        const primeraNueva = contenedor.querySelectorAll('.pac')[visibles - 4];
+        if (primeraNueva) {
+          primeraNueva.querySelector('.pac__trigger').focus({ preventScroll: true });
+          setTimeout(() => primeraNueva.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
         }
       });
     }
   }
 
-  // Filtros
+  // Filtros (estado expuesto con aria-pressed)
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       filtroActivo = btn.dataset.filter;
       visibles     = VISIBLE_INICIAL; // resetear al filtrar
       render();

@@ -3,7 +3,7 @@
    Cache-first para estáticos, network-first para HTML.
    Sube CACHE_VERSION al publicar cambios.
    ============================================ */
-const CACHE_VERSION = 'aoz-v3';
+const CACHE_VERSION = 'aoz-v4';
 const PRECACHE = [
   '/',
   '/index.html',

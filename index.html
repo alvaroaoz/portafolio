@@ -37,15 +37,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto+Mono:wght@400;500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500..700;1,500..700&family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar -->
+  <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar.
+       La clase .js habilita las animaciones de scroll (sin JS el contenido se ve igual). -->
   <script>
     (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
       try {
-        var t = localStorage.getItem('aoz-theme');
-        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        if (localStorage.getItem('aoz-theme') === 'light') {
+          d.setAttribute('data-theme', 'light');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f5f7f4');
+        }
       } catch (e) {}
     })();
   </script>
@@ -75,7 +80,7 @@
       </button>
     </div>
     <ul class="nav__menu" id="nav-menu" role="list">
-      <li class="nav__menu-section">⚖️ Derecho</li>
+      <li class="nav__menu-section">Derecho</li>
       <li><a href="#derecho">Servicios</a></li>
       <li class="nav__menu-section">&lt;dev/&gt;</li>
       <li><a href="#legaltech">Legal-tech</a></li>
@@ -93,7 +98,7 @@
 
   <div class="hero__law">
     <div class="hero__law-logo fade-up delay-1">
-      <img src="/src/img/logo-full.svg" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img" fetchpriority="high" decoding="async">
+      <img src="/src/img/logo-full.svg" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img" width="115" height="132" fetchpriority="high" decoding="async">
     </div>
     <p class="hero__eyebrow fade-up delay-2">Abogado · Medellín, Colombia</p>
     <h1 class="fade-up delay-3">
@@ -105,9 +110,14 @@
       Enfoque en derecho de tránsito y movilidad. Comparendos, multas SIMIT, cobros coactivos y procesos civiles para personas naturales.
     </p>
     <div class="hero__ctas fade-up delay-5">
-      <a href="#derecho"  class="btn-gold">Ver servicios</a>
-      <a href="#contacto" class="btn-outline-green">Consultar caso</a>
+      <a href="#contacto" class="btn-gold">Consultar caso</a>
+      <a href="#derecho"  class="btn-outline-green">Ver servicios</a>
     </div>
+    <ul class="hero__trust fade-up delay-5">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Tarjeta profesional vigente</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Primera consulta de tránsito sin costo</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Atención virtual en todo Colombia</li>
+    </ul>
   </div>
 
   <div class="hero__divider" aria-hidden="true">&amp;</div>
@@ -118,14 +128,14 @@
       <span class="c-dim">// construyo</span><br>
       herramientas<br>
       <span class="c-cyan">que resuelven</span><br>
-      problemas<span class="c-green"> reales</span><span class="cursor">_</span>
+      problemas<span class="c-green"> reales</span><span class="cursor" aria-hidden="true">_</span>
     </h2>
     <p class="hero__desc fade-up delay-3">
       Scripts Python, flujos n8n, calculadoras jurídicas y modelos ML. Herramientas útiles construidas desde la práctica legal real.
     </p>
     <div class="hero__ctas fade-up delay-4">
       <a href="#proyectos" class="btn-cyan">Ver proyectos</a>
-      <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer" class="btn-outline-cyan">GitHub →</a>
+      <a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer" class="btn-outline-cyan">GitHub<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg><span class="sr-only">(se abre en una pestaña nueva)</span></a>
     </div>
   </div>
 
@@ -136,9 +146,9 @@
   <div class="section__inner">
 
     <div class="section__law-header">
-      <img src="/src/img/logo-iso.svg" alt="" class="section__law-logo-img" aria-hidden="true" loading="lazy" decoding="async">
+      <img src="/src/img/logo-iso.svg" alt="" class="section__law-logo-img" width="49" height="56" aria-hidden="true" loading="lazy" decoding="async">
     </div>
-    <span class="section__label section__label--law">// área de práctica</span>
+    <span class="section__label section__label--law">Área de práctica</span>
     <h2 class="section__title section__title--serif">
       Derecho de tránsito<br>y servicios legales
     </h2>
@@ -148,13 +158,13 @@
 
     <div class="law-grid">
       <article class="law-card reveal">
-        <span class="law-card__badge">CORE</span>
+        <span class="law-card__badge">Enfoque principal</span>
         <div class="law-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
         <h3>Multas y comparendos SIMIT</h3>
         <p>Gestión integral de infracciones, prescripción de multas, derechos de petición y cobro coactivo ante secretarías de movilidad.</p>
       </article>
       <article class="law-card reveal">
-        <span class="law-card__badge">CORE</span>
+        <span class="law-card__badge">Enfoque principal</span>
         <div class="law-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div>
         <h3>Cobro coactivo y embargos</h3>
         <p>Representación en cobros coactivos, levantamiento de embargos vehiculares y acuerdos de transacción con entidades públicas.</p>
@@ -182,6 +192,7 @@
     </div>
 
     <div class="tp-box reveal">
+      <div class="tp-box__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
       <p>Abogado titulado en ejercicio. Acompaño y represento a mis clientes en <strong>cualquier etapa del proceso</strong>, ante juzgados de cualquier instancia y ante entidades administrativas.</p>
       <span class="tp-badge">Tarjeta profesional vigente · Consejo Superior de la Judicatura</span>
     </div>
@@ -193,31 +204,31 @@
 <section id="legaltech" class="section section--skills" aria-label="Legal-tech: el diferencial">
   <div class="section__inner">
 
-    <span class="section__label section__label--cont">// el diferencial</span>
+    <span class="section__label section__label--dev">// el diferencial</span>
     <h2 class="section__title section__title--mono">legal-tech: derecho <span class="c-cyan">+</span> código</h2>
     <p class="section__sub">
       La ventaja no es saber de leyes <em>o</em> saber programar — es entender el problema jurídico <strong>y</strong> automatizarlo. Cada herramienta del portafolio nace de un dolor real del despacho.
     </p>
 
     <article class="legaltech-card reveal">
-      <span class="legaltech-card__icon" aria-hidden="true">⚖️</span>
+      <span class="legaltech-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></span>
       <p class="legaltech-card__lead">
         Donde un abogado tradicional ve trámite repetitivo y un programador ve un requisito sin contexto, yo veo el puente: criterio jurídico convertido en software que ahorra horas y reduce errores.
       </p>
       <div class="skill-chips">
-        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">🚦</span> Derecho de tránsito</span>
-        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">📑</span> Procesos civiles</span>
-        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">🤖</span> Cálculo jurídico automatizado</span>
-        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">📄</span> Generación documental</span>
-        <span class="skill-chip"><span class="chip-ico" aria-hidden="true">🔍</span> Análisis de prescripción</span>
+        <span class="skill-chip"><svg class="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="8" height="20" rx="3"/><circle cx="12" cy="7" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="17" r="1.5"/></svg>Derecho de tránsito</span>
+        <span class="skill-chip"><svg class="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>Procesos civiles</span>
+        <span class="skill-chip"><svg class="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Cálculo jurídico automatizado</span>
+        <span class="skill-chip"><svg class="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Generación documental</span>
+        <span class="skill-chip"><svg class="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>Análisis de prescripción</span>
       </div>
     </article>
 
-    <!-- métricas de impacto -->
-    <div class="impact-stats reveal" aria-label="Indicadores">
-      <div class="impact-stat"><span class="impact-stat__num" data-count="7">0</span><span class="impact-stat__label">proyectos en producción</span></div>
-      <div class="impact-stat"><span class="impact-stat__num" data-count="84" data-suffix="%">0</span><span class="impact-stat__label">accuracy del modelo ML</span></div>
-      <div class="impact-stat"><span class="impact-stat__num" data-count="11">0</span><span class="impact-stat__label">tecnologías en el stack</span></div>
+    <!-- métricas de impacto (el valor real queda en el HTML; JS lo anima desde 0) -->
+    <div class="impact-stats reveal" role="group" aria-label="Indicadores">
+      <div class="impact-stat"><span class="impact-stat__num" data-count="7">7</span><span class="impact-stat__label">proyectos en producción</span></div>
+      <div class="impact-stat"><span class="impact-stat__num" data-count="84" data-suffix="%">84%</span><span class="impact-stat__label">accuracy del modelo ML</span></div>
+      <div class="impact-stat"><span class="impact-stat__num" data-count="11">11</span><span class="impact-stat__label">tecnologías en el stack</span></div>
     </div>
 
   </div>
@@ -234,14 +245,14 @@
     </p>
 
     <div class="dev-filters" role="group" aria-label="Filtrar proyectos">
-      <button class="filter-btn active" data-filter="all">todos</button>
-      <button class="filter-btn" data-filter="python">python</button>
-      <button class="filter-btn" data-filter="n8n">n8n</button>
-      <button class="filter-btn" data-filter="excel">excel</button>
-      <button class="filter-btn" data-filter="ml">ml</button>
-      <button class="filter-btn" data-filter="legal">legal-tech</button>
-      <button class="filter-btn" data-filter="js">js</button>
-    </div> 
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">todos</button>
+      <button type="button" class="filter-btn" data-filter="python" aria-pressed="false">python</button>
+      <button type="button" class="filter-btn" data-filter="n8n" aria-pressed="false">n8n</button>
+      <button type="button" class="filter-btn" data-filter="excel" aria-pressed="false">excel</button>
+      <button type="button" class="filter-btn" data-filter="ml" aria-pressed="false">ml</button>
+      <button type="button" class="filter-btn" data-filter="legal" aria-pressed="false">legal-tech</button>
+      <button type="button" class="filter-btn" data-filter="js" aria-pressed="false">js</button>
+    </div>
 
     <!-- El accordion se genera aquí por renderer.js -->
     <div class="projects-accordion" id="projects-accordion"></div>
@@ -270,7 +281,7 @@
 <!-- RESULTADOS / TESTIMONIOS -->
 <section id="resultados" class="section section--testi" aria-label="Resultados y testimonios">
   <div class="section__inner">
-    <span class="section__label section__label--law">// confianza</span>
+    <span class="section__label section__label--law">Confianza</span>
     <h2 class="section__title section__title--serif">Resultados &amp; testimonios</h2>
     <p class="section__sub">
       Experiencias de personas a las que he acompañado.
@@ -278,19 +289,19 @@
 
     <div class="testi-grid">
       <figure class="testi-card reveal">
-        <div class="testi-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <blockquote>Me ayudó en mi proceso de tránsito y me acompañó en todo momento del proceso.</blockquote>
-        <figcaption>— Jeimy O. · Proceso de tránsito</figcaption>
+        <figcaption><span class="testi-card__name">Jeimy O.</span><span class="testi-card__case">Proceso de tránsito</span></figcaption>
       </figure>
       <figure class="testi-card reveal">
-        <div class="testi-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <blockquote>Muy diligente a la hora de revisar y redactar los contratos, sin contratiempos.</blockquote>
-        <figcaption>— Beatriz S. · Revisión contractual</figcaption>
+        <figcaption><span class="testi-card__name">Beatriz S.</span><span class="testi-card__case">Revisión contractual</span></figcaption>
       </figure>
       <figure class="testi-card reveal">
-        <div class="testi-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <blockquote>Muy confiable a la hora de contar con acompañamiento legal.</blockquote>
-        <figcaption>— Edwin T. · Acompañamiento legal</figcaption>
+        <figcaption><span class="testi-card__name">Edwin T.</span><span class="testi-card__case">Acompañamiento legal</span></figcaption>
       </figure>
     </div>
   </div>
@@ -299,7 +310,7 @@
 <!-- FAQ -->
 <section id="faq" class="section section--faq" aria-label="Preguntas frecuentes">
   <div class="section__inner">
-    <span class="section__label section__label--cont">// dudas comunes</span>
+    <span class="section__label section__label--law">Dudas comunes</span>
     <h2 class="section__title section__title--serif">Preguntas frecuentes</h2>
 
     <div class="faq-list">
@@ -330,8 +341,11 @@
 <!-- CONTACTO -->
 <section id="contacto" class="section" aria-label="Contacto">
   <div class="section__inner">
-    <span class="section__label section__label--cont">// contacto</span>
+    <span class="section__label section__label--law">Contacto</span>
     <h2 class="section__title section__title--serif">¿Tiene un caso o proyecto?</h2>
+    <p class="section__sub">Atiendo consultas legales y propuestas de desarrollo. Primera consulta para asuntos de tránsito sin costo. Para proyectos de automatización o herramientas, hablemos.</p>
+
+    <div class="contact-layout">
 
     <!-- FORMULARIO (envía con Web3Forms — sin backend) -->
     <form class="contact-form reveal" id="contact-form" autocomplete="on">
@@ -344,12 +358,12 @@
 
       <div class="contact-form__row">
         <div class="field">
-          <label for="cf-nombre">Nombre</label>
-          <input type="text" id="cf-nombre" name="name" required maxlength="80" placeholder="Tu nombre">
+          <label for="cf-nombre">Nombre <span class="field__req" aria-hidden="true">*</span></label>
+          <input type="text" id="cf-nombre" name="name" required maxlength="80" placeholder="Tu nombre" autocomplete="name">
         </div>
         <div class="field">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" required maxlength="120" placeholder="tucorreo@ejemplo.com">
+          <label for="cf-email">Email <span class="field__req" aria-hidden="true">*</span></label>
+          <input type="email" id="cf-email" name="email" required maxlength="120" placeholder="tucorreo@ejemplo.com" autocomplete="email">
         </div>
       </div>
       <div class="field">
@@ -363,41 +377,43 @@
         </select>
       </div>
       <div class="field">
-        <label for="cf-msg">Mensaje</label>
+        <label for="cf-msg">Mensaje <span class="field__req" aria-hidden="true">*</span></label>
         <textarea id="cf-msg" name="message" required rows="4" maxlength="2000" placeholder="Cuéntame brevemente tu caso o proyecto…"></textarea>
       </div>
-      <button type="submit" class="btn-gold contact-form__submit" id="cf-submit">Enviar mensaje</button>
+      <div class="contact-form__footer">
+        <button type="submit" class="btn-gold contact-form__submit" id="cf-submit">Enviar mensaje</button>
+        <p class="contact-form__hint" aria-hidden="true">* Campos obligatorios</p>
+      </div>
       <p class="contact-form__status" id="cf-status" role="status" aria-live="polite"></p>
     </form>
 
-    <div class="contact-grid">
-      <div>
-        <p class="contact-intro">Atiendo consultas legales y propuestas de desarrollo. Primera consulta para asuntos de tránsito sin costo. Para proyectos de automatización o herramientas, hablemos.</p>
-        <div class="contact-item">
+    <aside class="contact-aside" aria-label="Otros medios de contacto">
+      <ul class="contact-list">
+        <li class="contact-item">
           <div class="contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
           <div><span class="contact-item__label">consultas</span><p class="contact-item__val"><a href="mailto:alvaro@aasjuridico.com">alvaro@aasjuridico.com</a></p></div>
-        </div>
-        <div class="contact-item">
+        </li>
+        <li class="contact-item">
           <div class="contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
           <div><span class="contact-item__label">pqrs</span><p class="contact-item__val"><a href="mailto:pqr@aasjuridico.com">pqr@aasjuridico.com</a></p></div>
-        </div>
-        <div class="contact-item">
+        </li>
+        <li class="contact-item">
           <div class="contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-          <div><span class="contact-item__label">dirección</span><p class="contact-item__val">Medellín, AMVA, Antioquia 🇨🇴</p></div>
-        </div>
-        <div class="contact-item">
+          <div><span class="contact-item__label">dirección</span><p class="contact-item__val">Medellín, AMVA, Antioquia · Colombia</p></div>
+        </li>
+        <li class="contact-item">
           <div class="contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
-          <div><span class="contact-item__label">github</span><p class="contact-item__val"><a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer">github.com/alvaroaoz</a></p></div>
-        </div>
-        <div class="contact-item">
+          <div><span class="contact-item__label">github</span><p class="contact-item__val"><a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer">github.com/alvaroaoz<span class="sr-only"> (se abre en una pestaña nueva)</span></a></p></div>
+        </li>
+        <li class="contact-item">
           <div class="contact-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
-          <div><span class="contact-item__label">linkedin</span><p class="contact-item__val"><a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alvaroaoz</a></p></div>
-        </div>
-        <a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." class="wa-btn">
+          <div><span class="contact-item__label">linkedin</span><p class="contact-item__val"><a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alvaroaoz<span class="sr-only"> (se abre en una pestaña nueva)</span></a></p></div>
+        </li>
+      </ul>
+      <a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." class="wa-btn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Escribir por WhatsApp
-        </a>
-      </div>
+      </a>
       <div class="contact-panel reveal">
         <h3>Áreas de atención</h3>
         <p>Servicios legales para personas naturales en Medellín. Consultas virtuales para todo Colombia.</p>
@@ -412,6 +428,8 @@
           <li>Automatización y herramientas legales</li>
         </ul>
       </div>
+    </aside>
+
     </div>
   </div>
 </section>
@@ -420,19 +438,23 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p>© 2026 Álvaro Antonio Orozco Zapata · Medellín, Colombia ·<a href="mailto:alvaro@aasjuridico.com">alvaro@aasjuridico.com</a> · <a href="/politica.html">Política de datos</a></p>
+  <div class="footer__inner">
+    <p class="footer__brand"><span class="nav__logo-text">AOZ<span class="nav__logo-dot">.</span></span></p>
+    <p>© 2026 Álvaro Antonio Orozco Zapata · Medellín, Colombia</p>
+    <p><a href="mailto:alvaro@aasjuridico.com">alvaro@aasjuridico.com</a> · <a href="/politica.html">Política de datos</a></p>
+  </div>
 </footer>
 
 <!-- WhatsApp flotante -->
 <a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..."
    class="wa-float" target="_blank" rel="noopener noreferrer"
-   aria-label="Escribir por WhatsApp" title="Escríbeme por WhatsApp">
+   aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)" title="Escríbeme por WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <!-- Volver arriba -->
 <button class="to-top" id="to-top" aria-label="Volver arriba" title="Volver arriba">
-  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:1.8rem;height:1.8rem;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 19V5m-7 7l7-7 7 7"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-7 7l7-7 7 7"/></svg>
 </button>
 
 <!--
