@@ -31,7 +31,7 @@ const ICONOS = {
 };
 
 function renderIcono(nombre) {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONOS[nombre] || ICONOS.codigo}</svg>`;
+  return `<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">${ICONOS[nombre] || ICONOS.codigo}</svg>`;
 }
 
 /* ── pills de stack ── */
@@ -49,7 +49,7 @@ function renderBody(p) {
   const stackHTML    = renderStack(p.stack);
   const featuresHTML = renderFeatures(p.features);
   const githubHTML   = p.github
-    ? `<div class="pac__footer"><a href="${p.github}" class="project-link" target="_blank" rel="noopener noreferrer">ver código en GitHub<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg><span class="sr-only">(se abre en una pestaña nueva)</span></a></div>`
+    ? `<div class="pac__footer"><a href="${p.github}" class="project-link" target="_blank" rel="noopener noreferrer">ver código en GitHub<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg><span class="sr-only">(se abre en una pestaña nueva)</span></a></div>`
     : '';
   const internaHTML  = p.razonInterna
     ? `<div class="pac__detail-block">
@@ -107,7 +107,7 @@ function renderCard(p, visible) {
       <span class="pac__trigger-right">
         <span class="project-tags">${p.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join('')}</span>
         <span class="pac__badge ${badge.cls}" id="pac-badge-${p.id}">${badge.txt}</span>
-        <svg class="pac__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg>
+        <svg width="24" height="24" class="pac__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg>
       </span>
     </button>
   </h3>

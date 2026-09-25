@@ -1,17 +1,21 @@
 /* ============================================
    sw.js — Service Worker · Álvaro Orozco
-   Cache-first para estáticos, network-first para HTML.
-   Sube CACHE_VERSION al publicar cambios.
+   Network-first para todo (HTML, CSS y JS): con conexión se sirve siempre
+   lo publicado y la caché solo se usa sin conexión. Así un deploy nunca
+   mezcla HTML nuevo con CSS/JS viejos.
+   Al publicar cambios sube CACHE_VERSION. Si cambias el ?v= de CSS/JS en
+   index.html y politica.html, actualiza también ASSET_V.
    ============================================ */
-const CACHE_VERSION = 'aoz-v4';
+const CACHE_VERSION = 'aoz-v5';
+const ASSET_V = '?v=5';
 const PRECACHE = [
   '/',
   '/index.html',
   '/politica.html',
-  '/css/main.css',
-  '/js/main.js',
-  '/js/projects.js',
-  '/js/renderer.js',
+  '/css/main.css' + ASSET_V,
+  '/js/main.js' + ASSET_V,
+  '/js/projects.js' + ASSET_V,
+  '/js/renderer.js' + ASSET_V,
   '/manifest.webmanifest',
   '/src/img/logo-full.svg',
   '/src/img/logo-iso.svg',
@@ -44,31 +48,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // HTML: network-first para tener siempre la última versión, con fallback a caché offline.
-  if (request.mode === 'navigate' || request.destination === 'document') {
-    event.respondWith(
-      fetch(request)
-        .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
-          return res;
-        })
-        .catch(() => caches.match(request).then((r) => r || caches.match('/index.html')))
-    );
-    return;
-  }
-
-  // Estáticos: cache-first, y refresca la caché en segundo plano.
+  // Network-first: la respuesta de red se guarda en caché para usarla sin conexión.
+  const isPage = request.mode === 'navigate' || request.destination === 'document';
   event.respondWith(
-    caches.match(request).then((cached) => {
-      const network = fetch(request).then((res) => {
-        if (res && res.status === 200) {
+    fetch(request)
+      .then((res) => {
+        if (res && res.ok) {
           const copy = res.clone();
           caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
         }
         return res;
-      }).catch(() => cached);
-      return cached || network;
-    })
+      })
+      .catch(async () =>
+        (await caches.match(request)) ||
+        (isPage && (await caches.match('/index.html'))) ||
+        Response.error()
+      )
   );
 });
