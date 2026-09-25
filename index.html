@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500..700;1,500..700&family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=5">
+  <link rel="stylesheet" href="css/main.css?v=6">
 
   <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar.
        La clase .js habilita las animaciones de scroll (sin JS el contenido se ve igual). -->
@@ -96,6 +96,8 @@
 <!-- HERO -->
 <section class="hero" aria-label="Presentación">
 
+  <div class="hero__glow" aria-hidden="true"></div>
+
   <div class="hero__law">
     <div class="hero__law-logo fade-up delay-1">
       <img src="/src/img/logo-full.svg" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img" width="115" height="132" fetchpriority="high" decoding="async">
@@ -110,7 +112,7 @@
       Enfoque en derecho de tránsito y movilidad. Comparendos, multas SIMIT, cobros coactivos y procesos civiles para personas naturales.
     </p>
     <div class="hero__ctas fade-up delay-5">
-      <a href="#contacto" class="btn-gold">Consultar caso</a>
+      <a href="#contacto" class="btn-gold">Consultar caso<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       <a href="#derecho"  class="btn-outline-green">Ver servicios</a>
     </div>
     <ul class="hero__trust fade-up delay-5">
@@ -124,12 +126,25 @@
 
   <div class="hero__dev">
     <p class="hero__eyebrow fade-up delay-1">// desarrollador · automatización</p>
-    <h2 class="fade-up delay-2">
-      <span class="c-dim">// construyo</span><br>
-      herramientas<br>
-      <span class="c-cyan">que resuelven</span><br>
-      problemas<span class="c-green"> reales</span><span class="cursor" aria-hidden="true">_</span>
-    </h2>
+    <div class="terminal fade-up delay-2">
+      <div class="terminal__bar" aria-hidden="true">
+        <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+        <span class="terminal__title">~/legal-tech</span>
+      </div>
+      <div class="terminal__body">
+        <h2 class="terminal__heading">
+          <span class="t-line c-dim">// construyo</span>
+          <span class="t-line">herramientas</span>
+          <span class="t-line c-cyan">que resuelven</span>
+          <span class="t-line">problemas<span class="c-green"> reales</span><span class="cursor" aria-hidden="true">_</span></span>
+        </h2>
+        <ul class="terminal__log" aria-label="Demos y proyectos destacados">
+          <li><a href="#proyectos" data-abrir="calculadora-perjuicios">calculadora-perjuicios</a><span class="t-tag">demo</span></li>
+          <li><a href="#proyectos" data-abrir="verificador-prescripcion">verificador-prescripcion</a><span class="t-tag">demo</span></li>
+          <li><a href="#proyectos" data-abrir="estudio-horas-predictor">estudio-horas-predictor</a><span class="t-tag">ml · 84%</span></li>
+        </ul>
+      </div>
+    </div>
     <p class="hero__desc fade-up delay-3">
       Scripts Python, flujos n8n, calculadoras jurídicas y modelos ML. Herramientas útiles construidas desde la práctica legal real.
     </p>
@@ -157,37 +172,43 @@
     </p>
 
     <div class="law-grid">
-      <article class="law-card reveal">
+      <article class="law-card law-card--core reveal">
         <span class="law-card__badge">Enfoque principal</span>
         <div class="law-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
         <h3>Multas y comparendos SIMIT</h3>
         <p>Gestión integral de infracciones, prescripción de multas, derechos de petición y cobro coactivo ante secretarías de movilidad.</p>
+        <a class="law-card__link" href="#contacto" data-tipo="Consulta legal — tránsito/movilidad">Consultar<span class="sr-only"> sobre multas y comparendos SIMIT</span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </article>
-      <article class="law-card reveal">
+      <article class="law-card law-card--core reveal">
         <span class="law-card__badge">Enfoque principal</span>
         <div class="law-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div>
         <h3>Cobro coactivo y embargos</h3>
         <p>Representación en cobros coactivos, levantamiento de embargos vehiculares y acuerdos de transacción con entidades públicas.</p>
+        <a class="law-card__link" href="#contacto" data-tipo="Consulta legal — tránsito/movilidad">Consultar<span class="sr-only"> sobre cobro coactivo y embargos</span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </article>
       <article class="law-card reveal">
         <div class="law-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
         <h3>Procesos civiles</h3>
         <p>Ejecutivos civiles, incidentes de desacato, tutelas y representación ante juzgados civiles en cualquier instancia y etapa del proceso.</p>
+        <a class="law-card__link" href="#contacto" data-tipo="Consulta legal — proceso civil">Consultar<span class="sr-only"> sobre procesos civiles</span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </article>
       <article class="law-card reveal">
         <div class="law-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
         <h3>Contratos de arrendamiento y reclamaciones</h3>
         <p>Quejas ante la SIC, disputas con inmobiliarias y reclamaciones por incumplimiento contractual.</p>
+        <a class="law-card__link" href="#contacto" data-tipo="Consulta legal — otro">Consultar<span class="sr-only"> sobre contratos de arrendamiento y reclamaciones</span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </article>
       <article class="law-card reveal">
         <div class="law-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
         <h3>Conciliación extrajudicial en Derecho</h3>
         <p>Acompañamiento en procesos de conciliación extrajudicial ante entidades públicas y privadas.</p>
+        <a class="law-card__link" href="#contacto" data-tipo="Consulta legal — otro">Consultar<span class="sr-only"> sobre conciliación extrajudicial en derecho</span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </article>
       <article class="law-card reveal">
         <div class="law-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 13.255A24 24 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
         <h3>Contratación pública</h3>
         <p>Disputas contractuales con entidades del Estado, reclamaciones por incumplimiento y conciliación extrajudicial ante Procuraduría.</p>
+        <a class="law-card__link" href="#contacto" data-tipo="Consulta legal — otro">Consultar<span class="sr-only"> sobre contratación pública</span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </article>
     </div>
 
@@ -197,6 +218,101 @@
       <span class="tp-badge">Tarjeta profesional vigente · Consejo Superior de la Judicatura</span>
     </div>
 
+  </div>
+</section>
+
+<!-- CÓMO TRABAJO -->
+<section id="proceso" class="section section--process" aria-labelledby="proceso-title">
+  <div class="section__inner">
+    <span class="section__label section__label--law">Cómo trabajo</span>
+    <h2 class="section__title section__title--serif" id="proceso-title">Un camino claro, desde el primer mensaje</h2>
+    <p class="section__sub">Así acompaño cada caso, paso a paso.</p>
+
+    <ol class="steps" role="list">
+      <li class="step reveal">
+        <span class="step__num" aria-hidden="true">01</span>
+        <h3 class="step__title">Cuéntame tu caso</h3>
+        <p>Escríbeme por el formulario o por WhatsApp. La primera consulta de tránsito es sin costo.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num" aria-hidden="true">02</span>
+        <h3 class="step__title">Reviso tu situación</h3>
+        <p>Con la placa o el número del comparendo reviso el estado en SIMIT y el término de prescripción.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num" aria-hidden="true">03</span>
+        <h3 class="step__title">Te propongo la ruta</h3>
+        <p>Derecho de petición, prescripción, acuerdo con la entidad o proceso judicial: la vía adecuada para tu caso.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num" aria-hidden="true">04</span>
+        <h3 class="step__title">Te acompaño hasta el final</h3>
+        <p>Represento a mis clientes en cualquier etapa del proceso, ante juzgados y entidades administrativas.</p>
+      </li>
+    </ol>
+
+    <div class="process__cta reveal">
+      <a href="#contacto" class="btn-gold">Consultar caso<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      <a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." class="btn-outline-green" target="_blank" rel="noopener noreferrer"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Escribir por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS / TESTIMONIOS -->
+<section id="resultados" class="section section--testi" aria-label="Resultados y testimonios">
+  <div class="section__inner">
+    <span class="section__label section__label--law">Confianza</span>
+    <h2 class="section__title section__title--serif">Resultados &amp; testimonios</h2>
+    <p class="section__sub">
+      Experiencias de personas a las que he acompañado.
+    </p>
+
+    <div class="testi-grid">
+      <figure class="testi-card reveal">
+        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote>Me ayudó en mi proceso de tránsito y me acompañó en todo momento del proceso.</blockquote>
+        <figcaption><span class="testi-card__avatar" aria-hidden="true">JO</span><span class="testi-card__who"><span class="testi-card__name">Jeimy O.</span><span class="testi-card__case">Proceso de tránsito</span></span></figcaption>
+      </figure>
+      <figure class="testi-card reveal">
+        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote>Muy diligente a la hora de revisar y redactar los contratos, sin contratiempos.</blockquote>
+        <figcaption><span class="testi-card__avatar" aria-hidden="true">BS</span><span class="testi-card__who"><span class="testi-card__name">Beatriz S.</span><span class="testi-card__case">Revisión contractual</span></span></figcaption>
+      </figure>
+      <figure class="testi-card reveal">
+        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote>Muy confiable a la hora de contar con acompañamiento legal.</blockquote>
+        <figcaption><span class="testi-card__avatar" aria-hidden="true">ET</span><span class="testi-card__who"><span class="testi-card__name">Edwin T.</span><span class="testi-card__case">Acompañamiento legal</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA: VERIFICADOR DE PRESCRIPCIÓN -->
+<section class="cta-band" aria-labelledby="cta-verificador-title">
+  <div class="cta-band__inner">
+    <div class="cta-band__copy reveal">
+      <span class="section__label section__label--gold">Herramienta gratuita</span>
+      <h2 class="cta-band__title" id="cta-verificador-title">¿Tu multa de tránsito ya <em>prescribió</em>?</h2>
+      <p class="cta-band__text">Compruébalo en segundos con el verificador orientativo, basado en el art. 159 de la Ley 769 de 2002.</p>
+      <div class="cta-band__actions">
+        <a href="#proyectos" class="btn-gold" data-abrir="verificador-prescripcion">Usar el verificador<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <a href="#contacto" class="btn-outline-green" data-tipo="Consulta legal — tránsito/movilidad">Consultar mi caso</a>
+      </div>
+    </div>
+    <div class="cta-band__visual reveal" aria-hidden="true">
+      <div class="verdict-card">
+        <div class="verdict-card__top"><span class="verdict-card__tag">Ejemplo</span><span>art. 159 · Ley 769/2002</span></div>
+        <dl class="verdict-card__rows">
+          <div><dt>Fecha de ejecutoria</dt><dd>10 mar 2021</dd></div>
+          <div><dt>Término</dt><dd>3 años</dd></div>
+          <div><dt>Prescribiría el</dt><dd>10 mar 2024</dd></div>
+        </dl>
+        <div class="verdict-card__result">
+          <span class="verdict-card__label">Veredicto</span>
+          <strong class="verdict-card__value">Posiblemente prescrita</strong>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -275,35 +391,6 @@
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- RESULTADOS / TESTIMONIOS -->
-<section id="resultados" class="section section--testi" aria-label="Resultados y testimonios">
-  <div class="section__inner">
-    <span class="section__label section__label--law">Confianza</span>
-    <h2 class="section__title section__title--serif">Resultados &amp; testimonios</h2>
-    <p class="section__sub">
-      Experiencias de personas a las que he acompañado.
-    </p>
-
-    <div class="testi-grid">
-      <figure class="testi-card reveal">
-        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
-        <blockquote>Me ayudó en mi proceso de tránsito y me acompañó en todo momento del proceso.</blockquote>
-        <figcaption><span class="testi-card__name">Jeimy O.</span><span class="testi-card__case">Proceso de tránsito</span></figcaption>
-      </figure>
-      <figure class="testi-card reveal">
-        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
-        <blockquote>Muy diligente a la hora de revisar y redactar los contratos, sin contratiempos.</blockquote>
-        <figcaption><span class="testi-card__name">Beatriz S.</span><span class="testi-card__case">Revisión contractual</span></figcaption>
-      </figure>
-      <figure class="testi-card reveal">
-        <div class="testi-card__stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
-        <blockquote>Muy confiable a la hora de contar con acompañamiento legal.</blockquote>
-        <figcaption><span class="testi-card__name">Edwin T.</span><span class="testi-card__case">Acompañamiento legal</span></figcaption>
-      </figure>
-    </div>
   </div>
 </section>
 
@@ -439,9 +526,35 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer__inner">
-    <p class="footer__brand"><span class="nav__logo-text">AOZ<span class="nav__logo-dot">.</span></span></p>
-    <p>© 2026 Álvaro Antonio Orozco Zapata · Medellín, Colombia</p>
-    <p><a href="mailto:alvaro@aasjuridico.com">alvaro@aasjuridico.com</a> · <a href="/politica.html">Política de datos</a></p>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="footer__logo" aria-label="Volver al inicio"><span class="nav__logo-text">AOZ<span class="nav__logo-dot">.</span></span></a>
+        <p>Álvaro Antonio Orozco Zapata<br>Abogado · Medellín, Colombia</p>
+        <p class="footer__tagline">Derecho de tránsito y movilidad + herramientas de automatización legal.</p>
+      </div>
+      <nav class="footer__col" aria-label="Secciones del sitio">
+        <p class="footer__heading">Secciones</p>
+        <ul>
+          <li><a href="#derecho">Servicios</a></li>
+          <li><a href="#proceso">Cómo trabajo</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__heading">Contacto</p>
+        <ul>
+          <li><a href="mailto:alvaro@aasjuridico.com">alvaro@aasjuridico.com</a></li>
+          <li><a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://github.com/alvaroaoz" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Álvaro Antonio Orozco Zapata</p>
+      <p><a href="/politica.html">Política de datos</a></p>
+    </div>
   </div>
 </footer>
 
@@ -549,8 +662,8 @@
 }
 </script>
 
-<script src="/js/main.js?v=5"></script>
-<script src="/js/projects.js?v=5"></script>
-<script src="/js/renderer.js?v=5"></script>
+<script src="/js/main.js?v=6"></script>
+<script src="/js/projects.js?v=6"></script>
+<script src="/js/renderer.js?v=6"></script>
 </body>
 </html>

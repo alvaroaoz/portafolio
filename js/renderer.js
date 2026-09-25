@@ -339,27 +339,11 @@ function iniciarProyectos() {
     // Accordion
     contenedor.querySelectorAll('.pac__trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
-        const pac    = trigger.closest('.pac');
-        const isOpen = pac.classList.contains('open');
-
-        contenedor.querySelectorAll('.pac.open').forEach(p => {
-          p.classList.remove('open');
-          p.querySelector('.pac__trigger').setAttribute('aria-expanded', 'false');
-        });
-
-        if (!isOpen) {
-          pac.classList.add('open');
-          trigger.setAttribute('aria-expanded', 'true');
-
-          // Montar demo si aplica
-          const id   = pac.dataset.id;
-          const slot = document.getElementById('demo-' + id);
-          if (slot && !slot.dataset.mounted) {
-            slot.dataset.mounted = 'true';
-            if (id === 'calculadora-perjuicios') montarCalculadora(slot);
-            else if (id === 'verificador-prescripcion') montarPrescripcion(slot);
-          }
-
+        const pac = trigger.closest('.pac');
+        if (pac.classList.contains('open')) {
+          cerrarTodos();
+        } else {
+          abrir(pac);
           setTimeout(() => pac.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
         }
       });
@@ -380,6 +364,51 @@ function iniciarProyectos() {
       });
     }
   }
+
+  function cerrarTodos() {
+    contenedor.querySelectorAll('.pac.open').forEach(p => {
+      p.classList.remove('open');
+      p.querySelector('.pac__trigger').setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Abre un proyecto (solo uno a la vez) y monta su demo la primera vez
+  function abrir(pac) {
+    cerrarTodos();
+    pac.classList.add('open');
+    pac.querySelector('.pac__trigger').setAttribute('aria-expanded', 'true');
+
+    const id   = pac.dataset.id;
+    const slot = document.getElementById('demo-' + id);
+    if (slot && !slot.dataset.mounted) {
+      slot.dataset.mounted = 'true';
+      if (id === 'calculadora-perjuicios') montarCalculadora(slot);
+      else if (id === 'verificador-prescripcion') montarPrescripcion(slot);
+    }
+  }
+
+  // Enlaces externos al accordion (terminal del hero, banda CTA): <a data-abrir="id-del-proyecto">
+  function abrirProyecto(id) {
+    const idx = PROYECTOS.findIndex(p => p.id === id);
+    if (idx < 0) return;
+    if (filtroActivo !== 'all') document.querySelector('.filter-btn[data-filter="all"]')?.click();
+    if (idx >= visibles) {
+      visibles = Math.ceil((idx + 1) / VISIBLE_INICIAL) * VISIBLE_INICIAL;
+      render();
+    }
+    const pac = contenedor.querySelector(`.pac[data-id="${id}"]`);
+    if (!pac) return;
+    if (!pac.classList.contains('open')) abrir(pac);
+    pac.querySelector('.pac__trigger').focus({ preventScroll: true });
+    pac.scrollIntoView({ block: 'start' }); // respeta scroll-behavior (suave, o inmediato con "reducir movimiento")
+  }
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('[data-abrir]');
+    if (!link) return;
+    e.preventDefault();
+    abrirProyecto(link.dataset.abrir);
+  });
 
   // Filtros (estado expuesto con aria-pressed)
   document.querySelectorAll('.filter-btn').forEach(btn => {

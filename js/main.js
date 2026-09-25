@@ -84,19 +84,22 @@ toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ── Scroll combinado (progreso + botón) con rAF ──
+// ── Scroll combinado (progreso + botón + sombra de la nav) con rAF ──
+const navBar = document.querySelector('.nav');
 let ticking = false;
+function onScrollFrame() {
+  updateProgress();
+  if (toTop) toTop.classList.toggle('show', window.scrollY > 600);
+  navBar?.classList.toggle('is-scrolled', window.scrollY > 8);
+  ticking = false;
+}
 window.addEventListener('scroll', () => {
   if (!ticking) {
-    window.requestAnimationFrame(() => {
-      updateProgress();
-      if (toTop) toTop.classList.toggle('show', window.scrollY > 600);
-      ticking = false;
-    });
+    window.requestAnimationFrame(onScrollFrame);
     ticking = true;
   }
 }, { passive: true });
-updateProgress();
+onScrollFrame();
 
 // ── Nav activo según sección visible ──
 const navLinks = Array.from(document.querySelectorAll('.nav__menu a[href^="#"]'));
@@ -147,6 +150,29 @@ const countObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.impact-stat__num[data-count]').forEach(el => {
   if (!prefersReduced) el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || '');
   countObserver.observe(el);
+});
+
+// ── Halo del hero que sigue al puntero (solo ratón y sin "reducir movimiento") ──
+const heroEl   = document.querySelector('.hero');
+const heroGlow = document.querySelector('.hero__glow');
+if (heroEl && heroGlow && !prefersReduced && window.matchMedia('(pointer: fine)').matches) {
+  let glowFrame = 0;
+  heroEl.addEventListener('pointermove', (e) => {
+    if (glowFrame) return;
+    glowFrame = requestAnimationFrame(() => {
+      const r = heroEl.getBoundingClientRect();
+      heroGlow.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      heroGlow.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      glowFrame = 0;
+    });
+  });
+}
+
+// ── Enlaces "Consultar" de los servicios: preseleccionan el tema del formulario ──
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[data-tipo]');
+  const select = document.getElementById('cf-tipo');
+  if (link && select) select.value = link.dataset.tipo;
 });
 
 // ── Formulario de contacto (Web3Forms, sin backend) ──
