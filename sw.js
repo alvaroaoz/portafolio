@@ -6,13 +6,18 @@
    Al publicar cambios sube CACHE_VERSION. Si cambias el ?v= de CSS/JS en
    index.html y politica.html, actualiza también ASSET_V.
    ============================================ */
-const CACHE_VERSION = 'aoz-v6';
-const ASSET_V = '?v=6';
+const CACHE_VERSION = 'aoz-v7';
+const ASSET_V = '?v=7';
 const PRECACHE = [
   '/',
   '/index.html',
   '/politica.html',
+  '/css/fonts.css' + ASSET_V,
   '/css/main.css' + ASSET_V,
+  '/css/fonts/lato-400.woff2',
+  '/css/fonts/lato-700.woff2',
+  '/css/fonts/eb-garamond-500-700.woff2',
+  '/css/fonts/roboto-mono.woff2',
   '/js/main.js' + ASSET_V,
   '/js/projects.js' + ASSET_V,
   '/js/renderer.js' + ASSET_V,

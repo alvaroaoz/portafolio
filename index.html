@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Seguridad: Content-Security-Policy y políticas defensivas -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <meta name="description" content="Álvaro Orozco — Abogado especialista en tránsito y movilidad en Medellín. Desarrollador de herramientas de automatización legal con Python, n8n y ML.">
+  <meta name="description" content="Álvaro Orozco — Abogado con enfoque en tránsito y movilidad en Medellín. Desarrollador de herramientas de automatización legal con Python, n8n y ML.">
   <meta name="author" content="Álvaro Antonio Orozco Zapata">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#111614">
@@ -21,13 +21,15 @@
   <meta property="og:title" content="Álvaro Orozco — Abogado &amp; Desarrollador">
   <meta property="og:description" content="Derecho de tránsito y movilidad en Medellín + herramientas de automatización legal con Python, n8n y ML.">
   <meta property="og:locale" content="es_CO">
-  <meta property="og:image" content="https://www.aasjuridico.com/src/img/og-image.png">
+  <meta property="og:image" content="https://www.aasjuridico.com/src/img/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Álvaro Orozco — Abogado · Medellín · automatización legal">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Álvaro Orozco — Abogado &amp; Desarrollador">
   <meta name="twitter:description" content="Derecho de tránsito y movilidad en Medellín + automatización legal con Python, n8n y ML.">
-  <meta name="twitter:image" content="https://www.aasjuridico.com/src/img/og-image.png">
+  <meta name="twitter:image" content="https://www.aasjuridico.com/src/img/og-image.jpg">
 
   <title>Álvaro Orozco — Abogado &amp; Dev</title>
 
@@ -35,10 +37,11 @@
   <link rel="apple-touch-icon" href="/src/img/icon-192.png">
   <link rel="manifest" href="/manifest.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500..700;1,500..700&family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=6">
+  <!-- Fuentes autoalojadas: sin peticiones a Google; precarga las del primer pintado -->
+  <link rel="preload" href="/css/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/css/fonts/eb-garamond-500-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css?v=7">
+  <link rel="stylesheet" href="css/main.css?v=7">
 
   <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar.
        La clase .js habilita las animaciones de scroll (sin JS el contenido se ve igual). -->
@@ -497,9 +500,9 @@
           <div><span class="contact-item__label">linkedin</span><p class="contact-item__val"><a href="https://www.linkedin.com/in/alvaroaoz/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alvaroaoz<span class="sr-only"> (se abre en una pestaña nueva)</span></a></p></div>
         </li>
       </ul>
-      <a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." class="wa-btn">
+      <a href="https://wa.me/573027400632?text=Hola%20Álvaro%2C%20quiero%20consultar%20sobre..." class="wa-btn" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Escribir por WhatsApp
+          Escribir por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span>
       </a>
       <div class="contact-panel reveal">
         <h3>Áreas de atención</h3>
@@ -587,9 +590,9 @@
       "@type": "LegalService",
       "@id": "https://www.aasjuridico.com/#legalservice",
       "name": "Álvaro Orozco — Servicios Jurídicos",
-      "description": "Abogado especialista en derecho de tránsito y movilidad en Medellín. Multas SIMIT, cobros coactivos, procesos civiles y herramientas de automatización legal.",
+      "description": "Abogado con enfoque en derecho de tránsito y movilidad en Medellín. Multas SIMIT, cobros coactivos, procesos civiles y herramientas de automatización legal.",
       "url": "https://www.aasjuridico.com/",
-      "image": "https://www.aasjuridico.com/src/img/og-image.png",
+      "image": "https://www.aasjuridico.com/src/img/og-image.jpg",
       "email": "alvaro@aasjuridico.com",
       "telephone": "+573027400632",
       "priceRange": "$$",
@@ -599,7 +602,10 @@
         "addressRegion": "Antioquia",
         "addressCountry": "CO"
       },
-      "areaServed": { "@type": "City", "name": "Medellín, Antioquia, Colombia" },
+      "areaServed": [
+        { "@type": "City", "name": "Medellín, Antioquia, Colombia" },
+        { "@type": "Country", "name": "Colombia" }
+      ],
       "knowsAbout": ["Derecho de tránsito", "Multas SIMIT", "Cobro coactivo", "Procesos civiles", "Legal-tech", "Automatización"],
       "sameAs": [
         "https://github.com/alvaroaoz",
@@ -662,8 +668,8 @@
 }
 </script>
 
-<script src="/js/main.js?v=6"></script>
-<script src="/js/projects.js?v=6"></script>
-<script src="/js/renderer.js?v=6"></script>
+<script src="/js/main.js?v=7"></script>
+<script src="/js/projects.js?v=7"></script>
+<script src="/js/renderer.js?v=7"></script>
 </body>
 </html>

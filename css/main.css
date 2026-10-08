@@ -10,7 +10,7 @@
    Todos los pares texto/fondo cumplen WCAG AA (≥4.5:1) en ambos temas.
    ============================================ */
 
-/* Las fuentes se cargan vía <link> en el <head> (no duplicar con @import). */
+/* Las fuentes (autoalojadas) se declaran en css/fonts.css, enlazado en el <head> (no duplicar con @import). */
 
 /* ── TOKENS ── */
 :root {

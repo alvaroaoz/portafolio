@@ -29,18 +29,18 @@
   <text x="90" y="200" font-family="'Roboto Mono', monospace" font-size="26" letter-spacing="6" fill="#72b872">ABOGADO · MEDELLÍN · COLOMBIA</text>
 
   <!-- nombre -->
-  <text x="88" y="300" font-family="'Playfair Display', Georgia, serif" font-size="92" font-weight="700" fill="#e8f0e8">Álvaro Orozco</text>
+  <text x="88" y="300" font-family="'EB Garamond', Georgia, serif" font-size="92" font-weight="700" fill="#e8f0e8">Álvaro Orozco</text>
 
   <!-- subtítulo dev -->
   <text x="90" y="372" font-family="'Roboto Mono', monospace" font-size="40" fill="#8fa08f">&lt;dev/&gt; <tspan fill="#00e1f4">automatización legal</tspan></text>
 
   <!-- descripción -->
-  <text x="90" y="448" font-family="'DM Sans', system-ui, sans-serif" font-size="28" fill="#a3cfa3">Derecho de tránsito · Python · n8n · Machine Learning</text>
+  <text x="90" y="448" font-family="'Lato', system-ui, sans-serif" font-size="28" fill="#a3cfa3">Derecho de tránsito · Python · n8n · Machine Learning</text>
 
-  <!-- badge T.P. -->
+  <!-- badge credencial (sin número de T.P.) -->
   <g transform="translate(90, 500)">
-    <rect x="0" y="0" width="300" height="56" rx="8" fill="#c9a84c" fill-opacity="0.12" stroke="#c9a84c" stroke-opacity="0.4"/>
-    <text x="24" y="37" font-family="'Roboto Mono', monospace" font-size="24" fill="#c9a84c">T.P. 44685 · Colombia</text>
+    <rect x="0" y="0" width="440" height="56" rx="8" fill="#c9a84c" fill-opacity="0.12" stroke="#c9a84c" stroke-opacity="0.4"/>
+    <text x="24" y="37" font-family="'Roboto Mono', monospace" font-size="24" fill="#c9a84c">Tarjeta profesional vigente</text>
   </g>
 
   <!-- monograma AOZ -->
