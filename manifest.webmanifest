@@ -1,7 +1,7 @@
 {
-  "name": "AAS Jurídico — Abogado & Desarrollador",
+  "name": "AAS Jurídico — Abogado",
   "short_name": "AAS Jurídico",
-  "description": "Abogado de tránsito y movilidad en Medellín + herramientas de automatización legal.",
+  "description": "Abogado de tránsito y movilidad en Medellín.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",

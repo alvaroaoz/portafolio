@@ -2750,6 +2750,6 @@ p { text-wrap: pretty; }
 .testi-leave > summary::-webkit-details-marker { display: none; }
 .testi-leave[open] > summary { margin-bottom: 2.4rem; }
 .testi-form { max-width: 72rem; margin-inline: auto; text-align: left; }
-.testi-form__consent { display: flex; gap: 1rem; align-items: flex-start; font-size: 1.4rem; color: var(--text-dim); line-height: 1.5; }
-.testi-form__consent input { margin-top: 0.3rem; flex-shrink: 0; width: 1.8rem; height: 1.8rem; accent-color: var(--brand); }
-.testi-form__consent a { color: var(--brand); text-decoration: underline; }
+.form-consent, .testi-form__consent { display: flex; gap: 1rem; align-items: flex-start; font-size: 1.4rem; color: var(--text-dim); line-height: 1.5; }
+.form-consent input, .testi-form__consent input { margin-top: 0.3rem; flex-shrink: 0; width: 1.8rem; height: 1.8rem; accent-color: var(--brand); }
+.form-consent a, .testi-form__consent a { color: var(--brand); text-decoration: underline; }

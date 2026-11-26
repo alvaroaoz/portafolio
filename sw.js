@@ -6,8 +6,8 @@
    Al publicar cambios sube CACHE_VERSION. Si cambias el ?v= de CSS/JS en
    index.html y politica.html, actualiza también ASSET_V.
    ============================================ */
-const CACHE_VERSION = 'aoz-v19';
-const ASSET_V = '?v=10';
+const CACHE_VERSION = 'aoz-v20';
+const ASSET_V = '?v=11';
 const PRECACHE = [
   '/',
   '/index.html',

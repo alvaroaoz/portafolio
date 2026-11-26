@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <meta name="description" content="Álvaro Orozco — Abogado con enfoque en tránsito y movilidad en Medellín. Desarrollador de herramientas de automatización legal con Python, n8n y ML.">
+  <meta name="description" content="Abogado de tránsito y movilidad en Medellín, con atención en todo Colombia: multas, comparendos, fotomultas, prescripción y cobro coactivo. Primera consulta de tránsito sin costo.">
   <meta name="author" content="Álvaro Antonio Orozco Zapata">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#111614">
@@ -19,16 +19,16 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.aasjuridico.com/">
   <meta property="og:title" content="AAS Jurídico — Abogado">
-  <meta property="og:description" content="Derecho de tránsito y movilidad en Medellín + herramientas de automatización legal con Python, n8n y ML.">
+  <meta property="og:description" content="Abogado de tránsito y movilidad en Medellín, con atención en todo Colombia: multas, comparendos, fotomultas, prescripción y cobro coactivo. Primera consulta de tránsito sin costo.">
   <meta property="og:locale" content="es_CO">
   <meta property="og:image" content="https://www.aasjuridico.com/src/img/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="Álvaro Orozco — Abogado · Medellín · automatización legal">
+  <meta property="og:image:alt" content="AAS Jurídico — Derecho de tránsito y movilidad en Medellín">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AAS Jurídico — Abogado">
-  <meta name="twitter:description" content="Derecho de tránsito y movilidad en Medellín + automatización legal con Python, n8n y ML.">
+  <meta name="twitter:description" content="Abogado de tránsito y movilidad en Medellín, con atención en todo Colombia: multas, comparendos, fotomultas, prescripción y cobro coactivo. Primera consulta de tránsito sin costo.">
   <meta name="twitter:image" content="https://www.aasjuridico.com/src/img/og-image.jpg">
 
   <title>AAS Jurídico — Abogado</title>
@@ -40,8 +40,8 @@
   <!-- Fuentes autoalojadas: sin peticiones a Google; precarga las del primer pintado -->
   <link rel="preload" href="/css/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/css/fonts/eb-garamond-500-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css?v=10">
-  <link rel="stylesheet" href="css/main.css?v=10">
+  <link rel="stylesheet" href="/css/fonts.css?v=11">
+  <link rel="stylesheet" href="css/main.css?v=11">
 
   <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar.
        La clase .js habilita las animaciones de scroll (sin JS el contenido se ve igual). -->
@@ -103,7 +103,7 @@
 
   <div class="hero__law">
     <div class="hero__law-logo fade-up delay-1">
-      <img src="/src/img/logo-full.svg" alt="Álvaro Orozco Servicios Jurídicos" class="hero__law-logo-img" width="115" height="132" fetchpriority="high" decoding="async">
+      <img src="/src/img/logo-full.svg" alt="AAS Jurídico" class="hero__law-logo-img" width="115" height="132" fetchpriority="high" decoding="async">
     </div>
     <p class="hero__eyebrow fade-up delay-2">Abogado · Medellín, Colombia</p>
     <h1 class="fade-up delay-3">
@@ -519,6 +519,14 @@
         <label for="cf-msg">Mensaje <span class="field__req" aria-hidden="true">*</span></label>
         <textarea id="cf-msg" name="message" required rows="4" maxlength="2000" placeholder="Cuéntame brevemente tu caso o proyecto…"></textarea>
       </div>
+      <label class="form-consent">
+        <input type="checkbox" name="autoriza_datos" value="Sí" required>
+        <span>Autorizo el tratamiento de mis datos personales para atender mi consulta, según la <a href="/politica.html">política de tratamiento de datos</a>. <span class="field__req" aria-hidden="true">*</span></span>
+      </label>
+      <label class="form-consent">
+        <input type="checkbox" name="autoriza_ia" value="Sí">
+        <span>(Opcional) Autorizo el uso de mi información, previa anonimización irreversible, para mejorar herramientas de inteligencia artificial (<a href="/politica.html#ia">sección 13</a>).</span>
+      </label>
       <div class="contact-form__footer">
         <button type="submit" class="btn-gold contact-form__submit" id="cf-submit">Enviar mensaje</button>
         <p class="contact-form__hint" aria-hidden="true">* Campos obligatorios</p>
@@ -625,7 +633,7 @@
     {
       "@type": "LegalService",
       "@id": "https://www.aasjuridico.com/#legalservice",
-      "name": "Álvaro Orozco — Servicios Jurídicos",
+      "name": "AAS Jurídico",
       "description": "Abogado con enfoque en derecho de tránsito y movilidad en Medellín. Multas SIMIT, cobros coactivos, procesos civiles y herramientas de automatización legal.",
       "url": "https://www.aasjuridico.com/",
       "image": "https://www.aasjuridico.com/src/img/og-image.jpg",
@@ -683,7 +691,7 @@
       "@type": "Person",
       "@id": "https://www.aasjuridico.com/#person",
       "name": "Álvaro Antonio Orozco Zapata",
-      "jobTitle": "Abogado y Desarrollador",
+      "jobTitle": "Abogado",
       "hasCredential": {
         "@type": "EducationalOccupationalCredential",
         "credentialCategory": "Tarjeta profesional de abogado vigente",
@@ -702,8 +710,8 @@
 }
 </script>
 
-<script src="/js/main.js?v=10"></script>
-<script src="/js/projects.js?v=10"></script>
-<script src="/js/renderer.js?v=10"></script>
+<script src="/js/main.js?v=11"></script>
+<script src="/js/projects.js?v=11"></script>
+<script src="/js/renderer.js?v=11"></script>
 </body>
 </html>
