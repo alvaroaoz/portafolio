@@ -177,7 +177,7 @@ document.addEventListener('click', (e) => {
 
 // ── Formularios Web3Forms (contacto y testimonios, sin backend) ──
 const W3F_MSGS = {
-  'contact-form': { ok: '✓ ¡Mensaje enviado! Te responderé pronto.', err: '✗ No se pudo enviar. Intenta por email o WhatsApp.' },
+  'contact-form': { ok: '✓ ¡Mensaje enviado! Te responderé pronto.', err: '✗ No se pudo enviar. Intenta de nuevo o escríbeme por WhatsApp.' },
   'testi-form':   { ok: '✓ ¡Gracias por tu testimonio! Lo revisaré antes de publicarlo.', err: '✗ No se pudo enviar. Intenta de nuevo o escríbeme por WhatsApp.' },
 };
 document.querySelectorAll('#contact-form, #testi-form').forEach((form) => {
