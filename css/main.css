@@ -2743,3 +2743,13 @@ p { text-wrap: pretty; }
   }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ── Dejar testimonio ── */
+.testi-leave { margin-top: var(--sp-5, 3.2rem); text-align: center; }
+.testi-leave > summary { display: inline-flex; cursor: pointer; list-style: none; }
+.testi-leave > summary::-webkit-details-marker { display: none; }
+.testi-leave[open] > summary { margin-bottom: 2.4rem; }
+.testi-form { max-width: 72rem; margin-inline: auto; text-align: left; }
+.testi-form__consent { display: flex; gap: 1rem; align-items: flex-start; font-size: 1.4rem; color: var(--text-dim); line-height: 1.5; }
+.testi-form__consent input { margin-top: 0.3rem; flex-shrink: 0; width: 1.8rem; height: 1.8rem; accent-color: var(--brand); }
+.testi-form__consent a { color: var(--brand); text-decoration: underline; }

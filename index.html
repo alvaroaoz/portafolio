@@ -40,8 +40,8 @@
   <!-- Fuentes autoalojadas: sin peticiones a Google; precarga las del primer pintado -->
   <link rel="preload" href="/css/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/css/fonts/eb-garamond-500-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css?v=7">
-  <link rel="stylesheet" href="css/main.css?v=7">
+  <link rel="stylesheet" href="/css/fonts.css?v=8">
+  <link rel="stylesheet" href="css/main.css?v=8">
 
   <!-- Evita parpadeo de tema: aplica el tema guardado antes de pintar.
        La clase .js habilita las animaciones de scroll (sin JS el contenido se ve igual). -->
@@ -286,6 +286,54 @@
         <figcaption><span class="testi-card__avatar" aria-hidden="true">ET</span><span class="testi-card__who"><span class="testi-card__name">Edwin T.</span><span class="testi-card__case">Acompañamiento legal</span></span></figcaption>
       </figure>
     </div>
+
+    <details class="testi-leave reveal">
+      <summary class="btn-outline-green">¿Te acompañé en tu caso? Deja tu testimonio</summary>
+      <form class="contact-form testi-form" id="testi-form" autocomplete="on">
+        <input type="hidden" name="access_key" value="b7d80fa3-d1ab-4eb9-ac18-b5873f93e70f">
+        <input type="hidden" name="subject" value="Nuevo testimonio desde aasjuridico.com">
+        <input type="hidden" name="from_name" value="Testimonios AAS Jurídico">
+        <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="contact-form__row">
+          <div class="field">
+            <label for="tf-nombre">Nombre <span class="field__req" aria-hidden="true">*</span></label>
+            <input type="text" id="tf-nombre" name="name" required maxlength="80" placeholder="Se publicará como nombre e inicial" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="tf-caso">Tipo de caso</label>
+            <select id="tf-caso" name="caso">
+              <option>Proceso de tránsito</option>
+              <option>Proceso civil</option>
+              <option>Revisión contractual</option>
+              <option>Acompañamiento legal</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="tf-estrellas">Calificación</label>
+          <select id="tf-estrellas" name="estrellas">
+            <option value="5">★★★★★ Excelente</option>
+            <option value="4">★★★★ Muy bueno</option>
+            <option value="3">★★★ Bueno</option>
+            <option value="2">★★ Regular</option>
+            <option value="1">★ Malo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="tf-msg">Tu experiencia <span class="field__req" aria-hidden="true">*</span></label>
+          <textarea id="tf-msg" name="message" required rows="3" maxlength="600" placeholder="Cuéntanos cómo fue el acompañamiento…"></textarea>
+        </div>
+        <label class="testi-form__consent">
+          <input type="checkbox" name="autoriza_publicar" value="Sí" required>
+          <span>Autorizo publicar mi testimonio en esta web con mi nombre e inicial del apellido, según la <a href="/politica.html">política de tratamiento de datos</a>.</span>
+        </label>
+        <div class="contact-form__footer">
+          <button type="submit" class="btn-gold contact-form__submit">Enviar testimonio</button>
+        </div>
+        <p class="contact-form__status" role="status" aria-live="polite"></p>
+      </form>
+    </details>
   </div>
 </section>
 
@@ -658,8 +706,8 @@
 }
 </script>
 
-<script src="/js/main.js?v=7"></script>
-<script src="/js/projects.js?v=7"></script>
-<script src="/js/renderer.js?v=7"></script>
+<script src="/js/main.js?v=8"></script>
+<script src="/js/projects.js?v=8"></script>
+<script src="/js/renderer.js?v=8"></script>
 </body>
 </html>

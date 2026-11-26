@@ -175,48 +175,44 @@ document.addEventListener('click', (e) => {
   if (link && select) select.value = link.dataset.tipo;
 });
 
-// ── Formulario de contacto (Web3Forms, sin backend) ──
-const contactForm = document.getElementById('contact-form');
-contactForm?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const status = document.getElementById('cf-status');
-  const submit = document.getElementById('cf-submit');
-  const key = contactForm.querySelector('[name="access_key"]')?.value || '';
+// ── Formularios Web3Forms (contacto y testimonios, sin backend) ──
+const W3F_MSGS = {
+  'contact-form': { ok: '✓ ¡Mensaje enviado! Te responderé pronto.', err: '✗ No se pudo enviar. Intenta por email o WhatsApp.' },
+  'testi-form':   { ok: '✓ ¡Gracias por tu testimonio! Lo revisaré antes de publicarlo.', err: '✗ No se pudo enviar. Intenta de nuevo o escríbeme por WhatsApp.' },
+};
+document.querySelectorAll('#contact-form, #testi-form').forEach((form) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msgs = W3F_MSGS[form.id];
+    const status = form.querySelector('.contact-form__status');
+    const submit = form.querySelector('[type="submit"]');
 
-  if (key.includes('TU-ACCESS-KEY')) {
-    status.className = 'contact-form__status err';
-    status.textContent = '⚠ Falta configurar el Access Key de Web3Forms (ver comentario en el HTML). Mientras tanto, escríbeme por email o WhatsApp.';
-    return;
-  }
+    submit.disabled = true;
+    submit.classList.add('is-loading');
+    form.setAttribute('aria-busy', 'true');
+    status.className = 'contact-form__status';
+    status.textContent = 'Enviando…';
 
-  submit.disabled = true;
-  submit.classList.add('is-loading');
-  contactForm.setAttribute('aria-busy', 'true');
-  status.className = 'contact-form__status';
-  status.textContent = 'Enviando…';
-
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(contactForm),
-    });
-    const data = await res.json();
-    if (data.success) {
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'error');
       status.className = 'contact-form__status ok';
-      status.textContent = '✓ ¡Mensaje enviado! Te responderé pronto.';
-      contactForm.reset();
-    } else {
-      throw new Error(data.message || 'error');
+      status.textContent = msgs.ok;
+      form.reset();
+    } catch (err) {
+      status.className = 'contact-form__status err';
+      status.textContent = msgs.err;
+    } finally {
+      submit.disabled = false;
+      submit.classList.remove('is-loading');
+      form.removeAttribute('aria-busy');
     }
-  } catch (err) {
-    status.className = 'contact-form__status err';
-    status.textContent = '✗ No se pudo enviar. Intenta por email o WhatsApp.';
-  } finally {
-    submit.disabled = false;
-    submit.classList.remove('is-loading');
-    contactForm.removeAttribute('aria-busy');
-  }
+  });
 });
 
 // ── Service Worker (offline + instalable) ──
