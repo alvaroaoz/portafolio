@@ -224,4 +224,4 @@ if ('serviceWorker' in navigator) {
 
 // ── Console easter egg ──
 console.log('%c aoz363 ', 'background:#111614;color:#00e1f4;font-family:monospace;font-size:16px;padding:4px 8px;border:1px solid #00e1f4;border-radius:3px;');
-console.log('%c github.com/alvaroaoz | linkedin.com/in/alvaroaoz', 'color:#3d7a3d;font-family:monospace;');
+console.log('%c github.com/alvaroaoz | linkedin.com/company/aas-juridico', 'color:#3d7a3d;font-family:monospace;');
